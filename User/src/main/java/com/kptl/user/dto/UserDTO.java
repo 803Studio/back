@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserDTO {
-    Integer id;
+    String id;
 
     Integer role;
 
