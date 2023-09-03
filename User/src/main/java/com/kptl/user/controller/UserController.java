@@ -34,7 +34,7 @@ public class UserController {
         String openid = SessionKeyOpenId.getString("openid");
         String sessionKey = SessionKeyOpenId.getString("session_key");
         UserDTO user = userService.findUser(openid);
-        if (user == null && !openid.isEmpty()) {
+        if (user == null && openid != null) {
             // 用户信息入库
             user = new UserDTO();
             user.setId(openid);
