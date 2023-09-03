@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fb11c2d-2986-4090-a966-366e0bb0c414" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_74.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/util/HttpClientUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/util/WeChatUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/User/src/main/resources/mapping/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ulisesbocchio_jasypt_spring_boot_2_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ulisesbocchio_jasypt_spring_boot_starter_2_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jasypt_jasypt_1_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/common/BaseResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/common/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/util/ResultUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/User/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/dao/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/util/WeChatUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/util/WeChatUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/main/resources/mapping/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/src/test/java/com/kptl/user/UserApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/test/java/com/kptl/user/UserApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +32,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -76,7 +79,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UserApplicationTests.contextLoads">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -88,6 +91,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="User" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kptl.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.kptl.user" />
+      <option name="MAIN_CLASS_NAME" value="com.kptl.user.UserApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="User" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.kptl.user.UserApplication" />
@@ -95,6 +114,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserApplicationTests.contextLoads" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -111,6 +135,8 @@
       <workItem from="1693495763808" duration="82000" />
       <workItem from="1693495868943" duration="1648000" />
       <workItem from="1693565696679" duration="1860000" />
+      <workItem from="1693626963107" duration="5671000" />
+      <workItem from="1693713078466" duration="2977000" />
     </task>
     <servers />
   </component>
@@ -127,5 +153,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/User/src/main/java/com/kptl/user/controller/UserController.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

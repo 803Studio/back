@@ -7,6 +7,6 @@
         select * from user where id = #{id}
     </select>
     <insert id="save" parameterType="com.kptl.user.dto.UserDTO" >
-    insert into user(id, name, role, phone) value (#{userDTO.id}, #{userDTO.name}, #{userDTO.role}, #{userDTO.phone})
+    insert into user(id, name, role, phone) value (#{userDTO.id}, #{userDTO.userName}, #{userDTO.role}, #{userDTO.phone})
     </insert>
 </mapper>

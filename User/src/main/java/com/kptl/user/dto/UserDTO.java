@@ -1,6 +1,6 @@
 package com.kptl.user.dto;
 
-import lombok.Data;
+import lombok.*;
 
 @Data
 public class UserDTO {
