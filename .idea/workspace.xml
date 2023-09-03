@@ -4,24 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fb11c2d-2986-4090-a966-366e0bb0c414" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ulisesbocchio_jasypt_spring_boot_2_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ulisesbocchio_jasypt_spring_boot_starter_2_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jasypt_jasypt_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/common/BaseResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/common/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/util/ResultUtils.java" afterDir="false" />
+    <list default="true" id="7fb11c2d-2986-4090-a966-366e0bb0c414" name="Default Changelist" comment="加密">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/User/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/dao/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/dto/UserDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/util/WeChatUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/util/WeChatUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/resources/mapping/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/test/java/com/kptl/user/UserApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/test/java/com/kptl/user/UserApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +66,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="JUnit.UserApplicationTests.contextLoads">
+  <component name="RunManager" selected="Spring Boot.UserApplication">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -136,8 +123,16 @@
       <workItem from="1693495868943" duration="1648000" />
       <workItem from="1693565696679" duration="1860000" />
       <workItem from="1693626963107" duration="5671000" />
-      <workItem from="1693713078466" duration="2977000" />
+      <workItem from="1693713078466" duration="4654000" />
     </task>
+    <task id="LOCAL-00001" summary="加密">
+      <created>1693716323067</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1693716323067</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +141,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="0dd24ae7-2a74-4c52-86cb-44977f7cb335">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:B:/kptl/back/User" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -153,15 +173,24 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="0dd24ae7-2a74-4c52-86cb-44977f7cb335" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="加密" />
+    <option name="LAST_COMMIT_MESSAGE" value="加密" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/User/src/main/java/com/kptl/user/controller/UserController.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/User/src/main/java/com/kptl/user/util/WeChatUtil.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

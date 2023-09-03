@@ -7,14 +7,21 @@ import com.kptl.user.service.UserService;
 import com.kptl.user.util.ResultUtils;
 import com.kptl.user.util.WeChatUtil;
 import jdk.nashorn.internal.runtime.logging.Logger;
-import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
 @Logger
 public class UserController {
+
+    @Value("${vx.password}")
+    private String passWd;
+
+    @Value("${vx.id}")
+    private String vxId;
+
     @Autowired
     UserService userService;
 
@@ -22,12 +29,12 @@ public class UserController {
     public BaseResponse Login(@RequestBody String code) {
         // 1.接收小程序发送的code
         // 2.开发者服务器 登录凭证校验接口 appi + appsecret + code
-        JSONObject SessionKeyOpenId = WeChatUtil.getSessionKeyOrOpenId(code);
+        JSONObject SessionKeyOpenId = WeChatUtil.getSessionKeyOrOpenId(code, vxId, passWd);
         // 3.接收微信接口服务 获取返回的参数
         String openid = SessionKeyOpenId.getString("openid");
         String sessionKey = SessionKeyOpenId.getString("session_key");
         UserDTO user = userService.findUser(openid);
-        if (user == null) {
+        if (user == null && !openid.isEmpty()) {
             // 用户信息入库
             user = new UserDTO();
             user.setId(openid);
