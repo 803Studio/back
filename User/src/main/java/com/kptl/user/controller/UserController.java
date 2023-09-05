@@ -8,6 +8,8 @@ import com.kptl.user.util.JWTUtils;
 import com.kptl.user.util.ResultUtils;
 import com.kptl.user.util.WeChatUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.jasypt.encryption.StringEncryptor;
+import org.jasypt.util.text.BasicTextEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +30,18 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    StringEncryptor stringEncryptor;
+    @GetMapping("/test")
+    public String Test() {
+
+        BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
+        // 加密秘钥(盐)
+        textEncryptor.setPassword("hehe1314");
+        String encrypt = stringEncryptor.encrypt("123456");
+        return encrypt;
+    }
 
     @PostMapping("/login")
     public BaseResponse Login(@RequestBody String code) {
