@@ -44,12 +44,14 @@ public final class EmployeeOuterClass {
       "ployee.ResponseHeader\022\016\n\006jobIds\030\002 \003(\005\"K\n" +
       "\016ResponseHeader\022(\n\006status\030\001 \001(\0162\030.employ" +
       "ee.ResponseStatus\022\017\n\007message\030\002 \001(\t*)\n\016Re" +
-      "sponseStatus\022\006\n\002OK\020\000\022\017\n\013InternalErr\020\0012\216\001" +
+      "sponseStatus\022\006\n\002OK\020\000\022\017\n\013InternalErr\020\0012\327\001" +
       "\n\010Employee\022@\n\007Deliver\022\030.employee.Operate" +
-      "Request\032\031.employee.OperateResponse\"\000\022@\n\007" +
-      "Browses\022\030.employee.OperateRequest\032\031.empl" +
-      "oyee.OperateResponse\"\000B\022\n\016com.kptl.proto" +
-      "P\001b\006proto3"
+      "Request\032\031.employee.OperateResponse\"\000\022G\n\016" +
+      "DeliverRecords\022\030.employee.OperateRequest" +
+      "\032\031.employee.OperateResponse\"\000\022@\n\007Browses" +
+      "\022\030.employee.OperateRequest\032\031.employee.Op" +
+      "erateResponse\"\000B\022\n\016com.kptl.protoP\001b\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
