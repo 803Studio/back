@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kptl.job.dao.JobMapper">
+
+    <insert id="saveJob" parameterType="com.kptl.proto.JobMessage">
+        insert into job(job_name, job_money, job_req, job_location, company_id, recruiter_name, recruiter_phone,
+                        job_need, recruiter_id, open_time, job_tags, update_time)
+        value (#{job.jobName}, #{job.jobMoney}, #{job.jobReq}, #{job.jobLocation}, #{job.companyId}, #{job.recruiterName},
+                #{job.recruiterPhone}, #{job.jobNeed}, #{job.recruiterId}, now(), #{job.jobTags}, now())
+    </insert>
+
+</mapper>

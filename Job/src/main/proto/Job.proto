@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package="com.kptl.proto";
+
+package job;
+
+
+message FindJobRequest {
+  int32 id = 1;
+  int32 role = 2;
+  int32 byId = 3;
+}
+
+message FindJobResponse {
+  ResponseHeader header = 1;
+  JobMessage jobMsg = 2;
+}
+
+message SaveJobResponse {
+  ResponseHeader header = 1;
+}
+
+message ResponseHeader {
+  ResponseStatus status = 1;
+  string message = 2;
+}
+
+message JobMessage {
+  int32 jobId = 2;                        //职位id
+  string jobName = 3;                     //职位名称
+  int32 jobMoney = 4;                     //薪资
+  string jobReq = 5;                      //职位要求
+  string jobLocation = 6;                 //职位地址
+  int32 companyId = 7;                    //公司id(用户id)
+  string recruiterName = 8;               //招聘者
+  string recruiterPhone = 9;              //招聘者手机号
+  int32 jobNeed = 10;                     //招聘人数
+  int32 recruiterId = 11;                 //招聘者id
+  int64 openTime = 12;                    //职位发布时间
+  string jobTags = 13;                    //职位标签
+  int64 updateTime = 14;                  //职位刷新时间
+}
+//错误码
+enum ResponseStatus {
+  OK = 0;
+  InternalErr = 1;
+}
+
+//定义员工服务
+service Job {
+  rpc FindJobs (FindJobRequest) returns (FindJobResponse) {};
+  rpc SaveJobs (JobMessage) returns (SaveJobResponse) {};
+  rpc UpdateJobs (JobMessage) returns (SaveJobResponse) {};
+}
