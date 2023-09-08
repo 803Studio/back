@@ -18,14 +18,32 @@ public class JobImpl extends JobGrpc.JobImplBase {
     @Override
     public void saveJobs(JobMessage request, StreamObserver<SaveJobResponse> responseObserver) {
         Boolean result = jobService.saveJob(request);
-        ResponseHeader header = ResponseHeader.newBuilder().setStatus(ResponseStatus.OK).setMessage("保存成功！").build();
-        SaveJobResponse response = SaveJobResponse.newBuilder().setHeader(header).build();
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+
+        if (result) {
+           header.setStatus(ResponseStatus.OK).setMessage("保存成功！");
+        } else {
+            header.setStatus(ResponseStatus.OK).setMessage("保存失败！");
+        }
+
+        SaveJobResponse response = SaveJobResponse.newBuilder().setHeader(header.build()).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
 
     @Override
     public void updateJobs(JobMessage request, StreamObserver<SaveJobResponse> responseObserver) {
-        super.updateJobs(request, responseObserver);
+        Boolean result = jobService.updateJob(request);
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+
+        if (result) {
+            header.setStatus(ResponseStatus.OK).setMessage("更新成功！");
+        } else {
+            header.setStatus(ResponseStatus.OK).setMessage("更新失败！");
+        }
+
+        SaveJobResponse response = SaveJobResponse.newBuilder().setHeader(header.build()).build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 }

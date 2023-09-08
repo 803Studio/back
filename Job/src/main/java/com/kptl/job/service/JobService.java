@@ -9,4 +9,7 @@ public interface JobService {
     List<JobMessage> findJobs(FindJobRequest request);
 
     Boolean saveJob(JobMessage request);
+
+    Boolean updateJob(JobMessage request);
+
 }

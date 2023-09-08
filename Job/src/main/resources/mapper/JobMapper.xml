@@ -8,5 +8,11 @@
         value (#{job.jobName}, #{job.jobMoney}, #{job.jobReq}, #{job.jobLocation}, #{job.companyId}, #{job.recruiterName},
                 #{job.recruiterPhone}, #{job.jobNeed}, #{job.recruiterId}, now(), #{job.jobTags}, now())
     </insert>
+    <update id="updateJob" parameterType="com.kptl.proto.JobMessage">
+        update job set (job_name = #{job.jobName}, job_money = #{job.jobMoney}, job_req = #{job.jobReq}, job_location = #{jobLocation},
+                           recruiter_name = #{job.recruiterName}, recruiter_phone = #{job.recruiterPhone}, job_need = #{jobNeed},
+                        job_tags = {job.jobTags}, update_time = now())
+               where job_id = {job.jobId}
+    </update>
 
 </mapper>
