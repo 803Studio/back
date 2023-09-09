@@ -26,6 +26,32 @@ message ResponseHeader {
   string message = 2;
 }
 
+message RegisteredCompanyReq {
+    Company company = 1;
+}
+
+message Company {
+  int32 id = 1;                         //
+  string companyName = 2;               //
+  string companyLocation = 3;
+  int32 isVip = 4;
+  int32 isCertified = 5;
+  int64 registerTime = 6;
+  int64 updateTime = 7;
+}
+
+message RegisteredRecruiterReq {
+  int32 id = 1;
+}
+
+message VerifyCompanyReq {
+  int32 id = 1;
+}
+
+message CommonResponse {
+  ResponseHeader header = 1;
+}
+
 message JobMessage {
   int32 jobId = 2;                        //职位id
   string jobName = 3;                     //职位名称
@@ -52,4 +78,8 @@ service Job {
   rpc FindJobs (FindJobRequest) returns (FindJobResponse) {};
   rpc SaveJobs (JobMessage) returns (SaveJobResponse) {};
   rpc UpdateJobs (JobMessage) returns (SaveJobResponse) {};
+  rpc RegisteredCompany(RegisteredCompanyReq) returns (CommonResponse) {};
+  rpc updateCompany(RegisteredCompanyReq) returns (CommonResponse) {};
+  rpc RegisteredRecruiter(RegisteredRecruiterReq) returns (CommonResponse) {};
+  rpc VerifyCompany(VerifyCompanyReq) returns (CommonResponse) {}; //审核公司
 }

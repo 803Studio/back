@@ -35,6 +35,31 @@ public final class JobOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_job_ResponseHeader_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_job_RegisteredCompanyReq_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_job_RegisteredCompanyReq_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_job_Company_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_job_Company_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_job_RegisteredRecruiterReq_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_job_RegisteredRecruiterReq_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_job_VerifyCompanyReq_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_job_VerifyCompanyReq_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_job_CommonResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_job_CommonResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_job_JobMessage_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -55,19 +80,34 @@ public final class JobOuterClass {
       "age\"6\n\017SaveJobResponse\022#\n\006header\030\001 \001(\0132\023" +
       ".job.ResponseHeader\"F\n\016ResponseHeader\022#\n" +
       "\006status\030\001 \001(\0162\023.job.ResponseStatus\022\017\n\007me" +
-      "ssage\030\002 \001(\t\"\202\002\n\nJobMessage\022\r\n\005jobId\030\002 \001(" +
-      "\005\022\017\n\007jobName\030\003 \001(\t\022\020\n\010jobMoney\030\004 \001(\005\022\016\n\006" +
-      "jobReq\030\005 \001(\t\022\023\n\013jobLocation\030\006 \001(\t\022\021\n\tcom" +
-      "panyId\030\007 \001(\005\022\025\n\rrecruiterName\030\010 \001(\t\022\026\n\016r" +
-      "ecruiterPhone\030\t \001(\t\022\017\n\007jobNeed\030\n \001(\005\022\023\n\013" +
-      "recruiterId\030\013 \001(\005\022\020\n\010openTime\030\014 \001(\003\022\017\n\007j" +
-      "obTags\030\r \001(\t\022\022\n\nupdateTime\030\016 \001(\003*)\n\016Resp" +
-      "onseStatus\022\006\n\002OK\020\000\022\017\n\013InternalErr\020\0012\252\001\n\003" +
-      "Job\0227\n\010FindJobs\022\023.job.FindJobRequest\032\024.j" +
-      "ob.FindJobResponse\"\000\0223\n\010SaveJobs\022\017.job.J" +
-      "obMessage\032\024.job.SaveJobResponse\"\000\0225\n\nUpd" +
-      "ateJobs\022\017.job.JobMessage\032\024.job.SaveJobRe" +
-      "sponse\"\000B\022\n\016com.kptl.protoP\001b\006proto3"
+      "ssage\030\002 \001(\t\"5\n\024RegisteredCompanyReq\022\035\n\007c" +
+      "ompany\030\001 \001(\0132\014.job.Company\"\221\001\n\007Company\022\n" +
+      "\n\002id\030\001 \001(\005\022\023\n\013companyName\030\002 \001(\t\022\027\n\017compa" +
+      "nyLocation\030\003 \001(\t\022\r\n\005isVip\030\004 \001(\005\022\023\n\013isCer" +
+      "tified\030\005 \001(\005\022\024\n\014registerTime\030\006 \001(\003\022\022\n\nup" +
+      "dateTime\030\007 \001(\003\"$\n\026RegisteredRecruiterReq" +
+      "\022\n\n\002id\030\001 \001(\005\"\036\n\020VerifyCompanyReq\022\n\n\002id\030\001" +
+      " \001(\005\"5\n\016CommonResponse\022#\n\006header\030\001 \001(\0132\023" +
+      ".job.ResponseHeader\"\202\002\n\nJobMessage\022\r\n\005jo" +
+      "bId\030\002 \001(\005\022\017\n\007jobName\030\003 \001(\t\022\020\n\010jobMoney\030\004" +
+      " \001(\005\022\016\n\006jobReq\030\005 \001(\t\022\023\n\013jobLocation\030\006 \001(" +
+      "\t\022\021\n\tcompanyId\030\007 \001(\005\022\025\n\rrecruiterName\030\010 " +
+      "\001(\t\022\026\n\016recruiterPhone\030\t \001(\t\022\017\n\007jobNeed\030\n" +
+      " \001(\005\022\023\n\013recruiterId\030\013 \001(\005\022\020\n\010openTime\030\014 " +
+      "\001(\003\022\017\n\007jobTags\030\r \001(\t\022\022\n\nupdateTime\030\016 \001(\003" +
+      "*)\n\016ResponseStatus\022\006\n\002OK\020\000\022\017\n\013InternalEr" +
+      "r\020\0012\276\003\n\003Job\0227\n\010FindJobs\022\023.job.FindJobReq" +
+      "uest\032\024.job.FindJobResponse\"\000\0223\n\010SaveJobs" +
+      "\022\017.job.JobMessage\032\024.job.SaveJobResponse\"" +
+      "\000\0225\n\nUpdateJobs\022\017.job.JobMessage\032\024.job.S" +
+      "aveJobResponse\"\000\022E\n\021RegisteredCompany\022\031." +
+      "job.RegisteredCompanyReq\032\023.job.CommonRes" +
+      "ponse\"\000\022A\n\rupdateCompany\022\031.job.Registere" +
+      "dCompanyReq\032\023.job.CommonResponse\"\000\022I\n\023Re" +
+      "gisteredRecruiter\022\033.job.RegisteredRecrui" +
+      "terReq\032\023.job.CommonResponse\"\000\022=\n\rVerifyC" +
+      "ompany\022\025.job.VerifyCompanyReq\032\023.job.Comm" +
+      "onResponse\"\000B\022\n\016com.kptl.protoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -105,8 +145,38 @@ public final class JobOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_ResponseHeader_descriptor,
         new java.lang.String[] { "Status", "Message", });
-    internal_static_job_JobMessage_descriptor =
+    internal_static_job_RegisteredCompanyReq_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_job_RegisteredCompanyReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_job_RegisteredCompanyReq_descriptor,
+        new java.lang.String[] { "Company", });
+    internal_static_job_Company_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_job_Company_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_job_Company_descriptor,
+        new java.lang.String[] { "Id", "CompanyName", "CompanyLocation", "IsVip", "IsCertified", "RegisterTime", "UpdateTime", });
+    internal_static_job_RegisteredRecruiterReq_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_job_RegisteredRecruiterReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_job_RegisteredRecruiterReq_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_job_VerifyCompanyReq_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_job_VerifyCompanyReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_job_VerifyCompanyReq_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_job_CommonResponse_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_job_CommonResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_job_CommonResponse_descriptor,
+        new java.lang.String[] { "Header", });
+    internal_static_job_JobMessage_descriptor =
+      getDescriptor().getMessageTypes().get(9);
     internal_static_job_JobMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_JobMessage_descriptor,
