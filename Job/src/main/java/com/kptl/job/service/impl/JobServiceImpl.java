@@ -32,6 +32,6 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public Boolean updateJob(JobMessage request) {
-        return jobMapper.updateJob(request);
+         return jobMapper.updateJob(request);
     }
 }

@@ -38,6 +38,7 @@ message Company {
   int32 isCertified = 5;
   int64 registerTime = 6;
   int64 updateTime = 7;
+  string industry = 8;                   //行业
 }
 
 message RegisteredRecruiterReq {
@@ -66,6 +67,7 @@ message JobMessage {
   int64 openTime = 12;                    //职位发布时间
   string jobTags = 13;                    //职位标签
   int64 updateTime = 14;                  //职位刷新时间
+  string industry = 15;                   //行业
 }
 //错误码
 enum ResponseStatus {

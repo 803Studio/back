@@ -12,4 +12,16 @@
         where company_id = {company.id}
     </update>
 
+    <select id="findCompanies" resultType="com.kptl.proto.Company">
+        select * from company
+    </select>
+
+    <select id="findCompanyByName" resultType="com.kptl.proto.Company">
+        select * from company where company_name like like "%"#{companyName}"%"
+    </select>
+
+    <select id="findCompanyByIndustry" resultType="com.kptl.proto.Company">
+        select * from company where industry = #{industry}
+    </select>
+
 </mapper>
