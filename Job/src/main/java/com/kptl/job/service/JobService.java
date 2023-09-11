@@ -1,9 +1,10 @@
 package com.kptl.job.service;
 
 import com.kptl.proto.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface JobService {
     List<JobMessage> findJobs(FindJobRequest request);
 
