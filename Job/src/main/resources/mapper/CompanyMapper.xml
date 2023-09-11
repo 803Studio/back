@@ -17,7 +17,7 @@
     </select>
 
     <select id="findCompanyByName" resultType="com.kptl.proto.Company">
-        select * from company where company_name like like "%"#{companyName}"%"
+        select * from company where company_name like "%"#{companyName}"%"
     </select>
 
     <select id="findCompanyByIndustry" resultType="com.kptl.proto.Company">

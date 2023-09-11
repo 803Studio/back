@@ -15,4 +15,28 @@
                where job_id = {job.jobId}
     </update>
 
+    <select id="findJobByName" parameterType="java.lang.String" resultType="com.kptl.proto.JobMessage">
+        select job_id, job_name, job_money, job_location, company_id, recruiter_name, job_tags, recruiter_phone, update_time
+        from job where job_name like "%"#{jobName}"%" limit #{index}, #{size}
+    </select>
+
+    <select id="findJobById" parameterType="java.lang.Integer">
+        select * from job where job_id = #{jobId}
+    </select>
+    
+    <select id="findAllJobs" resultType="com.kptl.proto.JobMessage">
+        select job_id, job_name, job_money, job_location, company_id, recruiter_name, job_tags, recruiter_phone, update_time
+        from job limit #{index}, #{size}
+    </select>
+
+    <select id="findJobsByRecruiter" resultType="com.kptl.proto.JobMessage">
+        select job_id, job_name, job_money, job_location, company_id, recruiter_name, job_tags, recruiter_phone, update_time
+        from job where recruiter_id = #{request.id} limit #{request.index}, #{request.size}
+    </select>
+
+    <select id="findJobsByRecruiter" resultType="com.kptl.proto.JobMessage">
+        select job_id, job_name, job_money, job_location, company_id, recruiter_name, job_tags, recruiter_phone, update_time
+        from job where company_id = #{request.id} limit #{request.index}, #{request.size}
+    </select>
+
 </mapper>

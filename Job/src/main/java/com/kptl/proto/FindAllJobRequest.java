@@ -4,21 +4,18 @@
 package com.kptl.proto;
 
 /**
- * Protobuf type {@code job.FindJobRequest}
+ * Protobuf type {@code job.FindAllJobRequest}
  */
-public  final class FindJobRequest extends
+public  final class FindAllJobRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:job.FindJobRequest)
-    FindJobRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:job.FindAllJobRequest)
+    FindAllJobRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use FindJobRequest.newBuilder() to construct.
-  private FindJobRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use FindAllJobRequest.newBuilder() to construct.
+  private FindAllJobRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private FindJobRequest() {
-    id_ = 0;
-    role_ = 0;
-    byId_ = 0;
+  private FindAllJobRequest() {
     index_ = 0;
     size_ = 0;
   }
@@ -28,7 +25,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FindJobRequest(
+  private FindAllJobRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -56,25 +53,10 @@ private static final long serialVersionUID = 0L;
           }
           case 8: {
 
-            id_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            role_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            byId_ = input.readInt32();
-            break;
-          }
-          case 32: {
-
             index_ = input.readInt32();
             break;
           }
-          case 40: {
+          case 16: {
 
             size_ = input.readInt32();
             break;
@@ -93,56 +75,29 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.kptl.proto.JobOuterClass.internal_static_job_FindJobRequest_descriptor;
+    return com.kptl.proto.JobOuterClass.internal_static_job_FindAllJobRequest_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.kptl.proto.JobOuterClass.internal_static_job_FindJobRequest_fieldAccessorTable
+    return com.kptl.proto.JobOuterClass.internal_static_job_FindAllJobRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.kptl.proto.FindJobRequest.class, com.kptl.proto.FindJobRequest.Builder.class);
+            com.kptl.proto.FindAllJobRequest.class, com.kptl.proto.FindAllJobRequest.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
-  private int id_;
-  /**
-   * <code>int32 id = 1;</code>
-   */
-  public int getId() {
-    return id_;
-  }
-
-  public static final int ROLE_FIELD_NUMBER = 2;
-  private int role_;
-  /**
-   * <code>int32 role = 2;</code>
-   */
-  public int getRole() {
-    return role_;
-  }
-
-  public static final int BYID_FIELD_NUMBER = 3;
-  private int byId_;
-  /**
-   * <code>int32 byId = 3;</code>
-   */
-  public int getById() {
-    return byId_;
-  }
-
-  public static final int INDEX_FIELD_NUMBER = 4;
+  public static final int INDEX_FIELD_NUMBER = 1;
   private int index_;
   /**
-   * <code>int32 index = 4;</code>
+   * <code>int32 index = 1;</code>
    */
   public int getIndex() {
     return index_;
   }
 
-  public static final int SIZE_FIELD_NUMBER = 5;
+  public static final int SIZE_FIELD_NUMBER = 2;
   private int size_;
   /**
-   * <code>int32 size = 5;</code>
+   * <code>int32 size = 2;</code>
    */
   public int getSize() {
     return size_;
@@ -160,20 +115,11 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (id_ != 0) {
-      output.writeInt32(1, id_);
-    }
-    if (role_ != 0) {
-      output.writeInt32(2, role_);
-    }
-    if (byId_ != 0) {
-      output.writeInt32(3, byId_);
-    }
     if (index_ != 0) {
-      output.writeInt32(4, index_);
+      output.writeInt32(1, index_);
     }
     if (size_ != 0) {
-      output.writeInt32(5, size_);
+      output.writeInt32(2, size_);
     }
     unknownFields.writeTo(output);
   }
@@ -183,25 +129,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (id_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, id_);
-    }
-    if (role_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, role_);
-    }
-    if (byId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, byId_);
-    }
     if (index_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, index_);
+        .computeInt32Size(1, index_);
     }
     if (size_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, size_);
+        .computeInt32Size(2, size_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -213,18 +147,12 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.kptl.proto.FindJobRequest)) {
+    if (!(obj instanceof com.kptl.proto.FindAllJobRequest)) {
       return super.equals(obj);
     }
-    com.kptl.proto.FindJobRequest other = (com.kptl.proto.FindJobRequest) obj;
+    com.kptl.proto.FindAllJobRequest other = (com.kptl.proto.FindAllJobRequest) obj;
 
     boolean result = true;
-    result = result && (getId()
-        == other.getId());
-    result = result && (getRole()
-        == other.getRole());
-    result = result && (getById()
-        == other.getById());
     result = result && (getIndex()
         == other.getIndex());
     result = result && (getSize()
@@ -240,12 +168,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId();
-    hash = (37 * hash) + ROLE_FIELD_NUMBER;
-    hash = (53 * hash) + getRole();
-    hash = (37 * hash) + BYID_FIELD_NUMBER;
-    hash = (53 * hash) + getById();
     hash = (37 * hash) + INDEX_FIELD_NUMBER;
     hash = (53 * hash) + getIndex();
     hash = (37 * hash) + SIZE_FIELD_NUMBER;
@@ -255,69 +177,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.kptl.proto.FindJobRequest parseFrom(
+  public static com.kptl.proto.FindAllJobRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.kptl.proto.FindJobRequest parseFrom(
+  public static com.kptl.proto.FindAllJobRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.kptl.proto.FindJobRequest parseFrom(
+  public static com.kptl.proto.FindAllJobRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.kptl.proto.FindJobRequest parseFrom(
+  public static com.kptl.proto.FindAllJobRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.kptl.proto.FindJobRequest parseFrom(byte[] data)
+  public static com.kptl.proto.FindAllJobRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.kptl.proto.FindJobRequest parseFrom(
+  public static com.kptl.proto.FindAllJobRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.kptl.proto.FindJobRequest parseFrom(java.io.InputStream input)
+  public static com.kptl.proto.FindAllJobRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.kptl.proto.FindJobRequest parseFrom(
+  public static com.kptl.proto.FindAllJobRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.kptl.proto.FindJobRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.kptl.proto.FindAllJobRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.kptl.proto.FindJobRequest parseDelimitedFrom(
+  public static com.kptl.proto.FindAllJobRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.kptl.proto.FindJobRequest parseFrom(
+  public static com.kptl.proto.FindAllJobRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.kptl.proto.FindJobRequest parseFrom(
+  public static com.kptl.proto.FindAllJobRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -329,7 +251,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.kptl.proto.FindJobRequest prototype) {
+  public static Builder newBuilder(com.kptl.proto.FindAllJobRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -344,25 +266,25 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code job.FindJobRequest}
+   * Protobuf type {@code job.FindAllJobRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:job.FindJobRequest)
-      com.kptl.proto.FindJobRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:job.FindAllJobRequest)
+      com.kptl.proto.FindAllJobRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.kptl.proto.JobOuterClass.internal_static_job_FindJobRequest_descriptor;
+      return com.kptl.proto.JobOuterClass.internal_static_job_FindAllJobRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.kptl.proto.JobOuterClass.internal_static_job_FindJobRequest_fieldAccessorTable
+      return com.kptl.proto.JobOuterClass.internal_static_job_FindAllJobRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.kptl.proto.FindJobRequest.class, com.kptl.proto.FindJobRequest.Builder.class);
+              com.kptl.proto.FindAllJobRequest.class, com.kptl.proto.FindAllJobRequest.Builder.class);
     }
 
-    // Construct using com.kptl.proto.FindJobRequest.newBuilder()
+    // Construct using com.kptl.proto.FindAllJobRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -379,12 +301,6 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      id_ = 0;
-
-      role_ = 0;
-
-      byId_ = 0;
-
       index_ = 0;
 
       size_ = 0;
@@ -394,26 +310,23 @@ private static final long serialVersionUID = 0L;
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.kptl.proto.JobOuterClass.internal_static_job_FindJobRequest_descriptor;
+      return com.kptl.proto.JobOuterClass.internal_static_job_FindAllJobRequest_descriptor;
     }
 
-    public com.kptl.proto.FindJobRequest getDefaultInstanceForType() {
-      return com.kptl.proto.FindJobRequest.getDefaultInstance();
+    public com.kptl.proto.FindAllJobRequest getDefaultInstanceForType() {
+      return com.kptl.proto.FindAllJobRequest.getDefaultInstance();
     }
 
-    public com.kptl.proto.FindJobRequest build() {
-      com.kptl.proto.FindJobRequest result = buildPartial();
+    public com.kptl.proto.FindAllJobRequest build() {
+      com.kptl.proto.FindAllJobRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.kptl.proto.FindJobRequest buildPartial() {
-      com.kptl.proto.FindJobRequest result = new com.kptl.proto.FindJobRequest(this);
-      result.id_ = id_;
-      result.role_ = role_;
-      result.byId_ = byId_;
+    public com.kptl.proto.FindAllJobRequest buildPartial() {
+      com.kptl.proto.FindAllJobRequest result = new com.kptl.proto.FindAllJobRequest(this);
       result.index_ = index_;
       result.size_ = size_;
       onBuilt();
@@ -447,25 +360,16 @@ private static final long serialVersionUID = 0L;
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.kptl.proto.FindJobRequest) {
-        return mergeFrom((com.kptl.proto.FindJobRequest)other);
+      if (other instanceof com.kptl.proto.FindAllJobRequest) {
+        return mergeFrom((com.kptl.proto.FindAllJobRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.kptl.proto.FindJobRequest other) {
-      if (other == com.kptl.proto.FindJobRequest.getDefaultInstance()) return this;
-      if (other.getId() != 0) {
-        setId(other.getId());
-      }
-      if (other.getRole() != 0) {
-        setRole(other.getRole());
-      }
-      if (other.getById() != 0) {
-        setById(other.getById());
-      }
+    public Builder mergeFrom(com.kptl.proto.FindAllJobRequest other) {
+      if (other == com.kptl.proto.FindAllJobRequest.getDefaultInstance()) return this;
       if (other.getIndex() != 0) {
         setIndex(other.getIndex());
       }
@@ -485,11 +389,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.kptl.proto.FindJobRequest parsedMessage = null;
+      com.kptl.proto.FindAllJobRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.kptl.proto.FindJobRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.kptl.proto.FindAllJobRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -499,93 +403,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int id_ ;
-    /**
-     * <code>int32 id = 1;</code>
-     */
-    public int getId() {
-      return id_;
-    }
-    /**
-     * <code>int32 id = 1;</code>
-     */
-    public Builder setId(int value) {
-      
-      id_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 id = 1;</code>
-     */
-    public Builder clearId() {
-      
-      id_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int role_ ;
-    /**
-     * <code>int32 role = 2;</code>
-     */
-    public int getRole() {
-      return role_;
-    }
-    /**
-     * <code>int32 role = 2;</code>
-     */
-    public Builder setRole(int value) {
-      
-      role_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 role = 2;</code>
-     */
-    public Builder clearRole() {
-      
-      role_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int byId_ ;
-    /**
-     * <code>int32 byId = 3;</code>
-     */
-    public int getById() {
-      return byId_;
-    }
-    /**
-     * <code>int32 byId = 3;</code>
-     */
-    public Builder setById(int value) {
-      
-      byId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 byId = 3;</code>
-     */
-    public Builder clearById() {
-      
-      byId_ = 0;
-      onChanged();
-      return this;
-    }
-
     private int index_ ;
     /**
-     * <code>int32 index = 4;</code>
+     * <code>int32 index = 1;</code>
      */
     public int getIndex() {
       return index_;
     }
     /**
-     * <code>int32 index = 4;</code>
+     * <code>int32 index = 1;</code>
      */
     public Builder setIndex(int value) {
       
@@ -594,7 +420,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 index = 4;</code>
+     * <code>int32 index = 1;</code>
      */
     public Builder clearIndex() {
       
@@ -605,13 +431,13 @@ private static final long serialVersionUID = 0L;
 
     private int size_ ;
     /**
-     * <code>int32 size = 5;</code>
+     * <code>int32 size = 2;</code>
      */
     public int getSize() {
       return size_;
     }
     /**
-     * <code>int32 size = 5;</code>
+     * <code>int32 size = 2;</code>
      */
     public Builder setSize(int value) {
       
@@ -620,7 +446,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 size = 5;</code>
+     * <code>int32 size = 2;</code>
      */
     public Builder clearSize() {
       
@@ -639,39 +465,39 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:job.FindJobRequest)
+    // @@protoc_insertion_point(builder_scope:job.FindAllJobRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:job.FindJobRequest)
-  private static final com.kptl.proto.FindJobRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:job.FindAllJobRequest)
+  private static final com.kptl.proto.FindAllJobRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.kptl.proto.FindJobRequest();
+    DEFAULT_INSTANCE = new com.kptl.proto.FindAllJobRequest();
   }
 
-  public static com.kptl.proto.FindJobRequest getDefaultInstance() {
+  public static com.kptl.proto.FindAllJobRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<FindJobRequest>
-      PARSER = new com.google.protobuf.AbstractParser<FindJobRequest>() {
-    public FindJobRequest parsePartialFrom(
+  private static final com.google.protobuf.Parser<FindAllJobRequest>
+      PARSER = new com.google.protobuf.AbstractParser<FindAllJobRequest>() {
+    public FindAllJobRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FindJobRequest(input, extensionRegistry);
+      return new FindAllJobRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<FindJobRequest> parser() {
+  public static com.google.protobuf.Parser<FindAllJobRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<FindJobRequest> getParserForType() {
+  public com.google.protobuf.Parser<FindAllJobRequest> getParserForType() {
     return PARSER;
   }
 
-  public com.kptl.proto.FindJobRequest getDefaultInstanceForType() {
+  public com.kptl.proto.FindAllJobRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

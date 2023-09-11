@@ -21,4 +21,14 @@ public interface FindJobRequestOrBuilder extends
    * <code>int32 byId = 3;</code>
    */
   int getById();
+
+  /**
+   * <code>int32 index = 4;</code>
+   */
+  int getIndex();
+
+  /**
+   * <code>int32 size = 5;</code>
+   */
+  int getSize();
 }

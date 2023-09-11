@@ -60,4 +60,22 @@ public interface CompanyOrBuilder extends
    * <code>int64 updateTime = 7;</code>
    */
   long getUpdateTime();
+
+  /**
+   * <pre>
+   *行业
+   * </pre>
+   *
+   * <code>string industry = 8;</code>
+   */
+  java.lang.String getIndustry();
+  /**
+   * <pre>
+   *行业
+   * </pre>
+   *
+   * <code>string industry = 8;</code>
+   */
+  com.google.protobuf.ByteString
+      getIndustryBytes();
 }

@@ -21,15 +21,26 @@ public interface FindJobResponseOrBuilder extends
   com.kptl.proto.ResponseHeaderOrBuilder getHeaderOrBuilder();
 
   /**
-   * <code>.job.JobMessage jobMsg = 2;</code>
+   * <code>repeated .job.JobMessage jobMsg = 2;</code>
    */
-  boolean hasJobMsg();
+  java.util.List<com.kptl.proto.JobMessage> 
+      getJobMsgList();
   /**
-   * <code>.job.JobMessage jobMsg = 2;</code>
+   * <code>repeated .job.JobMessage jobMsg = 2;</code>
    */
-  com.kptl.proto.JobMessage getJobMsg();
+  com.kptl.proto.JobMessage getJobMsg(int index);
   /**
-   * <code>.job.JobMessage jobMsg = 2;</code>
+   * <code>repeated .job.JobMessage jobMsg = 2;</code>
    */
-  com.kptl.proto.JobMessageOrBuilder getJobMsgOrBuilder();
+  int getJobMsgCount();
+  /**
+   * <code>repeated .job.JobMessage jobMsg = 2;</code>
+   */
+  java.util.List<? extends com.kptl.proto.JobMessageOrBuilder> 
+      getJobMsgOrBuilderList();
+  /**
+   * <code>repeated .job.JobMessage jobMsg = 2;</code>
+   */
+  com.kptl.proto.JobMessageOrBuilder getJobMsgOrBuilder(
+      int index);
 }

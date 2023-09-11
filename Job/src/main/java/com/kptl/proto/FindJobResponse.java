@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private FindJobResponse() {
+    jobMsg_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -63,16 +64,12 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            com.kptl.proto.JobMessage.Builder subBuilder = null;
-            if (jobMsg_ != null) {
-              subBuilder = jobMsg_.toBuilder();
+            if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              jobMsg_ = new java.util.ArrayList<com.kptl.proto.JobMessage>();
+              mutable_bitField0_ |= 0x00000002;
             }
-            jobMsg_ = input.readMessage(com.kptl.proto.JobMessage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(jobMsg_);
-              jobMsg_ = subBuilder.buildPartial();
-            }
-
+            jobMsg_.add(
+                input.readMessage(com.kptl.proto.JobMessage.parser(), extensionRegistry));
             break;
           }
         }
@@ -83,6 +80,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        jobMsg_ = java.util.Collections.unmodifiableList(jobMsg_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -99,6 +99,7 @@ private static final long serialVersionUID = 0L;
             com.kptl.proto.FindJobResponse.class, com.kptl.proto.FindJobResponse.Builder.class);
   }
 
+  private int bitField0_;
   public static final int HEADER_FIELD_NUMBER = 1;
   private com.kptl.proto.ResponseHeader header_;
   /**
@@ -121,24 +122,38 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int JOBMSG_FIELD_NUMBER = 2;
-  private com.kptl.proto.JobMessage jobMsg_;
+  private java.util.List<com.kptl.proto.JobMessage> jobMsg_;
   /**
-   * <code>.job.JobMessage jobMsg = 2;</code>
+   * <code>repeated .job.JobMessage jobMsg = 2;</code>
    */
-  public boolean hasJobMsg() {
-    return jobMsg_ != null;
+  public java.util.List<com.kptl.proto.JobMessage> getJobMsgList() {
+    return jobMsg_;
   }
   /**
-   * <code>.job.JobMessage jobMsg = 2;</code>
+   * <code>repeated .job.JobMessage jobMsg = 2;</code>
    */
-  public com.kptl.proto.JobMessage getJobMsg() {
-    return jobMsg_ == null ? com.kptl.proto.JobMessage.getDefaultInstance() : jobMsg_;
+  public java.util.List<? extends com.kptl.proto.JobMessageOrBuilder> 
+      getJobMsgOrBuilderList() {
+    return jobMsg_;
   }
   /**
-   * <code>.job.JobMessage jobMsg = 2;</code>
+   * <code>repeated .job.JobMessage jobMsg = 2;</code>
    */
-  public com.kptl.proto.JobMessageOrBuilder getJobMsgOrBuilder() {
-    return getJobMsg();
+  public int getJobMsgCount() {
+    return jobMsg_.size();
+  }
+  /**
+   * <code>repeated .job.JobMessage jobMsg = 2;</code>
+   */
+  public com.kptl.proto.JobMessage getJobMsg(int index) {
+    return jobMsg_.get(index);
+  }
+  /**
+   * <code>repeated .job.JobMessage jobMsg = 2;</code>
+   */
+  public com.kptl.proto.JobMessageOrBuilder getJobMsgOrBuilder(
+      int index) {
+    return jobMsg_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -156,8 +171,8 @@ private static final long serialVersionUID = 0L;
     if (header_ != null) {
       output.writeMessage(1, getHeader());
     }
-    if (jobMsg_ != null) {
-      output.writeMessage(2, getJobMsg());
+    for (int i = 0; i < jobMsg_.size(); i++) {
+      output.writeMessage(2, jobMsg_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -171,9 +186,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getHeader());
     }
-    if (jobMsg_ != null) {
+    for (int i = 0; i < jobMsg_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getJobMsg());
+        .computeMessageSize(2, jobMsg_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -196,11 +211,8 @@ private static final long serialVersionUID = 0L;
       result = result && getHeader()
           .equals(other.getHeader());
     }
-    result = result && (hasJobMsg() == other.hasJobMsg());
-    if (hasJobMsg()) {
-      result = result && getJobMsg()
-          .equals(other.getJobMsg());
-    }
+    result = result && getJobMsgList()
+        .equals(other.getJobMsgList());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -216,9 +228,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + HEADER_FIELD_NUMBER;
       hash = (53 * hash) + getHeader().hashCode();
     }
-    if (hasJobMsg()) {
+    if (getJobMsgCount() > 0) {
       hash = (37 * hash) + JOBMSG_FIELD_NUMBER;
-      hash = (53 * hash) + getJobMsg().hashCode();
+      hash = (53 * hash) + getJobMsgList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -345,6 +357,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getJobMsgFieldBuilder();
       }
     }
     public Builder clear() {
@@ -356,10 +369,10 @@ private static final long serialVersionUID = 0L;
         headerBuilder_ = null;
       }
       if (jobMsgBuilder_ == null) {
-        jobMsg_ = null;
+        jobMsg_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
-        jobMsg_ = null;
-        jobMsgBuilder_ = null;
+        jobMsgBuilder_.clear();
       }
       return this;
     }
@@ -383,16 +396,23 @@ private static final long serialVersionUID = 0L;
 
     public com.kptl.proto.FindJobResponse buildPartial() {
       com.kptl.proto.FindJobResponse result = new com.kptl.proto.FindJobResponse(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (headerBuilder_ == null) {
         result.header_ = header_;
       } else {
         result.header_ = headerBuilder_.build();
       }
       if (jobMsgBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          jobMsg_ = java.util.Collections.unmodifiableList(jobMsg_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
         result.jobMsg_ = jobMsg_;
       } else {
         result.jobMsg_ = jobMsgBuilder_.build();
       }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -437,8 +457,31 @@ private static final long serialVersionUID = 0L;
       if (other.hasHeader()) {
         mergeHeader(other.getHeader());
       }
-      if (other.hasJobMsg()) {
-        mergeJobMsg(other.getJobMsg());
+      if (jobMsgBuilder_ == null) {
+        if (!other.jobMsg_.isEmpty()) {
+          if (jobMsg_.isEmpty()) {
+            jobMsg_ = other.jobMsg_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureJobMsgIsMutable();
+            jobMsg_.addAll(other.jobMsg_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.jobMsg_.isEmpty()) {
+          if (jobMsgBuilder_.isEmpty()) {
+            jobMsgBuilder_.dispose();
+            jobMsgBuilder_ = null;
+            jobMsg_ = other.jobMsg_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            jobMsgBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getJobMsgFieldBuilder() : null;
+          } else {
+            jobMsgBuilder_.addAllMessages(other.jobMsg_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -466,6 +509,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private com.kptl.proto.ResponseHeader header_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -584,116 +628,239 @@ private static final long serialVersionUID = 0L;
       return headerBuilder_;
     }
 
-    private com.kptl.proto.JobMessage jobMsg_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.kptl.proto.JobMessage, com.kptl.proto.JobMessage.Builder, com.kptl.proto.JobMessageOrBuilder> jobMsgBuilder_;
-    /**
-     * <code>.job.JobMessage jobMsg = 2;</code>
-     */
-    public boolean hasJobMsg() {
-      return jobMsgBuilder_ != null || jobMsg_ != null;
+    private java.util.List<com.kptl.proto.JobMessage> jobMsg_ =
+      java.util.Collections.emptyList();
+    private void ensureJobMsgIsMutable() {
+      if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        jobMsg_ = new java.util.ArrayList<com.kptl.proto.JobMessage>(jobMsg_);
+        bitField0_ |= 0x00000002;
+       }
     }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.kptl.proto.JobMessage, com.kptl.proto.JobMessage.Builder, com.kptl.proto.JobMessageOrBuilder> jobMsgBuilder_;
+
     /**
-     * <code>.job.JobMessage jobMsg = 2;</code>
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
      */
-    public com.kptl.proto.JobMessage getJobMsg() {
+    public java.util.List<com.kptl.proto.JobMessage> getJobMsgList() {
       if (jobMsgBuilder_ == null) {
-        return jobMsg_ == null ? com.kptl.proto.JobMessage.getDefaultInstance() : jobMsg_;
+        return java.util.Collections.unmodifiableList(jobMsg_);
       } else {
-        return jobMsgBuilder_.getMessage();
+        return jobMsgBuilder_.getMessageList();
       }
     }
     /**
-     * <code>.job.JobMessage jobMsg = 2;</code>
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
      */
-    public Builder setJobMsg(com.kptl.proto.JobMessage value) {
+    public int getJobMsgCount() {
+      if (jobMsgBuilder_ == null) {
+        return jobMsg_.size();
+      } else {
+        return jobMsgBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
+     */
+    public com.kptl.proto.JobMessage getJobMsg(int index) {
+      if (jobMsgBuilder_ == null) {
+        return jobMsg_.get(index);
+      } else {
+        return jobMsgBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
+     */
+    public Builder setJobMsg(
+        int index, com.kptl.proto.JobMessage value) {
       if (jobMsgBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        jobMsg_ = value;
+        ensureJobMsgIsMutable();
+        jobMsg_.set(index, value);
         onChanged();
       } else {
-        jobMsgBuilder_.setMessage(value);
+        jobMsgBuilder_.setMessage(index, value);
       }
-
       return this;
     }
     /**
-     * <code>.job.JobMessage jobMsg = 2;</code>
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
      */
     public Builder setJobMsg(
+        int index, com.kptl.proto.JobMessage.Builder builderForValue) {
+      if (jobMsgBuilder_ == null) {
+        ensureJobMsgIsMutable();
+        jobMsg_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        jobMsgBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
+     */
+    public Builder addJobMsg(com.kptl.proto.JobMessage value) {
+      if (jobMsgBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureJobMsgIsMutable();
+        jobMsg_.add(value);
+        onChanged();
+      } else {
+        jobMsgBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
+     */
+    public Builder addJobMsg(
+        int index, com.kptl.proto.JobMessage value) {
+      if (jobMsgBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureJobMsgIsMutable();
+        jobMsg_.add(index, value);
+        onChanged();
+      } else {
+        jobMsgBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
+     */
+    public Builder addJobMsg(
         com.kptl.proto.JobMessage.Builder builderForValue) {
       if (jobMsgBuilder_ == null) {
-        jobMsg_ = builderForValue.build();
+        ensureJobMsgIsMutable();
+        jobMsg_.add(builderForValue.build());
         onChanged();
       } else {
-        jobMsgBuilder_.setMessage(builderForValue.build());
+        jobMsgBuilder_.addMessage(builderForValue.build());
       }
-
       return this;
     }
     /**
-     * <code>.job.JobMessage jobMsg = 2;</code>
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
      */
-    public Builder mergeJobMsg(com.kptl.proto.JobMessage value) {
+    public Builder addJobMsg(
+        int index, com.kptl.proto.JobMessage.Builder builderForValue) {
       if (jobMsgBuilder_ == null) {
-        if (jobMsg_ != null) {
-          jobMsg_ =
-            com.kptl.proto.JobMessage.newBuilder(jobMsg_).mergeFrom(value).buildPartial();
-        } else {
-          jobMsg_ = value;
-        }
+        ensureJobMsgIsMutable();
+        jobMsg_.add(index, builderForValue.build());
         onChanged();
       } else {
-        jobMsgBuilder_.mergeFrom(value);
+        jobMsgBuilder_.addMessage(index, builderForValue.build());
       }
-
       return this;
     }
     /**
-     * <code>.job.JobMessage jobMsg = 2;</code>
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
+     */
+    public Builder addAllJobMsg(
+        java.lang.Iterable<? extends com.kptl.proto.JobMessage> values) {
+      if (jobMsgBuilder_ == null) {
+        ensureJobMsgIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, jobMsg_);
+        onChanged();
+      } else {
+        jobMsgBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
      */
     public Builder clearJobMsg() {
       if (jobMsgBuilder_ == null) {
-        jobMsg_ = null;
+        jobMsg_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
-        jobMsg_ = null;
-        jobMsgBuilder_ = null;
+        jobMsgBuilder_.clear();
       }
-
       return this;
     }
     /**
-     * <code>.job.JobMessage jobMsg = 2;</code>
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
      */
-    public com.kptl.proto.JobMessage.Builder getJobMsgBuilder() {
-      
-      onChanged();
-      return getJobMsgFieldBuilder().getBuilder();
+    public Builder removeJobMsg(int index) {
+      if (jobMsgBuilder_ == null) {
+        ensureJobMsgIsMutable();
+        jobMsg_.remove(index);
+        onChanged();
+      } else {
+        jobMsgBuilder_.remove(index);
+      }
+      return this;
     }
     /**
-     * <code>.job.JobMessage jobMsg = 2;</code>
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
      */
-    public com.kptl.proto.JobMessageOrBuilder getJobMsgOrBuilder() {
-      if (jobMsgBuilder_ != null) {
-        return jobMsgBuilder_.getMessageOrBuilder();
-      } else {
-        return jobMsg_ == null ?
-            com.kptl.proto.JobMessage.getDefaultInstance() : jobMsg_;
+    public com.kptl.proto.JobMessage.Builder getJobMsgBuilder(
+        int index) {
+      return getJobMsgFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
+     */
+    public com.kptl.proto.JobMessageOrBuilder getJobMsgOrBuilder(
+        int index) {
+      if (jobMsgBuilder_ == null) {
+        return jobMsg_.get(index);  } else {
+        return jobMsgBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>.job.JobMessage jobMsg = 2;</code>
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
+    public java.util.List<? extends com.kptl.proto.JobMessageOrBuilder> 
+         getJobMsgOrBuilderList() {
+      if (jobMsgBuilder_ != null) {
+        return jobMsgBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(jobMsg_);
+      }
+    }
+    /**
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
+     */
+    public com.kptl.proto.JobMessage.Builder addJobMsgBuilder() {
+      return getJobMsgFieldBuilder().addBuilder(
+          com.kptl.proto.JobMessage.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
+     */
+    public com.kptl.proto.JobMessage.Builder addJobMsgBuilder(
+        int index) {
+      return getJobMsgFieldBuilder().addBuilder(
+          index, com.kptl.proto.JobMessage.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .job.JobMessage jobMsg = 2;</code>
+     */
+    public java.util.List<com.kptl.proto.JobMessage.Builder> 
+         getJobMsgBuilderList() {
+      return getJobMsgFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
         com.kptl.proto.JobMessage, com.kptl.proto.JobMessage.Builder, com.kptl.proto.JobMessageOrBuilder> 
         getJobMsgFieldBuilder() {
       if (jobMsgBuilder_ == null) {
-        jobMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        jobMsgBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.kptl.proto.JobMessage, com.kptl.proto.JobMessage.Builder, com.kptl.proto.JobMessageOrBuilder>(
-                getJobMsg(),
+                jobMsg_,
+                ((bitField0_ & 0x00000002) == 0x00000002),
                 getParentForChildren(),
                 isClean());
         jobMsg_ = null;

@@ -1,7 +1,6 @@
 package com.kptl.job.service;
 
-import com.kptl.proto.FindJobRequest;
-import com.kptl.proto.JobMessage;
+import com.kptl.proto.*;
 
 import java.util.List;
 
@@ -11,5 +10,12 @@ public interface JobService {
     Boolean saveJob(JobMessage request);
 
     Boolean updateJob(JobMessage request);
+
+    List<JobMessage> findJobByName(FindJobByNameRequest request);
+
+    JobMessage findJobById(FindJobByIdRequest request);
+
+    List<JobMessage> findAllJobs(FindAllJobRequest request);
+
 
 }

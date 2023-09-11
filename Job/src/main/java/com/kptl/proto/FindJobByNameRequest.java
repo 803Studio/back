@@ -4,19 +4,19 @@
 package com.kptl.proto;
 
 /**
- * Protobuf type {@code job.RegisteredRecruiterReq}
+ * Protobuf type {@code job.FindJobByNameRequest}
  */
-public  final class RegisteredRecruiterReq extends
+public  final class FindJobByNameRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:job.RegisteredRecruiterReq)
-    RegisteredRecruiterReqOrBuilder {
+    // @@protoc_insertion_point(message_implements:job.FindJobByNameRequest)
+    FindJobByNameRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use RegisteredRecruiterReq.newBuilder() to construct.
-  private RegisteredRecruiterReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use FindJobByNameRequest.newBuilder() to construct.
+  private FindJobByNameRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private RegisteredRecruiterReq() {
-    id_ = 0;
+  private FindJobByNameRequest() {
+    jobName_ = "";
   }
 
   @java.lang.Override
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RegisteredRecruiterReq(
+  private FindJobByNameRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,9 +50,10 @@ private static final long serialVersionUID = 0L;
             }
             break;
           }
-          case 8: {
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            id_ = input.readInt32();
+            jobName_ = s;
             break;
           }
         }
@@ -69,23 +70,48 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.kptl.proto.JobOuterClass.internal_static_job_RegisteredRecruiterReq_descriptor;
+    return com.kptl.proto.JobOuterClass.internal_static_job_FindJobByNameRequest_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.kptl.proto.JobOuterClass.internal_static_job_RegisteredRecruiterReq_fieldAccessorTable
+    return com.kptl.proto.JobOuterClass.internal_static_job_FindJobByNameRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.kptl.proto.RegisteredRecruiterReq.class, com.kptl.proto.RegisteredRecruiterReq.Builder.class);
+            com.kptl.proto.FindJobByNameRequest.class, com.kptl.proto.FindJobByNameRequest.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
-  private int id_;
+  public static final int JOBNAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object jobName_;
   /**
-   * <code>int32 id = 1;</code>
+   * <code>string jobName = 1;</code>
    */
-  public int getId() {
-    return id_;
+  public java.lang.String getJobName() {
+    java.lang.Object ref = jobName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      jobName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string jobName = 1;</code>
+   */
+  public com.google.protobuf.ByteString
+      getJobNameBytes() {
+    java.lang.Object ref = jobName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      jobName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -100,8 +126,8 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (id_ != 0) {
-      output.writeInt32(1, id_);
+    if (!getJobNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, jobName_);
     }
     unknownFields.writeTo(output);
   }
@@ -111,9 +137,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (id_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, id_);
+    if (!getJobNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, jobName_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -125,14 +150,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.kptl.proto.RegisteredRecruiterReq)) {
+    if (!(obj instanceof com.kptl.proto.FindJobByNameRequest)) {
       return super.equals(obj);
     }
-    com.kptl.proto.RegisteredRecruiterReq other = (com.kptl.proto.RegisteredRecruiterReq) obj;
+    com.kptl.proto.FindJobByNameRequest other = (com.kptl.proto.FindJobByNameRequest) obj;
 
     boolean result = true;
-    result = result && (getId()
-        == other.getId());
+    result = result && getJobName()
+        .equals(other.getJobName());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -144,76 +169,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId();
+    hash = (37 * hash) + JOBNAME_FIELD_NUMBER;
+    hash = (53 * hash) + getJobName().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.kptl.proto.RegisteredRecruiterReq parseFrom(
+  public static com.kptl.proto.FindJobByNameRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.kptl.proto.RegisteredRecruiterReq parseFrom(
+  public static com.kptl.proto.FindJobByNameRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.kptl.proto.RegisteredRecruiterReq parseFrom(
+  public static com.kptl.proto.FindJobByNameRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.kptl.proto.RegisteredRecruiterReq parseFrom(
+  public static com.kptl.proto.FindJobByNameRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.kptl.proto.RegisteredRecruiterReq parseFrom(byte[] data)
+  public static com.kptl.proto.FindJobByNameRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.kptl.proto.RegisteredRecruiterReq parseFrom(
+  public static com.kptl.proto.FindJobByNameRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.kptl.proto.RegisteredRecruiterReq parseFrom(java.io.InputStream input)
+  public static com.kptl.proto.FindJobByNameRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.kptl.proto.RegisteredRecruiterReq parseFrom(
+  public static com.kptl.proto.FindJobByNameRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.kptl.proto.RegisteredRecruiterReq parseDelimitedFrom(java.io.InputStream input)
+  public static com.kptl.proto.FindJobByNameRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.kptl.proto.RegisteredRecruiterReq parseDelimitedFrom(
+  public static com.kptl.proto.FindJobByNameRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.kptl.proto.RegisteredRecruiterReq parseFrom(
+  public static com.kptl.proto.FindJobByNameRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.kptl.proto.RegisteredRecruiterReq parseFrom(
+  public static com.kptl.proto.FindJobByNameRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -225,7 +250,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.kptl.proto.RegisteredRecruiterReq prototype) {
+  public static Builder newBuilder(com.kptl.proto.FindJobByNameRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -240,25 +265,25 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code job.RegisteredRecruiterReq}
+   * Protobuf type {@code job.FindJobByNameRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:job.RegisteredRecruiterReq)
-      com.kptl.proto.RegisteredRecruiterReqOrBuilder {
+      // @@protoc_insertion_point(builder_implements:job.FindJobByNameRequest)
+      com.kptl.proto.FindJobByNameRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.kptl.proto.JobOuterClass.internal_static_job_RegisteredRecruiterReq_descriptor;
+      return com.kptl.proto.JobOuterClass.internal_static_job_FindJobByNameRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.kptl.proto.JobOuterClass.internal_static_job_RegisteredRecruiterReq_fieldAccessorTable
+      return com.kptl.proto.JobOuterClass.internal_static_job_FindJobByNameRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.kptl.proto.RegisteredRecruiterReq.class, com.kptl.proto.RegisteredRecruiterReq.Builder.class);
+              com.kptl.proto.FindJobByNameRequest.class, com.kptl.proto.FindJobByNameRequest.Builder.class);
     }
 
-    // Construct using com.kptl.proto.RegisteredRecruiterReq.newBuilder()
+    // Construct using com.kptl.proto.FindJobByNameRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -275,31 +300,31 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      id_ = 0;
+      jobName_ = "";
 
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.kptl.proto.JobOuterClass.internal_static_job_RegisteredRecruiterReq_descriptor;
+      return com.kptl.proto.JobOuterClass.internal_static_job_FindJobByNameRequest_descriptor;
     }
 
-    public com.kptl.proto.RegisteredRecruiterReq getDefaultInstanceForType() {
-      return com.kptl.proto.RegisteredRecruiterReq.getDefaultInstance();
+    public com.kptl.proto.FindJobByNameRequest getDefaultInstanceForType() {
+      return com.kptl.proto.FindJobByNameRequest.getDefaultInstance();
     }
 
-    public com.kptl.proto.RegisteredRecruiterReq build() {
-      com.kptl.proto.RegisteredRecruiterReq result = buildPartial();
+    public com.kptl.proto.FindJobByNameRequest build() {
+      com.kptl.proto.FindJobByNameRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.kptl.proto.RegisteredRecruiterReq buildPartial() {
-      com.kptl.proto.RegisteredRecruiterReq result = new com.kptl.proto.RegisteredRecruiterReq(this);
-      result.id_ = id_;
+    public com.kptl.proto.FindJobByNameRequest buildPartial() {
+      com.kptl.proto.FindJobByNameRequest result = new com.kptl.proto.FindJobByNameRequest(this);
+      result.jobName_ = jobName_;
       onBuilt();
       return result;
     }
@@ -331,18 +356,19 @@ private static final long serialVersionUID = 0L;
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.kptl.proto.RegisteredRecruiterReq) {
-        return mergeFrom((com.kptl.proto.RegisteredRecruiterReq)other);
+      if (other instanceof com.kptl.proto.FindJobByNameRequest) {
+        return mergeFrom((com.kptl.proto.FindJobByNameRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.kptl.proto.RegisteredRecruiterReq other) {
-      if (other == com.kptl.proto.RegisteredRecruiterReq.getDefaultInstance()) return this;
-      if (other.getId() != 0) {
-        setId(other.getId());
+    public Builder mergeFrom(com.kptl.proto.FindJobByNameRequest other) {
+      if (other == com.kptl.proto.FindJobByNameRequest.getDefaultInstance()) return this;
+      if (!other.getJobName().isEmpty()) {
+        jobName_ = other.jobName_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -357,11 +383,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.kptl.proto.RegisteredRecruiterReq parsedMessage = null;
+      com.kptl.proto.FindJobByNameRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.kptl.proto.RegisteredRecruiterReq) e.getUnfinishedMessage();
+        parsedMessage = (com.kptl.proto.FindJobByNameRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -371,28 +397,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int id_ ;
+    private java.lang.Object jobName_ = "";
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string jobName = 1;</code>
      */
-    public int getId() {
-      return id_;
+    public java.lang.String getJobName() {
+      java.lang.Object ref = jobName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        jobName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string jobName = 1;</code>
      */
-    public Builder setId(int value) {
-      
-      id_ = value;
+    public com.google.protobuf.ByteString
+        getJobNameBytes() {
+      java.lang.Object ref = jobName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        jobName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string jobName = 1;</code>
+     */
+    public Builder setJobName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      jobName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string jobName = 1;</code>
      */
-    public Builder clearId() {
+    public Builder clearJobName() {
       
-      id_ = 0;
+      jobName_ = getDefaultInstance().getJobName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string jobName = 1;</code>
+     */
+    public Builder setJobNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      jobName_ = value;
       onChanged();
       return this;
     }
@@ -407,39 +476,39 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:job.RegisteredRecruiterReq)
+    // @@protoc_insertion_point(builder_scope:job.FindJobByNameRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:job.RegisteredRecruiterReq)
-  private static final com.kptl.proto.RegisteredRecruiterReq DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:job.FindJobByNameRequest)
+  private static final com.kptl.proto.FindJobByNameRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.kptl.proto.RegisteredRecruiterReq();
+    DEFAULT_INSTANCE = new com.kptl.proto.FindJobByNameRequest();
   }
 
-  public static com.kptl.proto.RegisteredRecruiterReq getDefaultInstance() {
+  public static com.kptl.proto.FindJobByNameRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<RegisteredRecruiterReq>
-      PARSER = new com.google.protobuf.AbstractParser<RegisteredRecruiterReq>() {
-    public RegisteredRecruiterReq parsePartialFrom(
+  private static final com.google.protobuf.Parser<FindJobByNameRequest>
+      PARSER = new com.google.protobuf.AbstractParser<FindJobByNameRequest>() {
+    public FindJobByNameRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RegisteredRecruiterReq(input, extensionRegistry);
+      return new FindJobByNameRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<RegisteredRecruiterReq> parser() {
+  public static com.google.protobuf.Parser<FindJobByNameRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<RegisteredRecruiterReq> getParserForType() {
+  public com.google.protobuf.Parser<FindJobByNameRequest> getParserForType() {
     return PARSER;
   }
 
-  public com.kptl.proto.RegisteredRecruiterReq getDefaultInstanceForType() {
+  public com.kptl.proto.FindJobByNameRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

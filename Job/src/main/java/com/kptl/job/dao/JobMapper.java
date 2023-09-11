@@ -14,4 +14,14 @@ public interface JobMapper {
     Boolean saveJob(@Param("job") JobMessage job);
 
     Boolean updateJob(@Param("job") JobMessage job);
+
+    List<JobMessage> findJobByName(@Param("jobName") String jobName);
+
+    JobMessage findJobById(@Param("jobId") String jobId);
+
+    List<JobMessage> findAllJobs(@Param("index") Integer index, @Param("size") Integer size);
+
+    List<JobMessage> findJobsByRecruiter(@Param("request") FindJobRequest request);
+
+    List<JobMessage> findJobsByCompany(@Param("request") FindJobRequest request);
 }

@@ -7,26 +7,120 @@ import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @GRpcService
 public class JobImpl extends JobGrpc.JobImplBase {
     @Autowired
     private JobService jobService;
     @Autowired
     private CompanyService companyService;
+    /**
+     * 根据角色查询角色
+     */
     @Override
     public void findJobs(FindJobRequest request, StreamObserver<FindJobResponse> responseObserver) {
-        super.findJobs(request, responseObserver);
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        FindJobResponse.Builder builder = FindJobResponse.newBuilder();
+        List<JobMessage> jobs = new ArrayList<>();
+        try {
+            jobs = jobService.findJobs(request);
+            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+        } catch (Exception e) {
+            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+        }
+        builder.setHeader(header);
+        for (JobMessage jobMessage : jobs) {
+            builder.addJobMsg(jobMessage);
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
     }
 
+    /**
+     * 通用接口，查询所有职位
+     */
+    @Override
+    public void findAllJobs(FindAllJobRequest request, StreamObserver<FindJobResponse> responseObserver) {
+        List<JobMessage> jobs = new ArrayList<>();
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        FindJobResponse.Builder builder = FindJobResponse.newBuilder();
+        try {
+            jobs = jobService.findAllJobs(request);
+            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+        } catch (Exception e) {
+            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+        }
+        builder.setHeader(header);
+        for (JobMessage jobMessage : jobs) {
+            builder.addJobMsg(jobMessage);
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+    }
+
+    /**
+     * 根据职位名称查询职位
+     */
+    @Override
+    public void findJobByName(FindJobByNameRequest request, StreamObserver<FindJobResponse> responseObserver) {
+        List<JobMessage> jobs = new ArrayList<>();
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        FindJobResponse.Builder builder = FindJobResponse.newBuilder();
+        try {
+            jobs = jobService.findJobByName(request);
+            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+        } catch (Exception e) {
+            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+        }
+        builder.setHeader(header);
+        for (JobMessage jobMessage : jobs) {
+            builder.addJobMsg(jobMessage);
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+    }
+
+    /**
+     * 根据id查询职位详细信息
+     */
+    @Override
+    public void findJobById(FindJobByIdRequest request, StreamObserver<FindJobResponse> responseObserver) {
+        List<JobMessage> jobs = new ArrayList<>();
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        FindJobResponse.Builder builder = FindJobResponse.newBuilder();
+        try {
+            jobs.add(jobService.findJobById(request));
+            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+        } catch (Exception e) {
+            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+        }
+        builder.setHeader(header);
+        for (JobMessage jobMessage : jobs) {
+            builder.addJobMsg(jobMessage);
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void boundCompany(BoundCompanyReq request, StreamObserver<CommonResponse> responseObserver) {
+        super.boundCompany(request, responseObserver);
+    }
+
+    /**
+     * 新建职位
+     */
     @Override
     public void saveJobs(JobMessage request, StreamObserver<SaveJobResponse> responseObserver) {
         Boolean result = jobService.saveJob(request);
         ResponseHeader.Builder header = ResponseHeader.newBuilder();
 
         if (result) {
-           header.setStatus(ResponseStatus.OK).setMessage("保存成功！");
+           header.setStatus(ResponseStatus.OK).setMessage("保存成功!");
         } else {
-            header.setStatus(ResponseStatus.OK).setMessage("保存失败！");
+            header.setStatus(ResponseStatus.OK).setMessage("保存失败!");
         }
 
         SaveJobResponse response = SaveJobResponse.newBuilder().setHeader(header.build()).build();
@@ -34,15 +128,18 @@ public class JobImpl extends JobGrpc.JobImplBase {
         responseObserver.onCompleted();
     }
 
+    /**
+     * 更新职位
+     */
     @Override
     public void updateJobs(JobMessage request, StreamObserver<SaveJobResponse> responseObserver) {
         Boolean result = jobService.updateJob(request);
         ResponseHeader.Builder header = ResponseHeader.newBuilder();
 
         if (result) {
-            header.setStatus(ResponseStatus.OK).setMessage("更新成功！");
+            header.setStatus(ResponseStatus.OK).setMessage("更新成功!");
         } else {
-            header.setStatus(ResponseStatus.OK).setMessage("更新失败！");
+            header.setStatus(ResponseStatus.OK).setMessage("更新失败!");
         }
 
         SaveJobResponse response = SaveJobResponse.newBuilder().setHeader(header.build()).build();
@@ -50,6 +147,9 @@ public class JobImpl extends JobGrpc.JobImplBase {
         responseObserver.onCompleted();
     }
 
+    /**
+     * 注册成为公司
+     */
     @Override
     public void registeredCompany(RegisteredCompanyReq request, StreamObserver<CommonResponse> responseObserver) {
         ResponseHeader.Builder header = ResponseHeader.newBuilder();
@@ -64,6 +164,9 @@ public class JobImpl extends JobGrpc.JobImplBase {
         responseObserver.onCompleted();
     }
 
+    /**
+     * 更新公司
+     */
     @Override
     public void updateCompany(RegisteredCompanyReq request, StreamObserver<CommonResponse> responseObserver) {
         ResponseHeader.Builder header = ResponseHeader.newBuilder();
@@ -76,11 +179,6 @@ public class JobImpl extends JobGrpc.JobImplBase {
         CommonResponse result = CommonResponse.newBuilder().setHeader(header).build();
         responseObserver.onNext(result);
         responseObserver.onCompleted();
-    }
-
-    @Override
-    public void registeredRecruiter(RegisteredRecruiterReq request, StreamObserver<CommonResponse> responseObserver) {
-        super.registeredRecruiter(request, responseObserver);
     }
 
     @Override

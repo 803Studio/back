@@ -10,11 +10,26 @@ message FindJobRequest {
   int32 id = 1;
   int32 role = 2;
   int32 byId = 3;
+  int32 index = 4;
+  int32 size = 5;
+}
+
+message FindJobByNameRequest {
+  string jobName = 1;
+}
+
+message FindJobByIdRequest {
+  string jobId = 1;
+}
+
+message FindAllJobRequest {
+  int32 index = 1;
+  int32 size = 2;
 }
 
 message FindJobResponse {
   ResponseHeader header = 1;
-  JobMessage jobMsg = 2;
+  repeated JobMessage jobMsg = 2;
 }
 
 message SaveJobResponse {
@@ -31,17 +46,17 @@ message RegisteredCompanyReq {
 }
 
 message Company {
-  int32 id = 1;                         //
-  string companyName = 2;               //
-  string companyLocation = 3;
-  int32 isVip = 4;
-  int32 isCertified = 5;
-  int64 registerTime = 6;
-  int64 updateTime = 7;
+  int32 id = 1;                         //id
+  string companyName = 2;               //公司名称
+  string companyLocation = 3;           //地址
+  int32 isVip = 4;                      //是否会员
+  int32 isCertified = 5;                //是否认证
+  int64 registerTime = 6;               //注册时间
+  int64 updateTime = 7;                 //刷新时间
   string industry = 8;                   //行业
 }
 
-message RegisteredRecruiterReq {
+message BoundCompanyReq {
   int32 id = 1;
 }
 
@@ -77,11 +92,14 @@ enum ResponseStatus {
 
 //定义员工服务
 service Job {
-  rpc FindJobs (FindJobRequest) returns (FindJobResponse) {};
-  rpc SaveJobs (JobMessage) returns (SaveJobResponse) {};
-  rpc UpdateJobs (JobMessage) returns (SaveJobResponse) {};
-  rpc RegisteredCompany(RegisteredCompanyReq) returns (CommonResponse) {};
-  rpc updateCompany(RegisteredCompanyReq) returns (CommonResponse) {};
-  rpc RegisteredRecruiter(RegisteredRecruiterReq) returns (CommonResponse) {};
-  rpc VerifyCompany(VerifyCompanyReq) returns (CommonResponse) {}; //审核公司
+  rpc FindAllJobs(FindAllJobRequest) returns (FindJobResponse) {};        //查询所有职位，所有人都能查
+  rpc FindJobByName(FindJobByNameRequest) returns (FindJobResponse) {};   //根据职位名称模糊查询
+  rpc FindJobById(FindJobByIdRequest) returns (FindJobResponse) {};       //根据职位id查询
+  rpc FindJobs(FindJobRequest) returns (FindJobResponse) {};              //根据角色不同查询
+  rpc SaveJobs(JobMessage) returns (SaveJobResponse) {};                  //新建职位
+  rpc UpdateJobs(JobMessage) returns (SaveJobResponse) {};                //更新职位
+  rpc RegisteredCompany(RegisteredCompanyReq) returns (CommonResponse) {};//注册公司
+  rpc UpdateCompany(RegisteredCompanyReq) returns (CommonResponse) {};    //更新公司信息
+  rpc BoundCompany(BoundCompanyReq) returns (CommonResponse) {};          //绑定公司
+  rpc VerifyCompany(VerifyCompanyReq) returns (CommonResponse) {};        //审核公司
 }

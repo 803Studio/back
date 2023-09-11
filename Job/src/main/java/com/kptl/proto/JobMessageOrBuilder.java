@@ -177,4 +177,22 @@ public interface JobMessageOrBuilder extends
    * <code>int64 updateTime = 14;</code>
    */
   long getUpdateTime();
+
+  /**
+   * <pre>
+   *行业
+   * </pre>
+   *
+   * <code>string industry = 15;</code>
+   */
+  java.lang.String getIndustry();
+  /**
+   * <pre>
+   *行业
+   * </pre>
+   *
+   * <code>string industry = 15;</code>
+   */
+  com.google.protobuf.ByteString
+      getIndustryBytes();
 }
