@@ -1,5 +1,7 @@
 package com.kptl.job.dao;
 
+import com.kptl.job.dto.JobDTO;
+import com.kptl.proto.FindJobByNameRequest;
 import com.kptl.proto.FindJobRequest;
 import com.kptl.proto.JobMessage;
 import org.apache.ibatis.annotations.Mapper;
@@ -15,13 +17,13 @@ public interface JobMapper {
 
     Boolean updateJob(@Param("job") JobMessage job);
 
-    List<JobMessage> findJobByName(@Param("jobName") String jobName);
+    List<JobDTO> findJobByName(@Param("request") FindJobByNameRequest request);
 
-    JobMessage findJobById(@Param("jobId") String jobId);
+    List<JobDTO> findJobById(@Param("jobId") Integer jobId);
 
-    List<JobMessage> findAllJobs(@Param("index") Integer index, @Param("size") Integer size);
+    List<JobDTO> findAllJobs(@Param("index") Integer index, @Param("size") Integer size);
 
-    List<JobMessage> findJobsByRecruiter(@Param("request") FindJobRequest request);
+    List<JobDTO> findJobsByRecruiter(@Param("request") FindJobRequest request);
 
-    List<JobMessage> findJobsByCompany(@Param("request") FindJobRequest request);
+    List<JobDTO>  findJobsByCompany(@Param("request") FindJobRequest request);
 }

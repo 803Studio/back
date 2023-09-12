@@ -17,6 +17,8 @@ private static final long serialVersionUID = 0L;
   }
   private FindJobByNameRequest() {
     jobName_ = "";
+    index_ = 0;
+    size_ = 0;
   }
 
   @java.lang.Override
@@ -54,6 +56,16 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             jobName_ = s;
+            break;
+          }
+          case 16: {
+
+            index_ = input.readInt32();
+            break;
+          }
+          case 24: {
+
+            size_ = input.readInt32();
             break;
           }
         }
@@ -114,6 +126,24 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int INDEX_FIELD_NUMBER = 2;
+  private int index_;
+  /**
+   * <code>int32 index = 2;</code>
+   */
+  public int getIndex() {
+    return index_;
+  }
+
+  public static final int SIZE_FIELD_NUMBER = 3;
+  private int size_;
+  /**
+   * <code>int32 size = 3;</code>
+   */
+  public int getSize() {
+    return size_;
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -129,6 +159,12 @@ private static final long serialVersionUID = 0L;
     if (!getJobNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, jobName_);
     }
+    if (index_ != 0) {
+      output.writeInt32(2, index_);
+    }
+    if (size_ != 0) {
+      output.writeInt32(3, size_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -139,6 +175,14 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!getJobNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, jobName_);
+    }
+    if (index_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, index_);
+    }
+    if (size_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, size_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -158,6 +202,10 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getJobName()
         .equals(other.getJobName());
+    result = result && (getIndex()
+        == other.getIndex());
+    result = result && (getSize()
+        == other.getSize());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -171,6 +219,10 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + JOBNAME_FIELD_NUMBER;
     hash = (53 * hash) + getJobName().hashCode();
+    hash = (37 * hash) + INDEX_FIELD_NUMBER;
+    hash = (53 * hash) + getIndex();
+    hash = (37 * hash) + SIZE_FIELD_NUMBER;
+    hash = (53 * hash) + getSize();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -302,6 +354,10 @@ private static final long serialVersionUID = 0L;
       super.clear();
       jobName_ = "";
 
+      index_ = 0;
+
+      size_ = 0;
+
       return this;
     }
 
@@ -325,6 +381,8 @@ private static final long serialVersionUID = 0L;
     public com.kptl.proto.FindJobByNameRequest buildPartial() {
       com.kptl.proto.FindJobByNameRequest result = new com.kptl.proto.FindJobByNameRequest(this);
       result.jobName_ = jobName_;
+      result.index_ = index_;
+      result.size_ = size_;
       onBuilt();
       return result;
     }
@@ -369,6 +427,12 @@ private static final long serialVersionUID = 0L;
       if (!other.getJobName().isEmpty()) {
         jobName_ = other.jobName_;
         onChanged();
+      }
+      if (other.getIndex() != 0) {
+        setIndex(other.getIndex());
+      }
+      if (other.getSize() != 0) {
+        setSize(other.getSize());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -462,6 +526,58 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       jobName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int index_ ;
+    /**
+     * <code>int32 index = 2;</code>
+     */
+    public int getIndex() {
+      return index_;
+    }
+    /**
+     * <code>int32 index = 2;</code>
+     */
+    public Builder setIndex(int value) {
+      
+      index_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 index = 2;</code>
+     */
+    public Builder clearIndex() {
+      
+      index_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int size_ ;
+    /**
+     * <code>int32 size = 3;</code>
+     */
+    public int getSize() {
+      return size_;
+    }
+    /**
+     * <code>int32 size = 3;</code>
+     */
+    public Builder setSize(int value) {
+      
+      size_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 size = 3;</code>
+     */
+    public Builder clearSize() {
+      
+      size_ = 0;
       onChanged();
       return this;
     }

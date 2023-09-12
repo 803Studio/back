@@ -31,8 +31,10 @@ public class JobImpl extends JobGrpc.JobImplBase {
             header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
         }
         builder.setHeader(header);
-        for (JobMessage jobMessage : jobs) {
-            builder.addJobMsg(jobMessage);
+        if (jobs != null) {
+            for (JobMessage jobMessage : jobs) {
+                builder.addJobMsg(jobMessage);
+            }
         }
         responseObserver.onNext(builder.build());
         responseObserver.onCompleted();

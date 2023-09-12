@@ -8,12 +8,7 @@ public interface FindJobByIdRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string jobId = 1;</code>
+   * <code>int32 jobId = 1;</code>
    */
-  java.lang.String getJobId();
-  /**
-   * <code>string jobId = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getJobIdBytes();
+  int getJobId();
 }

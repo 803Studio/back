@@ -16,4 +16,14 @@ public interface FindJobByNameRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getJobNameBytes();
+
+  /**
+   * <code>int32 index = 2;</code>
+   */
+  int getIndex();
+
+  /**
+   * <code>int32 size = 3;</code>
+   */
+  int getSize();
 }

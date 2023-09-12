@@ -90,49 +90,49 @@ public final class JobOuterClass {
     java.lang.String[] descriptorData = {
       "\n\tJob.proto\022\003job\"U\n\016FindJobRequest\022\n\n\002id" +
       "\030\001 \001(\005\022\014\n\004role\030\002 \001(\005\022\014\n\004byId\030\003 \001(\005\022\r\n\005in" +
-      "dex\030\004 \001(\005\022\014\n\004size\030\005 \001(\005\"\'\n\024FindJobByName" +
-      "Request\022\017\n\007jobName\030\001 \001(\t\"#\n\022FindJobByIdR" +
-      "equest\022\r\n\005jobId\030\001 \001(\t\"0\n\021FindAllJobReque" +
-      "st\022\r\n\005index\030\001 \001(\005\022\014\n\004size\030\002 \001(\005\"W\n\017FindJ" +
-      "obResponse\022#\n\006header\030\001 \001(\0132\023.job.Respons" +
-      "eHeader\022\037\n\006jobMsg\030\002 \003(\0132\017.job.JobMessage" +
-      "\"6\n\017SaveJobResponse\022#\n\006header\030\001 \001(\0132\023.jo" +
-      "b.ResponseHeader\"F\n\016ResponseHeader\022#\n\006st" +
-      "atus\030\001 \001(\0162\023.job.ResponseStatus\022\017\n\007messa" +
-      "ge\030\002 \001(\t\"5\n\024RegisteredCompanyReq\022\035\n\007comp" +
-      "any\030\001 \001(\0132\014.job.Company\"\243\001\n\007Company\022\n\n\002i" +
-      "d\030\001 \001(\005\022\023\n\013companyName\030\002 \001(\t\022\027\n\017companyL" +
-      "ocation\030\003 \001(\t\022\r\n\005isVip\030\004 \001(\005\022\023\n\013isCertif" +
-      "ied\030\005 \001(\005\022\024\n\014registerTime\030\006 \001(\003\022\022\n\nupdat" +
-      "eTime\030\007 \001(\003\022\020\n\010industry\030\010 \001(\t\"\035\n\017BoundCo" +
-      "mpanyReq\022\n\n\002id\030\001 \001(\005\"\036\n\020VerifyCompanyReq" +
-      "\022\n\n\002id\030\001 \001(\005\"5\n\016CommonResponse\022#\n\006header" +
-      "\030\001 \001(\0132\023.job.ResponseHeader\"\224\002\n\nJobMessa" +
-      "ge\022\r\n\005jobId\030\002 \001(\005\022\017\n\007jobName\030\003 \001(\t\022\020\n\010jo" +
-      "bMoney\030\004 \001(\005\022\016\n\006jobReq\030\005 \001(\t\022\023\n\013jobLocat" +
-      "ion\030\006 \001(\t\022\021\n\tcompanyId\030\007 \001(\005\022\025\n\rrecruite" +
-      "rName\030\010 \001(\t\022\026\n\016recruiterPhone\030\t \001(\t\022\017\n\007j" +
-      "obNeed\030\n \001(\005\022\023\n\013recruiterId\030\013 \001(\005\022\020\n\010ope" +
-      "nTime\030\014 \001(\003\022\017\n\007jobTags\030\r \001(\t\022\022\n\nupdateTi" +
-      "me\030\016 \001(\003\022\020\n\010industry\030\017 \001(\t*)\n\016ResponseSt" +
-      "atus\022\006\n\002OK\020\000\022\017\n\013InternalErr\020\0012\363\004\n\003Job\022=\n" +
-      "\013FindAllJobs\022\026.job.FindAllJobRequest\032\024.j" +
-      "ob.FindJobResponse\"\000\022B\n\rFindJobByName\022\031." +
-      "job.FindJobByNameRequest\032\024.job.FindJobRe" +
-      "sponse\"\000\022>\n\013FindJobById\022\027.job.FindJobByI" +
-      "dRequest\032\024.job.FindJobResponse\"\000\0227\n\010Find" +
-      "Jobs\022\023.job.FindJobRequest\032\024.job.FindJobR" +
-      "esponse\"\000\0223\n\010SaveJobs\022\017.job.JobMessage\032\024" +
-      ".job.SaveJobResponse\"\000\0225\n\nUpdateJobs\022\017.j" +
-      "ob.JobMessage\032\024.job.SaveJobResponse\"\000\022E\n" +
-      "\021RegisteredCompany\022\031.job.RegisteredCompa" +
-      "nyReq\032\023.job.CommonResponse\"\000\022A\n\rUpdateCo" +
-      "mpany\022\031.job.RegisteredCompanyReq\032\023.job.C" +
-      "ommonResponse\"\000\022;\n\014BoundCompany\022\024.job.Bo" +
-      "undCompanyReq\032\023.job.CommonResponse\"\000\022=\n\r" +
-      "VerifyCompany\022\025.job.VerifyCompanyReq\032\023.j" +
-      "ob.CommonResponse\"\000B\022\n\016com.kptl.protoP\001b" +
-      "\006proto3"
+      "dex\030\004 \001(\005\022\014\n\004size\030\005 \001(\005\"D\n\024FindJobByName" +
+      "Request\022\017\n\007jobName\030\001 \001(\t\022\r\n\005index\030\002 \001(\005\022" +
+      "\014\n\004size\030\003 \001(\005\"#\n\022FindJobByIdRequest\022\r\n\005j" +
+      "obId\030\001 \001(\005\"0\n\021FindAllJobRequest\022\r\n\005index" +
+      "\030\001 \001(\005\022\014\n\004size\030\002 \001(\005\"W\n\017FindJobResponse\022" +
+      "#\n\006header\030\001 \001(\0132\023.job.ResponseHeader\022\037\n\006" +
+      "jobMsg\030\002 \003(\0132\017.job.JobMessage\"6\n\017SaveJob" +
+      "Response\022#\n\006header\030\001 \001(\0132\023.job.ResponseH" +
+      "eader\"F\n\016ResponseHeader\022#\n\006status\030\001 \001(\0162" +
+      "\023.job.ResponseStatus\022\017\n\007message\030\002 \001(\t\"5\n" +
+      "\024RegisteredCompanyReq\022\035\n\007company\030\001 \001(\0132\014" +
+      ".job.Company\"\243\001\n\007Company\022\n\n\002id\030\001 \001(\005\022\023\n\013" +
+      "companyName\030\002 \001(\t\022\027\n\017companyLocation\030\003 \001" +
+      "(\t\022\r\n\005isVip\030\004 \001(\005\022\023\n\013isCertified\030\005 \001(\005\022\024" +
+      "\n\014registerTime\030\006 \001(\003\022\022\n\nupdateTime\030\007 \001(\003" +
+      "\022\020\n\010industry\030\010 \001(\t\"\035\n\017BoundCompanyReq\022\n\n" +
+      "\002id\030\001 \001(\005\"\036\n\020VerifyCompanyReq\022\n\n\002id\030\001 \001(" +
+      "\005\"5\n\016CommonResponse\022#\n\006header\030\001 \001(\0132\023.jo" +
+      "b.ResponseHeader\"\224\002\n\nJobMessage\022\r\n\005jobId" +
+      "\030\002 \001(\005\022\017\n\007jobName\030\003 \001(\t\022\020\n\010jobMoney\030\004 \001(" +
+      "\005\022\016\n\006jobReq\030\005 \001(\t\022\023\n\013jobLocation\030\006 \001(\t\022\021" +
+      "\n\tcompanyId\030\007 \001(\005\022\025\n\rrecruiterName\030\010 \001(\t" +
+      "\022\026\n\016recruiterPhone\030\t \001(\t\022\017\n\007jobNeed\030\n \001(" +
+      "\005\022\023\n\013recruiterId\030\013 \001(\005\022\020\n\010openTime\030\014 \001(\003" +
+      "\022\017\n\007jobTags\030\r \001(\t\022\022\n\nupdateTime\030\016 \001(\003\022\020\n" +
+      "\010industry\030\017 \001(\t*)\n\016ResponseStatus\022\006\n\002OK\020" +
+      "\000\022\017\n\013InternalErr\020\0012\363\004\n\003Job\022=\n\013FindAllJob" +
+      "s\022\026.job.FindAllJobRequest\032\024.job.FindJobR" +
+      "esponse\"\000\022B\n\rFindJobByName\022\031.job.FindJob" +
+      "ByNameRequest\032\024.job.FindJobResponse\"\000\022>\n" +
+      "\013FindJobById\022\027.job.FindJobByIdRequest\032\024." +
+      "job.FindJobResponse\"\000\0227\n\010FindJobs\022\023.job." +
+      "FindJobRequest\032\024.job.FindJobResponse\"\000\0223" +
+      "\n\010SaveJobs\022\017.job.JobMessage\032\024.job.SaveJo" +
+      "bResponse\"\000\0225\n\nUpdateJobs\022\017.job.JobMessa" +
+      "ge\032\024.job.SaveJobResponse\"\000\022E\n\021Registered" +
+      "Company\022\031.job.RegisteredCompanyReq\032\023.job" +
+      ".CommonResponse\"\000\022A\n\rUpdateCompany\022\031.job" +
+      ".RegisteredCompanyReq\032\023.job.CommonRespon" +
+      "se\"\000\022;\n\014BoundCompany\022\024.job.BoundCompanyR" +
+      "eq\032\023.job.CommonResponse\"\000\022=\n\rVerifyCompa" +
+      "ny\022\025.job.VerifyCompanyReq\032\023.job.CommonRe" +
+      "sponse\"\000B\022\n\016com.kptl.protoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -157,7 +157,7 @@ public final class JobOuterClass {
     internal_static_job_FindJobByNameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_FindJobByNameRequest_descriptor,
-        new java.lang.String[] { "JobName", });
+        new java.lang.String[] { "JobName", "Index", "Size", });
     internal_static_job_FindJobByIdRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_job_FindJobByIdRequest_fieldAccessorTable = new

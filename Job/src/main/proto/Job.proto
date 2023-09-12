@@ -2,6 +2,7 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package="com.kptl.proto";
+option go_package="./job";
 
 package job;
 
@@ -16,10 +17,12 @@ message FindJobRequest {
 
 message FindJobByNameRequest {
   string jobName = 1;
+  int32 index = 2;
+  int32 size = 3;
 }
 
 message FindJobByIdRequest {
-  string jobId = 1;
+  int32 jobId = 1;
 }
 
 message FindAllJobRequest {
@@ -42,7 +45,7 @@ message ResponseHeader {
 }
 
 message RegisteredCompanyReq {
-    Company company = 1;
+  Company company = 1;
 }
 
 message Company {

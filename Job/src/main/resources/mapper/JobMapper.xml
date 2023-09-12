@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kptl.job.dao.JobMapper">
-
+    <resultMap id="jobResultMap" type="com.kptl.job.dto.JobDTO">
+        <result column="job_id" property="jobId"/>
+        <result column="job_name" property="jobName"/>
+        <result column="job_money" property="jobMoney"/>
+        <result column="job_req" property="jobReq"/>
+        <result column="job_location" property="jobLocation"/>
+        <result column="company_id" property="companyId"/>
+        <result column="recruiter_name" property="recruiterName"/>
+        <result column="recruiter_phone" property="recruiterPhone"/>
+        <result column="job_need" property="jobNeed"/>
+        <result column="recruiter_id" property="recruiterId"/>
+        <result column="open_time" property="openTime"/>
+        <result column="job_tags" property="jobTags"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="industry" property="industry"/>
+    </resultMap>
     <insert id="saveJob" parameterType="com.kptl.proto.JobMessage">
         insert into job(job_name, job_money, job_req, job_location, company_id, recruiter_name, recruiter_phone,
                         job_need, recruiter_id, open_time, job_tags, update_time)
@@ -15,28 +30,25 @@
                where job_id = {job.jobId}
     </update>
 
-    <select id="findJobByName" parameterType="java.lang.String" resultType="com.kptl.proto.JobMessage">
-        select job_id, job_name, job_money, job_location, company_id, recruiter_name, job_tags, recruiter_phone, update_time
-        from job where job_name like "%"#{jobName}"%" limit #{index}, #{size}
+    <select id="findJobByName" resultMap="jobResultMap">
+        select *
+        from job where job_name like "%"#{request.jobName}"%" limit #{request.index}, #{request.size}
     </select>
 
-    <select id="findJobById" parameterType="java.lang.Integer">
+    <select id="findJobById" parameterType="java.lang.Integer" resultMap="jobResultMap">
         select * from job where job_id = #{jobId}
     </select>
     
-    <select id="findAllJobs" resultType="com.kptl.proto.JobMessage">
-        select job_id, job_name, job_money, job_location, company_id, recruiter_name, job_tags, recruiter_phone, update_time
-        from job limit #{index}, #{size}
+    <select id="findAllJobs" resultMap="jobResultMap">
+        select * from job limit #{index}, #{size}
     </select>
 
-    <select id="findJobsByRecruiter" resultType="com.kptl.proto.JobMessage">
-        select job_id, job_name, job_money, job_location, company_id, recruiter_name, job_tags, recruiter_phone, update_time
-        from job where recruiter_id = #{request.id} limit #{request.index}, #{request.size}
+    <select id="findJobsByRecruiter" resultMap="jobResultMap">
+        select * from job where recruiter_id = #{request.id} limit #{request.index}, #{request.size}
     </select>
 
-    <select id="findJobsByRecruiter" resultType="com.kptl.proto.JobMessage">
-        select job_id, job_name, job_money, job_location, company_id, recruiter_name, job_tags, recruiter_phone, update_time
-        from job where company_id = #{request.id} limit #{request.index}, #{request.size}
+    <select id="findJobsByCompany" resultMap="jobResultMap">
+        select * from job where company_id = #{request.id} limit #{request.index}, #{request.size}
     </select>
 
 </mapper>

@@ -128,6 +128,7 @@ private static final long serialVersionUID = 0L;
   private int id_;
   /**
    * <pre>
+   *id
    * </pre>
    *
    * <code>int32 id = 1;</code>
@@ -140,6 +141,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object companyName_;
   /**
    * <pre>
+   *公司名称
    * </pre>
    *
    * <code>string companyName = 2;</code>
@@ -158,6 +160,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
+   *公司名称
    * </pre>
    *
    * <code>string companyName = 2;</code>
@@ -179,6 +182,10 @@ private static final long serialVersionUID = 0L;
   public static final int COMPANYLOCATION_FIELD_NUMBER = 3;
   private volatile java.lang.Object companyLocation_;
   /**
+   * <pre>
+   *地址
+   * </pre>
+   *
    * <code>string companyLocation = 3;</code>
    */
   public java.lang.String getCompanyLocation() {
@@ -194,6 +201,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   *地址
+   * </pre>
+   *
    * <code>string companyLocation = 3;</code>
    */
   public com.google.protobuf.ByteString
@@ -213,6 +224,10 @@ private static final long serialVersionUID = 0L;
   public static final int ISVIP_FIELD_NUMBER = 4;
   private int isVip_;
   /**
+   * <pre>
+   *是否会员
+   * </pre>
+   *
    * <code>int32 isVip = 4;</code>
    */
   public int getIsVip() {
@@ -222,6 +237,10 @@ private static final long serialVersionUID = 0L;
   public static final int ISCERTIFIED_FIELD_NUMBER = 5;
   private int isCertified_;
   /**
+   * <pre>
+   *是否认证
+   * </pre>
+   *
    * <code>int32 isCertified = 5;</code>
    */
   public int getIsCertified() {
@@ -231,6 +250,10 @@ private static final long serialVersionUID = 0L;
   public static final int REGISTERTIME_FIELD_NUMBER = 6;
   private long registerTime_;
   /**
+   * <pre>
+   *注册时间
+   * </pre>
+   *
    * <code>int64 registerTime = 6;</code>
    */
   public long getRegisterTime() {
@@ -240,6 +263,10 @@ private static final long serialVersionUID = 0L;
   public static final int UPDATETIME_FIELD_NUMBER = 7;
   private long updateTime_;
   /**
+   * <pre>
+   *刷新时间
+   * </pre>
+   *
    * <code>int64 updateTime = 7;</code>
    */
   public long getUpdateTime() {
@@ -695,6 +722,7 @@ private static final long serialVersionUID = 0L;
     private int id_ ;
     /**
      * <pre>
+     *id
      * </pre>
      *
      * <code>int32 id = 1;</code>
@@ -704,6 +732,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     *id
      * </pre>
      *
      * <code>int32 id = 1;</code>
@@ -716,6 +745,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     *id
      * </pre>
      *
      * <code>int32 id = 1;</code>
@@ -730,6 +760,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object companyName_ = "";
     /**
      * <pre>
+     *公司名称
      * </pre>
      *
      * <code>string companyName = 2;</code>
@@ -748,6 +779,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     *公司名称
      * </pre>
      *
      * <code>string companyName = 2;</code>
@@ -767,6 +799,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     *公司名称
      * </pre>
      *
      * <code>string companyName = 2;</code>
@@ -783,6 +816,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     *公司名称
      * </pre>
      *
      * <code>string companyName = 2;</code>
@@ -795,6 +829,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     *公司名称
      * </pre>
      *
      * <code>string companyName = 2;</code>
@@ -813,6 +848,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object companyLocation_ = "";
     /**
+     * <pre>
+     *地址
+     * </pre>
+     *
      * <code>string companyLocation = 3;</code>
      */
     public java.lang.String getCompanyLocation() {
@@ -828,6 +867,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *地址
+     * </pre>
+     *
      * <code>string companyLocation = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -844,6 +887,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *地址
+     * </pre>
+     *
      * <code>string companyLocation = 3;</code>
      */
     public Builder setCompanyLocation(
@@ -857,6 +904,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *地址
+     * </pre>
+     *
      * <code>string companyLocation = 3;</code>
      */
     public Builder clearCompanyLocation() {
@@ -866,6 +917,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *地址
+     * </pre>
+     *
      * <code>string companyLocation = 3;</code>
      */
     public Builder setCompanyLocationBytes(
@@ -882,12 +937,20 @@ private static final long serialVersionUID = 0L;
 
     private int isVip_ ;
     /**
+     * <pre>
+     *是否会员
+     * </pre>
+     *
      * <code>int32 isVip = 4;</code>
      */
     public int getIsVip() {
       return isVip_;
     }
     /**
+     * <pre>
+     *是否会员
+     * </pre>
+     *
      * <code>int32 isVip = 4;</code>
      */
     public Builder setIsVip(int value) {
@@ -897,6 +960,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *是否会员
+     * </pre>
+     *
      * <code>int32 isVip = 4;</code>
      */
     public Builder clearIsVip() {
@@ -908,12 +975,20 @@ private static final long serialVersionUID = 0L;
 
     private int isCertified_ ;
     /**
+     * <pre>
+     *是否认证
+     * </pre>
+     *
      * <code>int32 isCertified = 5;</code>
      */
     public int getIsCertified() {
       return isCertified_;
     }
     /**
+     * <pre>
+     *是否认证
+     * </pre>
+     *
      * <code>int32 isCertified = 5;</code>
      */
     public Builder setIsCertified(int value) {
@@ -923,6 +998,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *是否认证
+     * </pre>
+     *
      * <code>int32 isCertified = 5;</code>
      */
     public Builder clearIsCertified() {
@@ -934,12 +1013,20 @@ private static final long serialVersionUID = 0L;
 
     private long registerTime_ ;
     /**
+     * <pre>
+     *注册时间
+     * </pre>
+     *
      * <code>int64 registerTime = 6;</code>
      */
     public long getRegisterTime() {
       return registerTime_;
     }
     /**
+     * <pre>
+     *注册时间
+     * </pre>
+     *
      * <code>int64 registerTime = 6;</code>
      */
     public Builder setRegisterTime(long value) {
@@ -949,6 +1036,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *注册时间
+     * </pre>
+     *
      * <code>int64 registerTime = 6;</code>
      */
     public Builder clearRegisterTime() {
@@ -960,12 +1051,20 @@ private static final long serialVersionUID = 0L;
 
     private long updateTime_ ;
     /**
+     * <pre>
+     *刷新时间
+     * </pre>
+     *
      * <code>int64 updateTime = 7;</code>
      */
     public long getUpdateTime() {
       return updateTime_;
     }
     /**
+     * <pre>
+     *刷新时间
+     * </pre>
+     *
      * <code>int64 updateTime = 7;</code>
      */
     public Builder setUpdateTime(long value) {
@@ -975,6 +1074,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *刷新时间
+     * </pre>
+     *
      * <code>int64 updateTime = 7;</code>
      */
     public Builder clearUpdateTime() {

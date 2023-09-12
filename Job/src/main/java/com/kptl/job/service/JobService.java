@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public interface JobService {
-    List<JobMessage> findJobs(FindJobRequest request);
+    List<JobMessage> findJobs(FindJobRequest request) throws Exception;
 
     Boolean saveJob(JobMessage request);
 

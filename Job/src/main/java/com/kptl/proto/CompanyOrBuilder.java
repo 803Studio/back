@@ -9,6 +9,7 @@ public interface CompanyOrBuilder extends
 
   /**
    * <pre>
+   *id
    * </pre>
    *
    * <code>int32 id = 1;</code>
@@ -17,6 +18,7 @@ public interface CompanyOrBuilder extends
 
   /**
    * <pre>
+   *公司名称
    * </pre>
    *
    * <code>string companyName = 2;</code>
@@ -24,6 +26,7 @@ public interface CompanyOrBuilder extends
   java.lang.String getCompanyName();
   /**
    * <pre>
+   *公司名称
    * </pre>
    *
    * <code>string companyName = 2;</code>
@@ -32,31 +35,55 @@ public interface CompanyOrBuilder extends
       getCompanyNameBytes();
 
   /**
+   * <pre>
+   *地址
+   * </pre>
+   *
    * <code>string companyLocation = 3;</code>
    */
   java.lang.String getCompanyLocation();
   /**
+   * <pre>
+   *地址
+   * </pre>
+   *
    * <code>string companyLocation = 3;</code>
    */
   com.google.protobuf.ByteString
       getCompanyLocationBytes();
 
   /**
+   * <pre>
+   *是否会员
+   * </pre>
+   *
    * <code>int32 isVip = 4;</code>
    */
   int getIsVip();
 
   /**
+   * <pre>
+   *是否认证
+   * </pre>
+   *
    * <code>int32 isCertified = 5;</code>
    */
   int getIsCertified();
 
   /**
+   * <pre>
+   *注册时间
+   * </pre>
+   *
    * <code>int64 registerTime = 6;</code>
    */
   long getRegisterTime();
 
   /**
+   * <pre>
+   *刷新时间
+   * </pre>
+   *
    * <code>int64 updateTime = 7;</code>
    */
   long getUpdateTime();
