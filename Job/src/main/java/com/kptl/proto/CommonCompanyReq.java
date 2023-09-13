@@ -4,18 +4,18 @@
 package com.kptl.proto;
 
 /**
- * Protobuf type {@code job.VerifyCompanyReq}
+ * Protobuf type {@code job.CommonCompanyReq}
  */
-public  final class VerifyCompanyReq extends
+public  final class CommonCompanyReq extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:job.VerifyCompanyReq)
-    VerifyCompanyReqOrBuilder {
+    // @@protoc_insertion_point(message_implements:job.CommonCompanyReq)
+    CommonCompanyReqOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VerifyCompanyReq.newBuilder() to construct.
-  private VerifyCompanyReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use CommonCompanyReq.newBuilder() to construct.
+  private CommonCompanyReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VerifyCompanyReq() {
+  private CommonCompanyReq() {
     id_ = 0;
   }
 
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VerifyCompanyReq(
+  private CommonCompanyReq(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -69,14 +69,14 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.kptl.proto.JobOuterClass.internal_static_job_VerifyCompanyReq_descriptor;
+    return com.kptl.proto.JobOuterClass.internal_static_job_CommonCompanyReq_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.kptl.proto.JobOuterClass.internal_static_job_VerifyCompanyReq_fieldAccessorTable
+    return com.kptl.proto.JobOuterClass.internal_static_job_CommonCompanyReq_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.kptl.proto.VerifyCompanyReq.class, com.kptl.proto.VerifyCompanyReq.Builder.class);
+            com.kptl.proto.CommonCompanyReq.class, com.kptl.proto.CommonCompanyReq.Builder.class);
   }
 
   public static final int ID_FIELD_NUMBER = 1;
@@ -125,10 +125,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.kptl.proto.VerifyCompanyReq)) {
+    if (!(obj instanceof com.kptl.proto.CommonCompanyReq)) {
       return super.equals(obj);
     }
-    com.kptl.proto.VerifyCompanyReq other = (com.kptl.proto.VerifyCompanyReq) obj;
+    com.kptl.proto.CommonCompanyReq other = (com.kptl.proto.CommonCompanyReq) obj;
 
     boolean result = true;
     result = result && (getId()
@@ -151,69 +151,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.kptl.proto.VerifyCompanyReq parseFrom(
+  public static com.kptl.proto.CommonCompanyReq parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.kptl.proto.VerifyCompanyReq parseFrom(
+  public static com.kptl.proto.CommonCompanyReq parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.kptl.proto.VerifyCompanyReq parseFrom(
+  public static com.kptl.proto.CommonCompanyReq parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.kptl.proto.VerifyCompanyReq parseFrom(
+  public static com.kptl.proto.CommonCompanyReq parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.kptl.proto.VerifyCompanyReq parseFrom(byte[] data)
+  public static com.kptl.proto.CommonCompanyReq parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.kptl.proto.VerifyCompanyReq parseFrom(
+  public static com.kptl.proto.CommonCompanyReq parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.kptl.proto.VerifyCompanyReq parseFrom(java.io.InputStream input)
+  public static com.kptl.proto.CommonCompanyReq parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.kptl.proto.VerifyCompanyReq parseFrom(
+  public static com.kptl.proto.CommonCompanyReq parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.kptl.proto.VerifyCompanyReq parseDelimitedFrom(java.io.InputStream input)
+  public static com.kptl.proto.CommonCompanyReq parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.kptl.proto.VerifyCompanyReq parseDelimitedFrom(
+  public static com.kptl.proto.CommonCompanyReq parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.kptl.proto.VerifyCompanyReq parseFrom(
+  public static com.kptl.proto.CommonCompanyReq parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.kptl.proto.VerifyCompanyReq parseFrom(
+  public static com.kptl.proto.CommonCompanyReq parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -225,7 +225,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.kptl.proto.VerifyCompanyReq prototype) {
+  public static Builder newBuilder(com.kptl.proto.CommonCompanyReq prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -240,25 +240,25 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code job.VerifyCompanyReq}
+   * Protobuf type {@code job.CommonCompanyReq}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:job.VerifyCompanyReq)
-      com.kptl.proto.VerifyCompanyReqOrBuilder {
+      // @@protoc_insertion_point(builder_implements:job.CommonCompanyReq)
+      com.kptl.proto.CommonCompanyReqOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.kptl.proto.JobOuterClass.internal_static_job_VerifyCompanyReq_descriptor;
+      return com.kptl.proto.JobOuterClass.internal_static_job_CommonCompanyReq_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.kptl.proto.JobOuterClass.internal_static_job_VerifyCompanyReq_fieldAccessorTable
+      return com.kptl.proto.JobOuterClass.internal_static_job_CommonCompanyReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.kptl.proto.VerifyCompanyReq.class, com.kptl.proto.VerifyCompanyReq.Builder.class);
+              com.kptl.proto.CommonCompanyReq.class, com.kptl.proto.CommonCompanyReq.Builder.class);
     }
 
-    // Construct using com.kptl.proto.VerifyCompanyReq.newBuilder()
+    // Construct using com.kptl.proto.CommonCompanyReq.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -282,23 +282,23 @@ private static final long serialVersionUID = 0L;
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.kptl.proto.JobOuterClass.internal_static_job_VerifyCompanyReq_descriptor;
+      return com.kptl.proto.JobOuterClass.internal_static_job_CommonCompanyReq_descriptor;
     }
 
-    public com.kptl.proto.VerifyCompanyReq getDefaultInstanceForType() {
-      return com.kptl.proto.VerifyCompanyReq.getDefaultInstance();
+    public com.kptl.proto.CommonCompanyReq getDefaultInstanceForType() {
+      return com.kptl.proto.CommonCompanyReq.getDefaultInstance();
     }
 
-    public com.kptl.proto.VerifyCompanyReq build() {
-      com.kptl.proto.VerifyCompanyReq result = buildPartial();
+    public com.kptl.proto.CommonCompanyReq build() {
+      com.kptl.proto.CommonCompanyReq result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.kptl.proto.VerifyCompanyReq buildPartial() {
-      com.kptl.proto.VerifyCompanyReq result = new com.kptl.proto.VerifyCompanyReq(this);
+    public com.kptl.proto.CommonCompanyReq buildPartial() {
+      com.kptl.proto.CommonCompanyReq result = new com.kptl.proto.CommonCompanyReq(this);
       result.id_ = id_;
       onBuilt();
       return result;
@@ -331,16 +331,16 @@ private static final long serialVersionUID = 0L;
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.kptl.proto.VerifyCompanyReq) {
-        return mergeFrom((com.kptl.proto.VerifyCompanyReq)other);
+      if (other instanceof com.kptl.proto.CommonCompanyReq) {
+        return mergeFrom((com.kptl.proto.CommonCompanyReq)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.kptl.proto.VerifyCompanyReq other) {
-      if (other == com.kptl.proto.VerifyCompanyReq.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.kptl.proto.CommonCompanyReq other) {
+      if (other == com.kptl.proto.CommonCompanyReq.getDefaultInstance()) return this;
       if (other.getId() != 0) {
         setId(other.getId());
       }
@@ -357,11 +357,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.kptl.proto.VerifyCompanyReq parsedMessage = null;
+      com.kptl.proto.CommonCompanyReq parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.kptl.proto.VerifyCompanyReq) e.getUnfinishedMessage();
+        parsedMessage = (com.kptl.proto.CommonCompanyReq) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -407,39 +407,39 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:job.VerifyCompanyReq)
+    // @@protoc_insertion_point(builder_scope:job.CommonCompanyReq)
   }
 
-  // @@protoc_insertion_point(class_scope:job.VerifyCompanyReq)
-  private static final com.kptl.proto.VerifyCompanyReq DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:job.CommonCompanyReq)
+  private static final com.kptl.proto.CommonCompanyReq DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.kptl.proto.VerifyCompanyReq();
+    DEFAULT_INSTANCE = new com.kptl.proto.CommonCompanyReq();
   }
 
-  public static com.kptl.proto.VerifyCompanyReq getDefaultInstance() {
+  public static com.kptl.proto.CommonCompanyReq getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VerifyCompanyReq>
-      PARSER = new com.google.protobuf.AbstractParser<VerifyCompanyReq>() {
-    public VerifyCompanyReq parsePartialFrom(
+  private static final com.google.protobuf.Parser<CommonCompanyReq>
+      PARSER = new com.google.protobuf.AbstractParser<CommonCompanyReq>() {
+    public CommonCompanyReq parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VerifyCompanyReq(input, extensionRegistry);
+      return new CommonCompanyReq(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VerifyCompanyReq> parser() {
+  public static com.google.protobuf.Parser<CommonCompanyReq> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VerifyCompanyReq> getParserForType() {
+  public com.google.protobuf.Parser<CommonCompanyReq> getParserForType() {
     return PARSER;
   }
 
-  public com.kptl.proto.VerifyCompanyReq getDefaultInstanceForType() {
+  public com.kptl.proto.CommonCompanyReq getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

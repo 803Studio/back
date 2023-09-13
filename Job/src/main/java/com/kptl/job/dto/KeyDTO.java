@@ -1,8 +1,11 @@
 package com.kptl.job.dto;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 public class KeyDTO {
     String user;
 

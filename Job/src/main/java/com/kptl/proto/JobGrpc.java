@@ -327,33 +327,144 @@ public final class JobGrpc {
      return getUpdateCompanyMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getFindCompanyByNameMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<com.kptl.proto.FindCompanyByNameReq,
+      com.kptl.proto.CommonCompanyResponse> METHOD_FIND_COMPANY_BY_NAME = getFindCompanyByNameMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.FindCompanyByNameReq,
+      com.kptl.proto.CommonCompanyResponse> getFindCompanyByNameMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<com.kptl.proto.FindCompanyByNameReq,
+      com.kptl.proto.CommonCompanyResponse> getFindCompanyByNameMethod() {
+    return getFindCompanyByNameMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<com.kptl.proto.FindCompanyByNameReq,
+      com.kptl.proto.CommonCompanyResponse> getFindCompanyByNameMethodHelper() {
+    io.grpc.MethodDescriptor<com.kptl.proto.FindCompanyByNameReq, com.kptl.proto.CommonCompanyResponse> getFindCompanyByNameMethod;
+    if ((getFindCompanyByNameMethod = JobGrpc.getFindCompanyByNameMethod) == null) {
+      synchronized (JobGrpc.class) {
+        if ((getFindCompanyByNameMethod = JobGrpc.getFindCompanyByNameMethod) == null) {
+          JobGrpc.getFindCompanyByNameMethod = getFindCompanyByNameMethod = 
+              io.grpc.MethodDescriptor.<com.kptl.proto.FindCompanyByNameReq, com.kptl.proto.CommonCompanyResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "job.Job", "FindCompanyByName"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.FindCompanyByNameReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.CommonCompanyResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new JobMethodDescriptorSupplier("FindCompanyByName"))
+                  .build();
+          }
+        }
+     }
+     return getFindCompanyByNameMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getFindCompanyByIdMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq,
+      com.kptl.proto.FindCompanyByIdResponse> METHOD_FIND_COMPANY_BY_ID = getFindCompanyByIdMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq,
+      com.kptl.proto.FindCompanyByIdResponse> getFindCompanyByIdMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq,
+      com.kptl.proto.FindCompanyByIdResponse> getFindCompanyByIdMethod() {
+    return getFindCompanyByIdMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq,
+      com.kptl.proto.FindCompanyByIdResponse> getFindCompanyByIdMethodHelper() {
+    io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq, com.kptl.proto.FindCompanyByIdResponse> getFindCompanyByIdMethod;
+    if ((getFindCompanyByIdMethod = JobGrpc.getFindCompanyByIdMethod) == null) {
+      synchronized (JobGrpc.class) {
+        if ((getFindCompanyByIdMethod = JobGrpc.getFindCompanyByIdMethod) == null) {
+          JobGrpc.getFindCompanyByIdMethod = getFindCompanyByIdMethod = 
+              io.grpc.MethodDescriptor.<com.kptl.proto.CommonCompanyReq, com.kptl.proto.FindCompanyByIdResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "job.Job", "FindCompanyById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.CommonCompanyReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.FindCompanyByIdResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new JobMethodDescriptorSupplier("FindCompanyById"))
+                  .build();
+          }
+        }
+     }
+     return getFindCompanyByIdMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getFindAllCompaniesMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<com.kptl.proto.FindAllCompaniesReq,
+      com.kptl.proto.CommonCompanyResponse> METHOD_FIND_ALL_COMPANIES = getFindAllCompaniesMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.FindAllCompaniesReq,
+      com.kptl.proto.CommonCompanyResponse> getFindAllCompaniesMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<com.kptl.proto.FindAllCompaniesReq,
+      com.kptl.proto.CommonCompanyResponse> getFindAllCompaniesMethod() {
+    return getFindAllCompaniesMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<com.kptl.proto.FindAllCompaniesReq,
+      com.kptl.proto.CommonCompanyResponse> getFindAllCompaniesMethodHelper() {
+    io.grpc.MethodDescriptor<com.kptl.proto.FindAllCompaniesReq, com.kptl.proto.CommonCompanyResponse> getFindAllCompaniesMethod;
+    if ((getFindAllCompaniesMethod = JobGrpc.getFindAllCompaniesMethod) == null) {
+      synchronized (JobGrpc.class) {
+        if ((getFindAllCompaniesMethod = JobGrpc.getFindAllCompaniesMethod) == null) {
+          JobGrpc.getFindAllCompaniesMethod = getFindAllCompaniesMethod = 
+              io.grpc.MethodDescriptor.<com.kptl.proto.FindAllCompaniesReq, com.kptl.proto.CommonCompanyResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "job.Job", "FindAllCompanies"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.FindAllCompaniesReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.CommonCompanyResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new JobMethodDescriptorSupplier("FindAllCompanies"))
+                  .build();
+          }
+        }
+     }
+     return getFindAllCompaniesMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getBoundCompanyMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<com.kptl.proto.BoundCompanyReq,
+  public static final io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq,
       com.kptl.proto.CommonResponse> METHOD_BOUND_COMPANY = getBoundCompanyMethodHelper();
 
-  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.BoundCompanyReq,
+  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq,
       com.kptl.proto.CommonResponse> getBoundCompanyMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<com.kptl.proto.BoundCompanyReq,
+  public static io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq,
       com.kptl.proto.CommonResponse> getBoundCompanyMethod() {
     return getBoundCompanyMethodHelper();
   }
 
-  private static io.grpc.MethodDescriptor<com.kptl.proto.BoundCompanyReq,
+  private static io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq,
       com.kptl.proto.CommonResponse> getBoundCompanyMethodHelper() {
-    io.grpc.MethodDescriptor<com.kptl.proto.BoundCompanyReq, com.kptl.proto.CommonResponse> getBoundCompanyMethod;
+    io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq, com.kptl.proto.CommonResponse> getBoundCompanyMethod;
     if ((getBoundCompanyMethod = JobGrpc.getBoundCompanyMethod) == null) {
       synchronized (JobGrpc.class) {
         if ((getBoundCompanyMethod = JobGrpc.getBoundCompanyMethod) == null) {
           JobGrpc.getBoundCompanyMethod = getBoundCompanyMethod = 
-              io.grpc.MethodDescriptor.<com.kptl.proto.BoundCompanyReq, com.kptl.proto.CommonResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.kptl.proto.CommonCompanyReq, com.kptl.proto.CommonResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "job.Job", "BoundCompany"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.kptl.proto.BoundCompanyReq.getDefaultInstance()))
+                  com.kptl.proto.CommonCompanyReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.kptl.proto.CommonResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new JobMethodDescriptorSupplier("BoundCompany"))
@@ -365,32 +476,32 @@ public final class JobGrpc {
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getVerifyCompanyMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<com.kptl.proto.VerifyCompanyReq,
+  public static final io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq,
       com.kptl.proto.CommonResponse> METHOD_VERIFY_COMPANY = getVerifyCompanyMethodHelper();
 
-  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.VerifyCompanyReq,
+  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq,
       com.kptl.proto.CommonResponse> getVerifyCompanyMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<com.kptl.proto.VerifyCompanyReq,
+  public static io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq,
       com.kptl.proto.CommonResponse> getVerifyCompanyMethod() {
     return getVerifyCompanyMethodHelper();
   }
 
-  private static io.grpc.MethodDescriptor<com.kptl.proto.VerifyCompanyReq,
+  private static io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq,
       com.kptl.proto.CommonResponse> getVerifyCompanyMethodHelper() {
-    io.grpc.MethodDescriptor<com.kptl.proto.VerifyCompanyReq, com.kptl.proto.CommonResponse> getVerifyCompanyMethod;
+    io.grpc.MethodDescriptor<com.kptl.proto.CommonCompanyReq, com.kptl.proto.CommonResponse> getVerifyCompanyMethod;
     if ((getVerifyCompanyMethod = JobGrpc.getVerifyCompanyMethod) == null) {
       synchronized (JobGrpc.class) {
         if ((getVerifyCompanyMethod = JobGrpc.getVerifyCompanyMethod) == null) {
           JobGrpc.getVerifyCompanyMethod = getVerifyCompanyMethod = 
-              io.grpc.MethodDescriptor.<com.kptl.proto.VerifyCompanyReq, com.kptl.proto.CommonResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.kptl.proto.CommonCompanyReq, com.kptl.proto.CommonResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "job.Job", "VerifyCompany"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.kptl.proto.VerifyCompanyReq.getDefaultInstance()))
+                  com.kptl.proto.CommonCompanyReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.kptl.proto.CommonResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new JobMethodDescriptorSupplier("VerifyCompany"))
@@ -489,14 +600,35 @@ public final class JobGrpc {
 
     /**
      */
-    public void boundCompany(com.kptl.proto.BoundCompanyReq request,
+    public void findCompanyByName(com.kptl.proto.FindCompanyByNameReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.CommonCompanyResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getFindCompanyByNameMethodHelper(), responseObserver);
+    }
+
+    /**
+     */
+    public void findCompanyById(com.kptl.proto.CommonCompanyReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.FindCompanyByIdResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getFindCompanyByIdMethodHelper(), responseObserver);
+    }
+
+    /**
+     */
+    public void findAllCompanies(com.kptl.proto.FindAllCompaniesReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.CommonCompanyResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getFindAllCompaniesMethodHelper(), responseObserver);
+    }
+
+    /**
+     */
+    public void boundCompany(com.kptl.proto.CommonCompanyReq request,
         io.grpc.stub.StreamObserver<com.kptl.proto.CommonResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getBoundCompanyMethodHelper(), responseObserver);
     }
 
     /**
      */
-    public void verifyCompany(com.kptl.proto.VerifyCompanyReq request,
+    public void verifyCompany(com.kptl.proto.CommonCompanyReq request,
         io.grpc.stub.StreamObserver<com.kptl.proto.CommonResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getVerifyCompanyMethodHelper(), responseObserver);
     }
@@ -560,17 +692,38 @@ public final class JobGrpc {
                 com.kptl.proto.CommonResponse>(
                   this, METHODID_UPDATE_COMPANY)))
           .addMethod(
+            getFindCompanyByNameMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.kptl.proto.FindCompanyByNameReq,
+                com.kptl.proto.CommonCompanyResponse>(
+                  this, METHODID_FIND_COMPANY_BY_NAME)))
+          .addMethod(
+            getFindCompanyByIdMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.kptl.proto.CommonCompanyReq,
+                com.kptl.proto.FindCompanyByIdResponse>(
+                  this, METHODID_FIND_COMPANY_BY_ID)))
+          .addMethod(
+            getFindAllCompaniesMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.kptl.proto.FindAllCompaniesReq,
+                com.kptl.proto.CommonCompanyResponse>(
+                  this, METHODID_FIND_ALL_COMPANIES)))
+          .addMethod(
             getBoundCompanyMethodHelper(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.kptl.proto.BoundCompanyReq,
+                com.kptl.proto.CommonCompanyReq,
                 com.kptl.proto.CommonResponse>(
                   this, METHODID_BOUND_COMPANY)))
           .addMethod(
             getVerifyCompanyMethodHelper(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.kptl.proto.VerifyCompanyReq,
+                com.kptl.proto.CommonCompanyReq,
                 com.kptl.proto.CommonResponse>(
                   this, METHODID_VERIFY_COMPANY)))
           .build();
@@ -664,7 +817,31 @@ public final class JobGrpc {
 
     /**
      */
-    public void boundCompany(com.kptl.proto.BoundCompanyReq request,
+    public void findCompanyByName(com.kptl.proto.FindCompanyByNameReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.CommonCompanyResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getFindCompanyByNameMethodHelper(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void findCompanyById(com.kptl.proto.CommonCompanyReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.FindCompanyByIdResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getFindCompanyByIdMethodHelper(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void findAllCompanies(com.kptl.proto.FindAllCompaniesReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.CommonCompanyResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getFindAllCompaniesMethodHelper(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void boundCompany(com.kptl.proto.CommonCompanyReq request,
         io.grpc.stub.StreamObserver<com.kptl.proto.CommonResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getBoundCompanyMethodHelper(), getCallOptions()), request, responseObserver);
@@ -672,7 +849,7 @@ public final class JobGrpc {
 
     /**
      */
-    public void verifyCompany(com.kptl.proto.VerifyCompanyReq request,
+    public void verifyCompany(com.kptl.proto.CommonCompanyReq request,
         io.grpc.stub.StreamObserver<com.kptl.proto.CommonResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getVerifyCompanyMethodHelper(), getCallOptions()), request, responseObserver);
@@ -758,14 +935,35 @@ public final class JobGrpc {
 
     /**
      */
-    public com.kptl.proto.CommonResponse boundCompany(com.kptl.proto.BoundCompanyReq request) {
+    public com.kptl.proto.CommonCompanyResponse findCompanyByName(com.kptl.proto.FindCompanyByNameReq request) {
+      return blockingUnaryCall(
+          getChannel(), getFindCompanyByNameMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.kptl.proto.FindCompanyByIdResponse findCompanyById(com.kptl.proto.CommonCompanyReq request) {
+      return blockingUnaryCall(
+          getChannel(), getFindCompanyByIdMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.kptl.proto.CommonCompanyResponse findAllCompanies(com.kptl.proto.FindAllCompaniesReq request) {
+      return blockingUnaryCall(
+          getChannel(), getFindAllCompaniesMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.kptl.proto.CommonResponse boundCompany(com.kptl.proto.CommonCompanyReq request) {
       return blockingUnaryCall(
           getChannel(), getBoundCompanyMethodHelper(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.kptl.proto.CommonResponse verifyCompany(com.kptl.proto.VerifyCompanyReq request) {
+    public com.kptl.proto.CommonResponse verifyCompany(com.kptl.proto.CommonCompanyReq request) {
       return blockingUnaryCall(
           getChannel(), getVerifyCompanyMethodHelper(), getCallOptions(), request);
     }
@@ -858,8 +1056,32 @@ public final class JobGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.CommonCompanyResponse> findCompanyByName(
+        com.kptl.proto.FindCompanyByNameReq request) {
+      return futureUnaryCall(
+          getChannel().newCall(getFindCompanyByNameMethodHelper(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.FindCompanyByIdResponse> findCompanyById(
+        com.kptl.proto.CommonCompanyReq request) {
+      return futureUnaryCall(
+          getChannel().newCall(getFindCompanyByIdMethodHelper(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.CommonCompanyResponse> findAllCompanies(
+        com.kptl.proto.FindAllCompaniesReq request) {
+      return futureUnaryCall(
+          getChannel().newCall(getFindAllCompaniesMethodHelper(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.CommonResponse> boundCompany(
-        com.kptl.proto.BoundCompanyReq request) {
+        com.kptl.proto.CommonCompanyReq request) {
       return futureUnaryCall(
           getChannel().newCall(getBoundCompanyMethodHelper(), getCallOptions()), request);
     }
@@ -867,7 +1089,7 @@ public final class JobGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.CommonResponse> verifyCompany(
-        com.kptl.proto.VerifyCompanyReq request) {
+        com.kptl.proto.CommonCompanyReq request) {
       return futureUnaryCall(
           getChannel().newCall(getVerifyCompanyMethodHelper(), getCallOptions()), request);
     }
@@ -881,8 +1103,11 @@ public final class JobGrpc {
   private static final int METHODID_UPDATE_JOBS = 5;
   private static final int METHODID_REGISTERED_COMPANY = 6;
   private static final int METHODID_UPDATE_COMPANY = 7;
-  private static final int METHODID_BOUND_COMPANY = 8;
-  private static final int METHODID_VERIFY_COMPANY = 9;
+  private static final int METHODID_FIND_COMPANY_BY_NAME = 8;
+  private static final int METHODID_FIND_COMPANY_BY_ID = 9;
+  private static final int METHODID_FIND_ALL_COMPANIES = 10;
+  private static final int METHODID_BOUND_COMPANY = 11;
+  private static final int METHODID_VERIFY_COMPANY = 12;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -933,12 +1158,24 @@ public final class JobGrpc {
           serviceImpl.updateCompany((com.kptl.proto.RegisteredCompanyReq) request,
               (io.grpc.stub.StreamObserver<com.kptl.proto.CommonResponse>) responseObserver);
           break;
+        case METHODID_FIND_COMPANY_BY_NAME:
+          serviceImpl.findCompanyByName((com.kptl.proto.FindCompanyByNameReq) request,
+              (io.grpc.stub.StreamObserver<com.kptl.proto.CommonCompanyResponse>) responseObserver);
+          break;
+        case METHODID_FIND_COMPANY_BY_ID:
+          serviceImpl.findCompanyById((com.kptl.proto.CommonCompanyReq) request,
+              (io.grpc.stub.StreamObserver<com.kptl.proto.FindCompanyByIdResponse>) responseObserver);
+          break;
+        case METHODID_FIND_ALL_COMPANIES:
+          serviceImpl.findAllCompanies((com.kptl.proto.FindAllCompaniesReq) request,
+              (io.grpc.stub.StreamObserver<com.kptl.proto.CommonCompanyResponse>) responseObserver);
+          break;
         case METHODID_BOUND_COMPANY:
-          serviceImpl.boundCompany((com.kptl.proto.BoundCompanyReq) request,
+          serviceImpl.boundCompany((com.kptl.proto.CommonCompanyReq) request,
               (io.grpc.stub.StreamObserver<com.kptl.proto.CommonResponse>) responseObserver);
           break;
         case METHODID_VERIFY_COMPANY:
-          serviceImpl.verifyCompany((com.kptl.proto.VerifyCompanyReq) request,
+          serviceImpl.verifyCompany((com.kptl.proto.CommonCompanyReq) request,
               (io.grpc.stub.StreamObserver<com.kptl.proto.CommonResponse>) responseObserver);
           break;
         default:
@@ -1010,6 +1247,9 @@ public final class JobGrpc {
               .addMethod(getUpdateJobsMethodHelper())
               .addMethod(getRegisteredCompanyMethodHelper())
               .addMethod(getUpdateCompanyMethodHelper())
+              .addMethod(getFindCompanyByNameMethodHelper())
+              .addMethod(getFindCompanyByIdMethodHelper())
+              .addMethod(getFindAllCompaniesMethodHelper())
               .addMethod(getBoundCompanyMethodHelper())
               .addMethod(getVerifyCompanyMethodHelper())
               .build();

@@ -106,11 +106,6 @@ public class JobImpl extends JobGrpc.JobImplBase {
         responseObserver.onCompleted();
     }
 
-    @Override
-    public void boundCompany(BoundCompanyReq request, StreamObserver<CommonResponse> responseObserver) {
-        super.boundCompany(request, responseObserver);
-    }
-
     /**
      * 新建职位
      */
@@ -184,7 +179,65 @@ public class JobImpl extends JobGrpc.JobImplBase {
     }
 
     @Override
-    public void verifyCompany(VerifyCompanyReq request, StreamObserver<CommonResponse> responseObserver) {
+    public void findCompanyByName(FindCompanyByNameReq request, StreamObserver<CommonCompanyResponse> responseObserver) {
+        List<Company> companies = new ArrayList<>();
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        CommonCompanyResponse.Builder builder = CommonCompanyResponse.newBuilder();
+        try {
+            companies = companyService.findCompanyByName(request);
+            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+        } catch (Exception e) {
+            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+        }
+        builder.setHeader(header);
+        for (Company company : companies) {
+            builder.addCompanies(company);
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void findCompanyById(CommonCompanyReq request, StreamObserver<FindCompanyByIdResponse> responseObserver) {
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        FindCompanyByIdResponse.Builder builder = FindCompanyByIdResponse.newBuilder();
+        try {
+            builder.setCompany(companyService.findCompaniesById(request.getId()));
+            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+        } catch (Exception e) {
+            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+        }
+        builder.setHeader(header);
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void findAllCompanies(FindAllCompaniesReq request, StreamObserver<CommonCompanyResponse> responseObserver) {
+        List<Company> companies = new ArrayList<>();
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        CommonCompanyResponse.Builder builder = CommonCompanyResponse.newBuilder();
+        try {
+            companies = companyService.findCompanies(request);
+            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+        } catch (Exception e) {
+            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+        }
+        builder.setHeader(header);
+        for (Company company : companies) {
+            builder.addCompanies(company);
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void boundCompany(CommonCompanyReq request, StreamObserver<CommonResponse> responseObserver) {
+        super.boundCompany(request, responseObserver);
+    }
+
+    @Override
+    public void verifyCompany(CommonCompanyReq request, StreamObserver<CommonResponse> responseObserver) {
         super.verifyCompany(request, responseObserver);
     }
 }

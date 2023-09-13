@@ -4,19 +4,20 @@
 package com.kptl.proto;
 
 /**
- * Protobuf type {@code job.BoundCompanyReq}
+ * Protobuf type {@code job.FindAllCompaniesReq}
  */
-public  final class BoundCompanyReq extends
+public  final class FindAllCompaniesReq extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:job.BoundCompanyReq)
-    BoundCompanyReqOrBuilder {
+    // @@protoc_insertion_point(message_implements:job.FindAllCompaniesReq)
+    FindAllCompaniesReqOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use BoundCompanyReq.newBuilder() to construct.
-  private BoundCompanyReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use FindAllCompaniesReq.newBuilder() to construct.
+  private FindAllCompaniesReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private BoundCompanyReq() {
-    id_ = 0;
+  private FindAllCompaniesReq() {
+    index_ = 0;
+    size_ = 0;
   }
 
   @java.lang.Override
@@ -24,7 +25,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BoundCompanyReq(
+  private FindAllCompaniesReq(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -52,7 +53,12 @@ private static final long serialVersionUID = 0L;
           }
           case 8: {
 
-            id_ = input.readInt32();
+            index_ = input.readInt32();
+            break;
+          }
+          case 16: {
+
+            size_ = input.readInt32();
             break;
           }
         }
@@ -69,23 +75,32 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.kptl.proto.JobOuterClass.internal_static_job_BoundCompanyReq_descriptor;
+    return com.kptl.proto.JobOuterClass.internal_static_job_FindAllCompaniesReq_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.kptl.proto.JobOuterClass.internal_static_job_BoundCompanyReq_fieldAccessorTable
+    return com.kptl.proto.JobOuterClass.internal_static_job_FindAllCompaniesReq_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.kptl.proto.BoundCompanyReq.class, com.kptl.proto.BoundCompanyReq.Builder.class);
+            com.kptl.proto.FindAllCompaniesReq.class, com.kptl.proto.FindAllCompaniesReq.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
-  private int id_;
+  public static final int INDEX_FIELD_NUMBER = 1;
+  private int index_;
   /**
-   * <code>int32 id = 1;</code>
+   * <code>int32 index = 1;</code>
    */
-  public int getId() {
-    return id_;
+  public int getIndex() {
+    return index_;
+  }
+
+  public static final int SIZE_FIELD_NUMBER = 2;
+  private int size_;
+  /**
+   * <code>int32 size = 2;</code>
+   */
+  public int getSize() {
+    return size_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -100,8 +115,11 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (id_ != 0) {
-      output.writeInt32(1, id_);
+    if (index_ != 0) {
+      output.writeInt32(1, index_);
+    }
+    if (size_ != 0) {
+      output.writeInt32(2, size_);
     }
     unknownFields.writeTo(output);
   }
@@ -111,9 +129,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (id_ != 0) {
+    if (index_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, id_);
+        .computeInt32Size(1, index_);
+    }
+    if (size_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, size_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -125,14 +147,16 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.kptl.proto.BoundCompanyReq)) {
+    if (!(obj instanceof com.kptl.proto.FindAllCompaniesReq)) {
       return super.equals(obj);
     }
-    com.kptl.proto.BoundCompanyReq other = (com.kptl.proto.BoundCompanyReq) obj;
+    com.kptl.proto.FindAllCompaniesReq other = (com.kptl.proto.FindAllCompaniesReq) obj;
 
     boolean result = true;
-    result = result && (getId()
-        == other.getId());
+    result = result && (getIndex()
+        == other.getIndex());
+    result = result && (getSize()
+        == other.getSize());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -144,76 +168,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId();
+    hash = (37 * hash) + INDEX_FIELD_NUMBER;
+    hash = (53 * hash) + getIndex();
+    hash = (37 * hash) + SIZE_FIELD_NUMBER;
+    hash = (53 * hash) + getSize();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.kptl.proto.BoundCompanyReq parseFrom(
+  public static com.kptl.proto.FindAllCompaniesReq parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.kptl.proto.BoundCompanyReq parseFrom(
+  public static com.kptl.proto.FindAllCompaniesReq parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.kptl.proto.BoundCompanyReq parseFrom(
+  public static com.kptl.proto.FindAllCompaniesReq parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.kptl.proto.BoundCompanyReq parseFrom(
+  public static com.kptl.proto.FindAllCompaniesReq parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.kptl.proto.BoundCompanyReq parseFrom(byte[] data)
+  public static com.kptl.proto.FindAllCompaniesReq parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.kptl.proto.BoundCompanyReq parseFrom(
+  public static com.kptl.proto.FindAllCompaniesReq parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.kptl.proto.BoundCompanyReq parseFrom(java.io.InputStream input)
+  public static com.kptl.proto.FindAllCompaniesReq parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.kptl.proto.BoundCompanyReq parseFrom(
+  public static com.kptl.proto.FindAllCompaniesReq parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.kptl.proto.BoundCompanyReq parseDelimitedFrom(java.io.InputStream input)
+  public static com.kptl.proto.FindAllCompaniesReq parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.kptl.proto.BoundCompanyReq parseDelimitedFrom(
+  public static com.kptl.proto.FindAllCompaniesReq parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.kptl.proto.BoundCompanyReq parseFrom(
+  public static com.kptl.proto.FindAllCompaniesReq parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.kptl.proto.BoundCompanyReq parseFrom(
+  public static com.kptl.proto.FindAllCompaniesReq parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -225,7 +251,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.kptl.proto.BoundCompanyReq prototype) {
+  public static Builder newBuilder(com.kptl.proto.FindAllCompaniesReq prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -240,25 +266,25 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code job.BoundCompanyReq}
+   * Protobuf type {@code job.FindAllCompaniesReq}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:job.BoundCompanyReq)
-      com.kptl.proto.BoundCompanyReqOrBuilder {
+      // @@protoc_insertion_point(builder_implements:job.FindAllCompaniesReq)
+      com.kptl.proto.FindAllCompaniesReqOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.kptl.proto.JobOuterClass.internal_static_job_BoundCompanyReq_descriptor;
+      return com.kptl.proto.JobOuterClass.internal_static_job_FindAllCompaniesReq_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.kptl.proto.JobOuterClass.internal_static_job_BoundCompanyReq_fieldAccessorTable
+      return com.kptl.proto.JobOuterClass.internal_static_job_FindAllCompaniesReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.kptl.proto.BoundCompanyReq.class, com.kptl.proto.BoundCompanyReq.Builder.class);
+              com.kptl.proto.FindAllCompaniesReq.class, com.kptl.proto.FindAllCompaniesReq.Builder.class);
     }
 
-    // Construct using com.kptl.proto.BoundCompanyReq.newBuilder()
+    // Construct using com.kptl.proto.FindAllCompaniesReq.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -275,31 +301,34 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      id_ = 0;
+      index_ = 0;
+
+      size_ = 0;
 
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.kptl.proto.JobOuterClass.internal_static_job_BoundCompanyReq_descriptor;
+      return com.kptl.proto.JobOuterClass.internal_static_job_FindAllCompaniesReq_descriptor;
     }
 
-    public com.kptl.proto.BoundCompanyReq getDefaultInstanceForType() {
-      return com.kptl.proto.BoundCompanyReq.getDefaultInstance();
+    public com.kptl.proto.FindAllCompaniesReq getDefaultInstanceForType() {
+      return com.kptl.proto.FindAllCompaniesReq.getDefaultInstance();
     }
 
-    public com.kptl.proto.BoundCompanyReq build() {
-      com.kptl.proto.BoundCompanyReq result = buildPartial();
+    public com.kptl.proto.FindAllCompaniesReq build() {
+      com.kptl.proto.FindAllCompaniesReq result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.kptl.proto.BoundCompanyReq buildPartial() {
-      com.kptl.proto.BoundCompanyReq result = new com.kptl.proto.BoundCompanyReq(this);
-      result.id_ = id_;
+    public com.kptl.proto.FindAllCompaniesReq buildPartial() {
+      com.kptl.proto.FindAllCompaniesReq result = new com.kptl.proto.FindAllCompaniesReq(this);
+      result.index_ = index_;
+      result.size_ = size_;
       onBuilt();
       return result;
     }
@@ -331,18 +360,21 @@ private static final long serialVersionUID = 0L;
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.kptl.proto.BoundCompanyReq) {
-        return mergeFrom((com.kptl.proto.BoundCompanyReq)other);
+      if (other instanceof com.kptl.proto.FindAllCompaniesReq) {
+        return mergeFrom((com.kptl.proto.FindAllCompaniesReq)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.kptl.proto.BoundCompanyReq other) {
-      if (other == com.kptl.proto.BoundCompanyReq.getDefaultInstance()) return this;
-      if (other.getId() != 0) {
-        setId(other.getId());
+    public Builder mergeFrom(com.kptl.proto.FindAllCompaniesReq other) {
+      if (other == com.kptl.proto.FindAllCompaniesReq.getDefaultInstance()) return this;
+      if (other.getIndex() != 0) {
+        setIndex(other.getIndex());
+      }
+      if (other.getSize() != 0) {
+        setSize(other.getSize());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -357,11 +389,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.kptl.proto.BoundCompanyReq parsedMessage = null;
+      com.kptl.proto.FindAllCompaniesReq parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.kptl.proto.BoundCompanyReq) e.getUnfinishedMessage();
+        parsedMessage = (com.kptl.proto.FindAllCompaniesReq) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -371,28 +403,54 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int id_ ;
+    private int index_ ;
     /**
-     * <code>int32 id = 1;</code>
+     * <code>int32 index = 1;</code>
      */
-    public int getId() {
-      return id_;
+    public int getIndex() {
+      return index_;
     }
     /**
-     * <code>int32 id = 1;</code>
+     * <code>int32 index = 1;</code>
      */
-    public Builder setId(int value) {
+    public Builder setIndex(int value) {
       
-      id_ = value;
+      index_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 id = 1;</code>
+     * <code>int32 index = 1;</code>
      */
-    public Builder clearId() {
+    public Builder clearIndex() {
       
-      id_ = 0;
+      index_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int size_ ;
+    /**
+     * <code>int32 size = 2;</code>
+     */
+    public int getSize() {
+      return size_;
+    }
+    /**
+     * <code>int32 size = 2;</code>
+     */
+    public Builder setSize(int value) {
+      
+      size_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 size = 2;</code>
+     */
+    public Builder clearSize() {
+      
+      size_ = 0;
       onChanged();
       return this;
     }
@@ -407,39 +465,39 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:job.BoundCompanyReq)
+    // @@protoc_insertion_point(builder_scope:job.FindAllCompaniesReq)
   }
 
-  // @@protoc_insertion_point(class_scope:job.BoundCompanyReq)
-  private static final com.kptl.proto.BoundCompanyReq DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:job.FindAllCompaniesReq)
+  private static final com.kptl.proto.FindAllCompaniesReq DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.kptl.proto.BoundCompanyReq();
+    DEFAULT_INSTANCE = new com.kptl.proto.FindAllCompaniesReq();
   }
 
-  public static com.kptl.proto.BoundCompanyReq getDefaultInstance() {
+  public static com.kptl.proto.FindAllCompaniesReq getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<BoundCompanyReq>
-      PARSER = new com.google.protobuf.AbstractParser<BoundCompanyReq>() {
-    public BoundCompanyReq parsePartialFrom(
+  private static final com.google.protobuf.Parser<FindAllCompaniesReq>
+      PARSER = new com.google.protobuf.AbstractParser<FindAllCompaniesReq>() {
+    public FindAllCompaniesReq parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BoundCompanyReq(input, extensionRegistry);
+      return new FindAllCompaniesReq(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<BoundCompanyReq> parser() {
+  public static com.google.protobuf.Parser<FindAllCompaniesReq> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<BoundCompanyReq> getParserForType() {
+  public com.google.protobuf.Parser<FindAllCompaniesReq> getParserForType() {
     return PARSER;
   }
 
-  public com.kptl.proto.BoundCompanyReq getDefaultInstanceForType() {
+  public com.kptl.proto.FindAllCompaniesReq getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -1,6 +1,9 @@
 package com.kptl.job.dao;
 
+import com.kptl.job.dto.CompanyDTO;
 import com.kptl.proto.Company;
+import com.kptl.proto.FindAllCompaniesReq;
+import com.kptl.proto.FindCompanyByNameReq;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,9 +15,11 @@ public interface CompanyMapper {
 
     void updateCompany(@Param("company") Company company);
 
-    List<Company> findCompanies();
+    List<CompanyDTO> findCompanies(@Param("request") FindAllCompaniesReq request);
 
-    List<Company> findCompanyByName(@Param("companyName") String companyName);
+    List<CompanyDTO> findCompanyByName(@Param("request") FindCompanyByNameReq request);
 
     List<Company> findCompanyByIndustry(@Param("industry") String industry);
+
+    List<CompanyDTO> findCompaniesById(@Param("id") Integer id);
 }

@@ -59,11 +59,7 @@ message Company {
   string industry = 8;                   //行业
 }
 
-message BoundCompanyReq {
-  int32 id = 1;
-}
-
-message VerifyCompanyReq {
+message CommonCompanyReq {
   int32 id = 1;
 }
 
@@ -92,7 +88,26 @@ enum ResponseStatus {
   OK = 0;
   InternalErr = 1;
 }
+message FindCompanyByNameReq {
+  string name = 1;
+  int32 index = 2;
+  int32 size = 3;
+}
 
+message FindAllCompaniesReq {
+  int32 index = 1;
+  int32 size = 2;
+}
+
+message CommonCompanyResponse {
+  ResponseHeader header = 1;
+  repeated Company companies = 2;
+}
+
+message FindCompanyByIdResponse {
+  ResponseHeader header = 1;
+  Company company = 2;
+}
 //定义员工服务
 service Job {
   rpc FindAllJobs(FindAllJobRequest) returns (FindJobResponse) {};        //查询所有职位，所有人都能查
@@ -103,6 +118,9 @@ service Job {
   rpc UpdateJobs(JobMessage) returns (SaveJobResponse) {};                //更新职位
   rpc RegisteredCompany(RegisteredCompanyReq) returns (CommonResponse) {};//注册公司
   rpc UpdateCompany(RegisteredCompanyReq) returns (CommonResponse) {};    //更新公司信息
-  rpc BoundCompany(BoundCompanyReq) returns (CommonResponse) {};          //绑定公司
-  rpc VerifyCompany(VerifyCompanyReq) returns (CommonResponse) {};        //审核公司
+  rpc FindCompanyByName(FindCompanyByNameReq) returns (CommonCompanyResponse) {};
+  rpc FindCompanyById(CommonCompanyReq) returns (FindCompanyByIdResponse) {};
+  rpc FindAllCompanies(FindAllCompaniesReq) returns (CommonCompanyResponse) {};
+  rpc BoundCompany(CommonCompanyReq) returns (CommonResponse) {};          //绑定公司
+  rpc VerifyCompany(CommonCompanyReq) returns (CommonResponse) {};        //审核公司
 }

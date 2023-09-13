@@ -62,7 +62,7 @@ public class JobServiceImpl implements JobService {
     }
 
     private List<JobMessage> copyToJobMessage(List<JobDTO> allJobs) {
-        if (allJobs == null) {
+        if (allJobs == null || allJobs.size() == 0) {
             return null;
         }
         List<JobMessage> jobMessages = new ArrayList<>();

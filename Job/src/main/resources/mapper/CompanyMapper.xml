@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kptl.job.dao.CompanyMapper">
-
+    <resultMap id="companyResultMap" type="com.kptl.job.dto.CompanyDTO">
+        <result column="company_id" property="companyId"/>
+        <result column="company_name" property="companyName"/>
+        <result column="company_location" property="companyLocation"/>
+        <result column="is_certified" property="isCertified"/>
+        <result column="is_vip" property="isVip"/>
+        <result column="industry" property="industry"/>
+        <result column="register_time" property="registerTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
     <insert id="registeredCompany" parameterType="com.kptl.proto.Company">
         insert into company(company_id, company_name, company_location, register_time, update_time)
             value (#{company.id}, #{company.companyName}, #{company.companyLocation}, now(), now())
@@ -12,15 +21,19 @@
         where company_id = {company.id}
     </update>
 
-    <select id="findCompanies" resultType="com.kptl.proto.Company">
-        select * from company
+    <select id="findCompanies" resultMap="companyResultMap">
+        select * from company limit #{request.index}, #{request.size}
     </select>
 
-    <select id="findCompanyByName" resultType="com.kptl.proto.Company">
-        select * from company where company_name like "%"#{companyName}"%"
+    <select id="findCompaniesById" resultMap="companyResultMap">
+        select * from company where company_id = #{id}
     </select>
 
-    <select id="findCompanyByIndustry" resultType="com.kptl.proto.Company">
+    <select id="findCompanyByName" resultMap="companyResultMap">
+        select * from company where company_name like "%"#{request.name}"%" limit #{request.index}, #{request.size}
+    </select>
+
+    <select id="findCompanyByIndustry" resultMap="companyResultMap">
         select * from company where industry = #{industry}
     </select>
 
