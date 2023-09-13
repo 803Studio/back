@@ -132,7 +132,8 @@ public final class JobOuterClass {
       "se\"\000\022;\n\014BoundCompany\022\024.job.BoundCompanyR" +
       "eq\032\023.job.CommonResponse\"\000\022=\n\rVerifyCompa" +
       "ny\022\025.job.VerifyCompanyReq\032\023.job.CommonRe" +
-      "sponse\"\000B\022\n\016com.kptl.protoP\001b\006proto3"
+      "sponse\"\000B\031\n\016com.kptl.protoP\001Z\005./jobb\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

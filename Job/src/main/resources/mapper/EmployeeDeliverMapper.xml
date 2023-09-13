@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kptl.job.dao.EmployeeDeliverMapper">
+
+    <insert id="deliver">
+        insert into deliver(deliver_id, id, job_id, deliver_time) value (#{deliverDTO.deliverId}, #{deliverDTO.id}, #{deliverDTO.jobId}, now())
+    </insert>
+
+    <select id="deliverRecords" resultType="java.lang.Integer">
+        select job_id from deliver where id = #{id}
+    </select>
+
+</mapper>

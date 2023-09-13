@@ -4,69 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fb11c2d-2986-4090-a966-366e0bb0c414" name="Default Changelist" comment="新增JWT校验功能">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_78.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_api_grpc_proto_google_common_protos_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_9_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_20_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_instrumentation_instrumentation_api_0_4_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_util_3_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_context_1_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_core_1_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_netty_1_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_protobuf_1_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_protobuf_lite_1_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_services_1_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_stub_1_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_api_0_11_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_impl_0_11_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_jackson_0_11_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_84_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_84_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_84_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_84_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_84_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_84_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_84_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_84_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_84_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_84_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_84_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_opencensus_opencensus_api_0_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_opencensus_opencensus_contrib_grpc_metrics_0_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_lognet_grpc_spring_boot_starter_2_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/java/com/kptl/employee/EmployeeApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/java/com/kptl/employee/service/EmployeeImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/java/com/kptl/proto/EmployeeGrpc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/java/com/kptl/proto/EmployeeOuterClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/java/com/kptl/proto/OperateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/java/com/kptl/proto/OperateRequestOrBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/java/com/kptl/proto/OperateResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/java/com/kptl/proto/OperateResponseOrBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/java/com/kptl/proto/ResponseHeader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/java/com/kptl/proto/ResponseHeaderOrBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/java/com/kptl/proto/ResponseStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/proto/employee/Employee.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee/src/test/java/com/kptl/employee/EmployeeApplicationTests.java" afterDir="false" />
+    <list default="true" id="7fb11c2d-2986-4090-a966-366e0bb0c414" name="Default Changelist" comment="job模块功能实现">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_test_2_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_test_autoconfigure_2_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Job/src/main/java/com/kptl/job/api/EmployeeImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Job/src/main/java/com/kptl/job/config/DataSourceConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Job/src/main/java/com/kptl/job/dao/EmployeeDeliverMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Job/src/main/java/com/kptl/job/dto/DeliverDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Job/src/main/java/com/kptl/job/dto/KeyDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Job/src/main/java/com/kptl/job/service/EmployeeDeliverService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Job/src/main/java/com/kptl/job/service/impl/EmployeeDeliverServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Job/src/main/proto/employee.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Job/src/main/resources/mapper/EmployeeDeliverMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/User/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/config/InterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/config/InterceptorConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/User/src/main/java/com/kptl/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Job/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Job/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Job/src/main/java/com/kptl/proto/JobOuterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/Job/src/main/java/com/kptl/proto/JobOuterClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Job/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Job/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,14 +33,22 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -113,7 +78,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/User" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../proto/kptl-protos" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -132,7 +97,14 @@
       <recent name="B:\kptl\back\Employee\src\main\proto\employee" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.EmployeeApplication">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.JobApplication">
     <configuration name="CalculateService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.kptl.employee.service.CalculateService" />
       <module name="Employee" />
@@ -146,15 +118,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -178,6 +148,13 @@
     <configuration name="EmployeeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Employee" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.kptl.employee.EmployeeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JobApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Job" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kptl.job.JobApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -218,6 +195,11 @@
       <workItem from="1693829629289" duration="2369000" />
       <workItem from="1693922210413" duration="6175000" />
       <workItem from="1693931874976" duration="1634000" />
+      <workItem from="1694137792440" duration="6831000" />
+      <workItem from="1694310537193" duration="3768000" />
+      <workItem from="1694444935466" duration="6588000" />
+      <workItem from="1694529340967" duration="5894000" />
+      <workItem from="1694609343007" duration="5702000" />
     </task>
     <task id="LOCAL-00001" summary="加密">
       <created>1693716323067</created>
@@ -240,7 +222,35 @@
       <option name="project" value="LOCAL" />
       <updated>1693735384301</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="job模块新增更新职位功能">
+      <created>1694139510711</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694139510711</updated>
+    </task>
+    <task id="LOCAL-00005" summary="job模块新增公司注册功能代码">
+      <created>1694224962463</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694224962463</updated>
+    </task>
+    <task id="LOCAL-00006" summary="job模块新增公司注册功能代码">
+      <created>1694272440590</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694272440590</updated>
+    </task>
+    <task id="LOCAL-00007" summary="job模块功能实现">
+      <created>1694451543009</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694451543009</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +328,10 @@
     <MESSAGE value="加密" />
     <MESSAGE value="bug fix" />
     <MESSAGE value="新增JWT校验功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增JWT校验功能" />
+    <MESSAGE value="job模块新增更新职位功能" />
+    <MESSAGE value="job模块新增公司注册功能代码" />
+    <MESSAGE value="job模块功能实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="job模块功能实现" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -327,6 +340,69 @@
           <url>file://$PROJECT_DIR$/User/src/main/java/com/kptl/user/util/WeChatUtil.java</url>
           <line>16</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Job/src/main/java/com/kptl/job/service/impl/CompanyServiceImpl.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Job/src/main/java/com/kptl/job/api/JobImpl.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Job/src/main/java/com/kptl/job/service/impl/JobServiceImpl.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Job/src/main/java/com/kptl/job/service/impl/JobServiceImpl.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Job/src/main/java/com/kptl/job/service/impl/JobServiceImpl.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Job/src/main/java/com/kptl/job/service/impl/JobServiceImpl.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Job/src/main/java/com/kptl/job/service/impl/JobServiceImpl.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Job/src/main/java/com/kptl/job/service/impl/JobServiceImpl.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Job/src/main/java/com/kptl/job/service/impl/JobServiceImpl.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Job/src/main/java/com/kptl/job/read/MyProperty.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Job/src/main/java/com/kptl/job/config/DataSourceConfig.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Job/src/main/java/com/kptl/job/service/JobService.java</url>
+          <line>18</line>
+          <properties class="com.kptl.job.service.JobService" method="findAllJobs">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
