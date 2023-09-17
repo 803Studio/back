@@ -105,4 +105,13 @@ public interface CompanyOrBuilder extends
    */
   com.google.protobuf.ByteString
       getIndustryBytes();
+
+  /**
+   * <pre>
+   *公司id
+   * </pre>
+   *
+   * <code>int32 companyId = 9;</code>
+   */
+  int getCompanyId();
 }

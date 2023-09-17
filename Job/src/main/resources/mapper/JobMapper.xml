@@ -21,13 +21,13 @@
         insert into job(job_name, job_money, job_req, job_location, company_id, recruiter_name, recruiter_phone, industry,
                         job_need, recruiter_id, open_time, job_tags, update_time)
         value (#{job.jobName}, #{job.jobMoney}, #{job.jobReq}, #{job.jobLocation}, #{job.companyId}, #{job.recruiterName},
-                #{job.recruiterPhone}, #{industry}, #{job.jobNeed}, #{job.recruiterId}, now(), #{job.jobTags}, now())
+                #{job.recruiterPhone}, #{job.industry}, #{job.jobNeed}, #{job.recruiterId}, now(), #{job.jobTags}, now())
     </insert>
     <update id="updateJob" parameterType="com.kptl.proto.JobMessage">
-        update job set (job_name = #{job.jobName}, job_money = #{job.jobMoney}, job_req = #{job.jobReq}, job_location = #{jobLocation},
-                        industry = {job.industry}, recruiter_name = #{job.recruiterName}, recruiter_phone = #{job.recruiterPhone}, job_need = #{jobNeed},
-                        job_tags = {job.jobTags}, update_time = now())
-               where job_id = {job.jobId}
+        update job set job_name = #{job.jobName}, job_money = #{job.jobMoney}, job_req = #{job.jobReq}, job_location = #{job.jobLocation},
+                       industry = #{job.industry}, recruiter_name = #{job.recruiterName}, recruiter_phone = #{job.recruiterPhone}, job_need = #{job.jobNeed},
+                       job_tags = #{job.jobTags}, update_time = now()
+        where job_id = #{job.jobId}
     </update>
 
     <select id="findJobByName" resultMap="jobResultMap">

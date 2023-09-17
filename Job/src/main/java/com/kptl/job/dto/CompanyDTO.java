@@ -21,4 +21,6 @@ public class CompanyDTO {
     Date registerTime;
 
     Date updateTime;
+
+    Integer id;
 }

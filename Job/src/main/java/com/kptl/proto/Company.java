@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     registerTime_ = 0L;
     updateTime_ = 0L;
     industry_ = "";
+    companyId_ = 0;
   }
 
   @java.lang.Override
@@ -98,6 +99,11 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             industry_ = s;
+            break;
+          }
+          case 72: {
+
+            companyId_ = input.readInt32();
             break;
           }
         }
@@ -315,6 +321,19 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int COMPANYID_FIELD_NUMBER = 9;
+  private int companyId_;
+  /**
+   * <pre>
+   *公司id
+   * </pre>
+   *
+   * <code>int32 companyId = 9;</code>
+   */
+  public int getCompanyId() {
+    return companyId_;
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -350,6 +369,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getIndustryBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, industry_);
+    }
+    if (companyId_ != 0) {
+      output.writeInt32(9, companyId_);
     }
     unknownFields.writeTo(output);
   }
@@ -388,6 +410,10 @@ private static final long serialVersionUID = 0L;
     if (!getIndustryBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, industry_);
     }
+    if (companyId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(9, companyId_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -420,6 +446,8 @@ private static final long serialVersionUID = 0L;
         == other.getUpdateTime());
     result = result && getIndustry()
         .equals(other.getIndustry());
+    result = result && (getCompanyId()
+        == other.getCompanyId());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -449,6 +477,8 @@ private static final long serialVersionUID = 0L;
         getUpdateTime());
     hash = (37 * hash) + INDUSTRY_FIELD_NUMBER;
     hash = (53 * hash) + getIndustry().hashCode();
+    hash = (37 * hash) + COMPANYID_FIELD_NUMBER;
+    hash = (53 * hash) + getCompanyId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -594,6 +624,8 @@ private static final long serialVersionUID = 0L;
 
       industry_ = "";
 
+      companyId_ = 0;
+
       return this;
     }
 
@@ -624,6 +656,7 @@ private static final long serialVersionUID = 0L;
       result.registerTime_ = registerTime_;
       result.updateTime_ = updateTime_;
       result.industry_ = industry_;
+      result.companyId_ = companyId_;
       onBuilt();
       return result;
     }
@@ -691,6 +724,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getIndustry().isEmpty()) {
         industry_ = other.industry_;
         onChanged();
+      }
+      if (other.getCompanyId() != 0) {
+        setCompanyId(other.getCompanyId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1172,6 +1208,44 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       industry_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int companyId_ ;
+    /**
+     * <pre>
+     *公司id
+     * </pre>
+     *
+     * <code>int32 companyId = 9;</code>
+     */
+    public int getCompanyId() {
+      return companyId_;
+    }
+    /**
+     * <pre>
+     *公司id
+     * </pre>
+     *
+     * <code>int32 companyId = 9;</code>
+     */
+    public Builder setCompanyId(int value) {
+      
+      companyId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *公司id
+     * </pre>
+     *
+     * <code>int32 companyId = 9;</code>
+     */
+    public Builder clearCompanyId() {
+      
+      companyId_ = 0;
       onChanged();
       return this;
     }

@@ -57,6 +57,7 @@ message Company {
   int64 registerTime = 6;               //注册时间
   int64 updateTime = 7;                 //刷新时间
   string industry = 8;                   //行业
+  int32 companyId = 9;                   //公司id
 }
 
 message CommonCompanyReq {
@@ -116,7 +117,7 @@ service Job {
   rpc FindJobs(FindJobRequest) returns (FindJobResponse) {};              //根据角色不同查询
   rpc SaveJobs(JobMessage) returns (SaveJobResponse) {};                  //新建职位
   rpc UpdateJobs(JobMessage) returns (SaveJobResponse) {};                //更新职位
-  rpc RegisteredCompany(RegisteredCompanyReq) returns (CommonResponse) {};//注册公司
+  rpc RegisteredCompany(Company) returns (CommonResponse) {};//注册公司
   rpc UpdateCompany(RegisteredCompanyReq) returns (CommonResponse) {};    //更新公司信息
   rpc FindCompanyByName(FindCompanyByNameReq) returns (CommonCompanyResponse) {};
   rpc FindCompanyById(CommonCompanyReq) returns (FindCompanyByIdResponse) {};

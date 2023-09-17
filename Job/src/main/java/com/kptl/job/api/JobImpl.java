@@ -1,5 +1,6 @@
 package com.kptl.job.api;
 
+import com.kptl.job.config.GrpcService;
 import com.kptl.job.service.CompanyService;
 import com.kptl.job.service.JobService;
 import com.kptl.proto.*;
@@ -72,14 +73,16 @@ public class JobImpl extends JobGrpc.JobImplBase {
         FindJobResponse.Builder builder = FindJobResponse.newBuilder();
         try {
             jobs = jobService.findJobByName(request);
+            if (jobs != null ) {
+                jobs.forEach(job -> {
+                    builder.addJobMsg(job);
+                });
+            }
             header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
         } catch (Exception e) {
             header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
         }
         builder.setHeader(header);
-        for (JobMessage jobMessage : jobs) {
-            builder.addJobMsg(jobMessage);
-        }
         responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
     }
@@ -93,15 +96,17 @@ public class JobImpl extends JobGrpc.JobImplBase {
         ResponseHeader.Builder header = ResponseHeader.newBuilder();
         FindJobResponse.Builder builder = FindJobResponse.newBuilder();
         try {
-            jobs.add(jobService.findJobById(request));
+            if (jobService.findJobById(request) != null) {
+                jobs.add(jobService.findJobById(request));
+                for (JobMessage jobMessage : jobs) {
+                    builder.addJobMsg(jobMessage);
+                }
+            }
             header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
         } catch (Exception e) {
             header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
         }
         builder.setHeader(header);
-        for (JobMessage jobMessage : jobs) {
-            builder.addJobMsg(jobMessage);
-        }
         responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
     }
@@ -148,10 +153,10 @@ public class JobImpl extends JobGrpc.JobImplBase {
      * 注册成为公司
      */
     @Override
-    public void registeredCompany(RegisteredCompanyReq request, StreamObserver<CommonResponse> responseObserver) {
+    public void registeredCompany(Company request, StreamObserver<CommonResponse> responseObserver) {
         ResponseHeader.Builder header = ResponseHeader.newBuilder();
         try {
-            companyService.registeredCompany(request.getCompany());
+            companyService.registeredCompany(request);
             header.setStatus(ResponseStatus.OK).setMessage("注册成功！");
         } catch (Exception e) {
             header.setStatus(ResponseStatus.InternalErr).setMessage("注册失败！");
@@ -185,14 +190,17 @@ public class JobImpl extends JobGrpc.JobImplBase {
         CommonCompanyResponse.Builder builder = CommonCompanyResponse.newBuilder();
         try {
             companies = companyService.findCompanyByName(request);
-            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+            if (companies != null) {
+                for (Company company : companies) {
+                    builder.addCompanies(company);
+                }
+            }
+                header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
         } catch (Exception e) {
             header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
         }
         builder.setHeader(header);
-        for (Company company : companies) {
-            builder.addCompanies(company);
-        }
+
         responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
     }

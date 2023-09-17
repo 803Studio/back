@@ -11,9 +11,9 @@ import java.util.List;
 
 @Mapper
 public interface CompanyMapper {
-    void registeredCompany(@Param("company") Company company);
+    void registeredCompany(@Param("company") CompanyDTO company);
 
-    void updateCompany(@Param("company") Company company);
+    void updateCompany(@Param("company") CompanyDTO company);
 
     List<CompanyDTO> findCompanies(@Param("request") FindAllCompaniesReq request);
 

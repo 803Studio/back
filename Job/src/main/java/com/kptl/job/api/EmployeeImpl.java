@@ -1,5 +1,6 @@
 package com.kptl.job.api;
 
+import com.kptl.job.config.GrpcService;
 import com.kptl.job.service.EmployeeDeliverService;
 import com.kptl.proto.employee.EmployeeGrpc;
 

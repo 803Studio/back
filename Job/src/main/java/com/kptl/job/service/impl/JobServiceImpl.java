@@ -16,6 +16,7 @@ public class JobServiceImpl implements JobService {
     JobMapper jobMapper;
     @Override
     public List<JobMessage> findJobs(FindJobRequest request) throws Exception{
+        System.out.println("begin findjobs");
         List<JobDTO> jobsByRecruiter = new ArrayList<>();
         if (request.getRole() == 2) {
             jobsByRecruiter = jobMapper.findJobsByRecruiter(request);
@@ -42,29 +43,38 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public List<JobMessage> findJobByName(FindJobByNameRequest request) {
+        System.out.println("begin findJobByName");
         List<JobDTO> jobByName = jobMapper.findJobByName(request);
-        if (jobByName != null) {
-            return copyToJobMessage(jobByName);
+        if (jobByName == null && jobByName.isEmpty()) {
+            return null;
         }
-        return null;
+        System.out.println("job by name not null");
+        return copyToJobMessage(jobByName);
     }
 
     @Override
     public JobMessage findJobById(FindJobByIdRequest request) {
+        System.out.println("begin findJobById");
         List<JobDTO> jobById = jobMapper.findJobById(request.getJobId());
+        if (jobById == null || jobById.isEmpty()) {
+            return null;
+        }
         return copyToJobMessage(jobById).get(0);
     }
 
     @Override
     public List<JobMessage> findAllJobs(FindAllJobRequest request) {
+        System.out.println("begin findAllJobs");
         List<JobDTO> allJobs = jobMapper.findAllJobs(request.getIndex(), request.getSize());
         return copyToJobMessage(allJobs);
     }
 
     private List<JobMessage> copyToJobMessage(List<JobDTO> allJobs) {
+        System.out.println("begin copyToJobMessage");
         if (allJobs == null || allJobs.size() == 0) {
             return null;
         }
+        System.out.println("begin copyToJobMessage not null");
         List<JobMessage> jobMessages = new ArrayList<>();
         for (JobDTO job : allJobs) {
             JobMessage.Builder jobMessage = JobMessage.newBuilder();
@@ -82,6 +92,7 @@ public class JobServiceImpl implements JobService {
             jobMessage.setIndustry(job.getIndustry());
             jobMessages.add(jobMessage.build());
         }
+        System.out.println("return");
         return jobMessages;
     }
 }

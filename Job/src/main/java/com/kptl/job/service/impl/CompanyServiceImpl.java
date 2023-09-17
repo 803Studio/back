@@ -2,12 +2,10 @@ package com.kptl.job.service.impl;
 
 import com.kptl.job.dao.CompanyMapper;
 import com.kptl.job.dto.CompanyDTO;
-import com.kptl.job.dto.JobDTO;
 import com.kptl.job.service.CompanyService;
 import com.kptl.proto.Company;
 import com.kptl.proto.FindAllCompaniesReq;
 import com.kptl.proto.FindCompanyByNameReq;
-import com.kptl.proto.JobMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +19,25 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public void registeredCompany(Company company) {
-        companyMapper.registeredCompany(company);
+        System.out.println("registeredCompany");
+        System.out.println(company.getCompanyName());
+        CompanyDTO companyDTO = new CompanyDTO();
+        companyDTO.setCompanyId(company.getCompanyId());
+        companyDTO.setCompanyName(company.getCompanyName());
+        companyDTO.setIndustry(company.getIndustry());
+        companyDTO.setCompanyLocation(company.getCompanyLocation());
+        companyDTO.setId(company.getId());
+        companyMapper.registeredCompany(companyDTO);
     }
 
     @Override
     public void updateCompany(Company company) {
-        companyMapper.updateCompany(company);
+        CompanyDTO companyDTO = new CompanyDTO();
+        companyDTO.setCompanyId(company.getCompanyId());
+        companyDTO.setCompanyName(company.getCompanyName());
+        companyDTO.setIndustry(company.getIndustry());
+        companyDTO.setCompanyLocation(company.getCompanyLocation());
+        companyMapper.updateCompany(companyDTO);
     }
 
     @Override
@@ -59,14 +70,15 @@ public class CompanyServiceImpl implements CompanyService {
         List<Company> companyList = new ArrayList<>();
         for (CompanyDTO company : companyS) {
             Company.Builder newCompany = Company.newBuilder();
-            newCompany.setId(company.getCompanyId());
+            newCompany.setCompanyId(company.getCompanyId());
             newCompany.setCompanyName(company.getCompanyName());
             newCompany.setCompanyLocation(company.getCompanyLocation());
             newCompany.setIsCertified(company.getIsCertified());
             newCompany.setIsVip(company.getIsVip());
             newCompany.setIndustry(company.getIndustry());
-            newCompany.setRegisterTime(company.getRegisterTime().getTime());
-            newCompany.setUpdateTime(company.getUpdateTime().getTime());
+            newCompany.setRegisterTime(company.getRegisterTime().getTime() / 1000);
+            newCompany.setUpdateTime(company.getUpdateTime().getTime() / 1000);
+            newCompany.setId(company.getId());
             companyList.add(newCompany.build());
         }
         return companyList;

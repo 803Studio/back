@@ -8,33 +8,34 @@
         <result column="is_certified" property="isCertified"/>
         <result column="is_vip" property="isVip"/>
         <result column="industry" property="industry"/>
+        <result column="id" property="id"/>
         <result column="register_time" property="registerTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
-    <insert id="registeredCompany" parameterType="com.kptl.proto.Company">
-        insert into company(company_id, company_name, company_location, register_time, update_time)
-            value (#{company.id}, #{company.companyName}, #{company.companyLocation}, now(), now())
+    <insert id="registeredCompany" parameterType="com.kptl.job.dto.CompanyDTO">
+        insert into companies(company_name, company_location, register_time, update_time, industry, id)
+        value (#{company.companyName}, #{company.companyLocation}, now(), now(), #{company.industry}, #{company.id})
     </insert>
 
-    <update id="updateCompany" parameterType="com.kptl.proto.Company">
-        update company set (company_name = #{company.companyName}, company_location = #{company.companyLocation}, update_time = now())
-        where company_id = {company.id}
+    <update id="updateCompany" parameterType="com.kptl.job.dto.CompanyDTO">
+        update companies set company_name = #{company.companyName}, company_location = #{company.companyLocation}, update_time = now()
+        where company_id = #{company.companyId}
     </update>
 
     <select id="findCompanies" resultMap="companyResultMap">
-        select * from company limit #{request.index}, #{request.size}
+        select * from companies limit #{request.index}, #{request.size}
     </select>
 
     <select id="findCompaniesById" resultMap="companyResultMap">
-        select * from company where company_id = #{id}
+        select * from companies where company_id = #{id}
     </select>
 
     <select id="findCompanyByName" resultMap="companyResultMap">
-        select * from company where company_name like "%"#{request.name}"%" limit #{request.index}, #{request.size}
+        select * from companies where company_name like "%"#{request.name}"%" limit #{request.index}, #{request.size}
     </select>
 
     <select id="findCompanyByIndustry" resultMap="companyResultMap">
-        select * from company where industry = #{industry}
+        select * from companies where industry = #{industry}
     </select>
 
 </mapper>

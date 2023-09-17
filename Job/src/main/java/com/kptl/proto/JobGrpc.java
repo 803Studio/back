@@ -254,32 +254,32 @@ public final class JobGrpc {
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getRegisteredCompanyMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<com.kptl.proto.RegisteredCompanyReq,
+  public static final io.grpc.MethodDescriptor<com.kptl.proto.Company,
       com.kptl.proto.CommonResponse> METHOD_REGISTERED_COMPANY = getRegisteredCompanyMethodHelper();
 
-  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.RegisteredCompanyReq,
+  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.Company,
       com.kptl.proto.CommonResponse> getRegisteredCompanyMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<com.kptl.proto.RegisteredCompanyReq,
+  public static io.grpc.MethodDescriptor<com.kptl.proto.Company,
       com.kptl.proto.CommonResponse> getRegisteredCompanyMethod() {
     return getRegisteredCompanyMethodHelper();
   }
 
-  private static io.grpc.MethodDescriptor<com.kptl.proto.RegisteredCompanyReq,
+  private static io.grpc.MethodDescriptor<com.kptl.proto.Company,
       com.kptl.proto.CommonResponse> getRegisteredCompanyMethodHelper() {
-    io.grpc.MethodDescriptor<com.kptl.proto.RegisteredCompanyReq, com.kptl.proto.CommonResponse> getRegisteredCompanyMethod;
+    io.grpc.MethodDescriptor<com.kptl.proto.Company, com.kptl.proto.CommonResponse> getRegisteredCompanyMethod;
     if ((getRegisteredCompanyMethod = JobGrpc.getRegisteredCompanyMethod) == null) {
       synchronized (JobGrpc.class) {
         if ((getRegisteredCompanyMethod = JobGrpc.getRegisteredCompanyMethod) == null) {
           JobGrpc.getRegisteredCompanyMethod = getRegisteredCompanyMethod = 
-              io.grpc.MethodDescriptor.<com.kptl.proto.RegisteredCompanyReq, com.kptl.proto.CommonResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.kptl.proto.Company, com.kptl.proto.CommonResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "job.Job", "RegisteredCompany"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.kptl.proto.RegisteredCompanyReq.getDefaultInstance()))
+                  com.kptl.proto.Company.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.kptl.proto.CommonResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new JobMethodDescriptorSupplier("RegisteredCompany"))
@@ -586,7 +586,7 @@ public final class JobGrpc {
 
     /**
      */
-    public void registeredCompany(com.kptl.proto.RegisteredCompanyReq request,
+    public void registeredCompany(com.kptl.proto.Company request,
         io.grpc.stub.StreamObserver<com.kptl.proto.CommonResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getRegisteredCompanyMethodHelper(), responseObserver);
     }
@@ -681,7 +681,7 @@ public final class JobGrpc {
             getRegisteredCompanyMethodHelper(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.kptl.proto.RegisteredCompanyReq,
+                com.kptl.proto.Company,
                 com.kptl.proto.CommonResponse>(
                   this, METHODID_REGISTERED_COMPANY)))
           .addMethod(
@@ -801,7 +801,7 @@ public final class JobGrpc {
 
     /**
      */
-    public void registeredCompany(com.kptl.proto.RegisteredCompanyReq request,
+    public void registeredCompany(com.kptl.proto.Company request,
         io.grpc.stub.StreamObserver<com.kptl.proto.CommonResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getRegisteredCompanyMethodHelper(), getCallOptions()), request, responseObserver);
@@ -921,7 +921,7 @@ public final class JobGrpc {
 
     /**
      */
-    public com.kptl.proto.CommonResponse registeredCompany(com.kptl.proto.RegisteredCompanyReq request) {
+    public com.kptl.proto.CommonResponse registeredCompany(com.kptl.proto.Company request) {
       return blockingUnaryCall(
           getChannel(), getRegisteredCompanyMethodHelper(), getCallOptions(), request);
     }
@@ -1041,7 +1041,7 @@ public final class JobGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.CommonResponse> registeredCompany(
-        com.kptl.proto.RegisteredCompanyReq request) {
+        com.kptl.proto.Company request) {
       return futureUnaryCall(
           getChannel().newCall(getRegisteredCompanyMethodHelper(), getCallOptions()), request);
     }
@@ -1151,7 +1151,7 @@ public final class JobGrpc {
               (io.grpc.stub.StreamObserver<com.kptl.proto.SaveJobResponse>) responseObserver);
           break;
         case METHODID_REGISTERED_COMPANY:
-          serviceImpl.registeredCompany((com.kptl.proto.RegisteredCompanyReq) request,
+          serviceImpl.registeredCompany((com.kptl.proto.Company) request,
               (io.grpc.stub.StreamObserver<com.kptl.proto.CommonResponse>) responseObserver);
           break;
         case METHODID_UPDATE_COMPANY:

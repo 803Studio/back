@@ -1,7 +1,6 @@
 package com.kptl.job.service;
 
 
-import com.kptl.job.dto.CompanyDTO;
 import com.kptl.proto.Company;
 import com.kptl.proto.FindAllCompaniesReq;
 import com.kptl.proto.FindCompanyByNameReq;
