@@ -6,7 +6,6 @@ option go_package="./job";
 
 package job;
 
-
 message FindJobRequest {
   int32 id = 1;
   int32 role = 2;
@@ -34,6 +33,12 @@ message FindJobResponse {
   ResponseHeader header = 1;
   repeated JobMessage jobMsg = 2;
 }
+
+message FindSimplifyJobResponse {
+  ResponseHeader header = 1;
+  repeated JobSimplifyMessage jobMsg = 2;
+}
+
 
 message SaveJobResponse {
   ResponseHeader header = 1;
@@ -68,22 +73,42 @@ message CommonResponse {
   ResponseHeader header = 1;
 }
 
-message JobMessage {
-  int32 jobId = 2;                        //职位id
-  string jobName = 3;                     //职位名称
-  int32 jobMoney = 4;                     //薪资
-  string jobReq = 5;                      //职位要求
-  string jobLocation = 6;                 //职位地址
-  int32 companyId = 7;                    //公司id(用户id)
-  string recruiterName = 8;               //招聘者
-  string recruiterPhone = 9;              //招聘者手机号
-  int32 jobNeed = 10;                     //招聘人数
-  int32 recruiterId = 11;                 //招聘者id
-  int64 openTime = 12;                    //职位发布时间
-  string jobTags = 13;                    //职位标签
-  int64 updateTime = 14;                  //职位刷新时间
-  string industry = 15;                   //行业
+enum JobMoneyType {
+  F2F = 0;
+  DAY = 1;
+  MON = 2;
+  TIME = 3;
+  HOUR = 4;
 }
+
+message JobMoney {
+  JobMoneyType type = 1;
+  int32 low = 2;
+  int32 high = 3;
+}
+
+message JobMessage {
+  JobSimplifyMessage jobBaseMsg = 1;
+  string jobReq = 2;                      //职位要求
+  int32 jobNeed = 3;                     //招聘人数
+  string industry = 5;                   //行业
+  string recruiterName = 6;               //招聘者
+  string recruiterPhone = 7;              //招聘者手机号
+  int32 recruiterId = 8;                 //招聘者id
+  int64 updateTime = 9;                  //职位刷新时间
+}
+
+message JobSimplifyMessage {
+  int32 jobId = 1;
+  string jobName = 2;                     //职位名称
+  string jobLocation = 3;                 //职位地址
+  string companyName = 4;
+  string jobTags = 5;                    //职位标签
+  int32 companyId = 6;
+  int64 openTime = 7;                    //职位发布时间
+  JobMoney jobMoney = 8;
+}
+
 //错误码
 enum ResponseStatus {
   OK = 0;
@@ -116,12 +141,13 @@ service Job {
   rpc FindJobById(FindJobByIdRequest) returns (FindJobResponse) {};       //根据职位id查询
   rpc FindJobs(FindJobRequest) returns (FindJobResponse) {};              //根据角色不同查询
   rpc SaveJobs(JobMessage) returns (SaveJobResponse) {};                  //新建职位
+  rpc FindJobsSimplify(FindAllJobRequest) returns (FindSimplifyJobResponse);   //职位简洁信息
   rpc UpdateJobs(JobMessage) returns (SaveJobResponse) {};                //更新职位
-  rpc RegisteredCompany(Company) returns (CommonResponse) {};//注册公司
+  rpc RegisteredCompany(Company) returns (CommonResponse) {};             //注册公司
   rpc UpdateCompany(RegisteredCompanyReq) returns (CommonResponse) {};    //更新公司信息
   rpc FindCompanyByName(FindCompanyByNameReq) returns (CommonCompanyResponse) {};
   rpc FindCompanyById(CommonCompanyReq) returns (FindCompanyByIdResponse) {};
   rpc FindAllCompanies(FindAllCompaniesReq) returns (CommonCompanyResponse) {};
   rpc BoundCompany(CommonCompanyReq) returns (CommonResponse) {};          //绑定公司
-  rpc VerifyCompany(CommonCompanyReq) returns (CommonResponse) {};        //审核公司
+  rpc VerifyCompany(CommonCompanyReq) returns (CommonResponse) {};          //审核公司
 }

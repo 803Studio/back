@@ -8,47 +8,24 @@ public interface JobMessageOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <pre>
-   *职位id
-   * </pre>
-   *
-   * <code>int32 jobId = 2;</code>
+   * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
    */
-  int getJobId();
-
+  boolean hasJobBaseMsg();
   /**
-   * <pre>
-   *职位名称
-   * </pre>
-   *
-   * <code>string jobName = 3;</code>
+   * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
    */
-  java.lang.String getJobName();
+  com.kptl.proto.JobSimplifyMessage getJobBaseMsg();
   /**
-   * <pre>
-   *职位名称
-   * </pre>
-   *
-   * <code>string jobName = 3;</code>
+   * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
    */
-  com.google.protobuf.ByteString
-      getJobNameBytes();
-
-  /**
-   * <pre>
-   *薪资
-   * </pre>
-   *
-   * <code>int32 jobMoney = 4;</code>
-   */
-  int getJobMoney();
+  com.kptl.proto.JobSimplifyMessageOrBuilder getJobBaseMsgOrBuilder();
 
   /**
    * <pre>
    *职位要求
    * </pre>
    *
-   * <code>string jobReq = 5;</code>
+   * <code>string jobReq = 2;</code>
    */
   java.lang.String getJobReq();
   /**
@@ -56,44 +33,44 @@ public interface JobMessageOrBuilder extends
    *职位要求
    * </pre>
    *
-   * <code>string jobReq = 5;</code>
+   * <code>string jobReq = 2;</code>
    */
   com.google.protobuf.ByteString
       getJobReqBytes();
 
   /**
    * <pre>
-   *职位地址
+   *招聘人数
    * </pre>
    *
-   * <code>string jobLocation = 6;</code>
+   * <code>int32 jobNeed = 3;</code>
    */
-  java.lang.String getJobLocation();
-  /**
-   * <pre>
-   *职位地址
-   * </pre>
-   *
-   * <code>string jobLocation = 6;</code>
-   */
-  com.google.protobuf.ByteString
-      getJobLocationBytes();
+  int getJobNeed();
 
   /**
    * <pre>
-   *公司id(用户id)
+   *行业
    * </pre>
    *
-   * <code>int32 companyId = 7;</code>
+   * <code>string industry = 5;</code>
    */
-  int getCompanyId();
+  java.lang.String getIndustry();
+  /**
+   * <pre>
+   *行业
+   * </pre>
+   *
+   * <code>string industry = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getIndustryBytes();
 
   /**
    * <pre>
    *招聘者
    * </pre>
    *
-   * <code>string recruiterName = 8;</code>
+   * <code>string recruiterName = 6;</code>
    */
   java.lang.String getRecruiterName();
   /**
@@ -101,7 +78,7 @@ public interface JobMessageOrBuilder extends
    *招聘者
    * </pre>
    *
-   * <code>string recruiterName = 8;</code>
+   * <code>string recruiterName = 6;</code>
    */
   com.google.protobuf.ByteString
       getRecruiterNameBytes();
@@ -111,7 +88,7 @@ public interface JobMessageOrBuilder extends
    *招聘者手机号
    * </pre>
    *
-   * <code>string recruiterPhone = 9;</code>
+   * <code>string recruiterPhone = 7;</code>
    */
   java.lang.String getRecruiterPhone();
   /**
@@ -119,80 +96,26 @@ public interface JobMessageOrBuilder extends
    *招聘者手机号
    * </pre>
    *
-   * <code>string recruiterPhone = 9;</code>
+   * <code>string recruiterPhone = 7;</code>
    */
   com.google.protobuf.ByteString
       getRecruiterPhoneBytes();
 
   /**
    * <pre>
-   *招聘人数
-   * </pre>
-   *
-   * <code>int32 jobNeed = 10;</code>
-   */
-  int getJobNeed();
-
-  /**
-   * <pre>
    *招聘者id
    * </pre>
    *
-   * <code>int32 recruiterId = 11;</code>
+   * <code>int32 recruiterId = 8;</code>
    */
   int getRecruiterId();
-
-  /**
-   * <pre>
-   *职位发布时间
-   * </pre>
-   *
-   * <code>int64 openTime = 12;</code>
-   */
-  long getOpenTime();
-
-  /**
-   * <pre>
-   *职位标签
-   * </pre>
-   *
-   * <code>string jobTags = 13;</code>
-   */
-  java.lang.String getJobTags();
-  /**
-   * <pre>
-   *职位标签
-   * </pre>
-   *
-   * <code>string jobTags = 13;</code>
-   */
-  com.google.protobuf.ByteString
-      getJobTagsBytes();
 
   /**
    * <pre>
    *职位刷新时间
    * </pre>
    *
-   * <code>int64 updateTime = 14;</code>
+   * <code>int64 updateTime = 9;</code>
    */
   long getUpdateTime();
-
-  /**
-   * <pre>
-   *行业
-   * </pre>
-   *
-   * <code>string industry = 15;</code>
-   */
-  java.lang.String getIndustry();
-  /**
-   * <pre>
-   *行业
-   * </pre>
-   *
-   * <code>string industry = 15;</code>
-   */
-  com.google.protobuf.ByteString
-      getIndustryBytes();
 }

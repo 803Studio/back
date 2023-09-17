@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DataSourceConfig {
     private static final String MYSQL_PATH = "/usr/local/kptl/mysql.json";
-//    private static final String MYSQL_PATH = "B:\\test.json";
+    private static final String MYSQL_PATH_LOCAL = "B:\\test.json";
     private KeyDTO keyDTO;
     @Bean
     public DataSource dataSource() {

@@ -16,20 +16,13 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private JobMessage() {
-    jobId_ = 0;
-    jobName_ = "";
-    jobMoney_ = 0;
     jobReq_ = "";
-    jobLocation_ = "";
-    companyId_ = 0;
+    jobNeed_ = 0;
+    industry_ = "";
     recruiterName_ = "";
     recruiterPhone_ = "";
-    jobNeed_ = 0;
     recruiterId_ = 0;
-    openTime_ = 0L;
-    jobTags_ = "";
     updateTime_ = 0L;
-    industry_ = "";
   }
 
   @java.lang.Override
@@ -63,81 +56,56 @@ private static final long serialVersionUID = 0L;
             }
             break;
           }
-          case 16: {
+          case 10: {
+            com.kptl.proto.JobSimplifyMessage.Builder subBuilder = null;
+            if (jobBaseMsg_ != null) {
+              subBuilder = jobBaseMsg_.toBuilder();
+            }
+            jobBaseMsg_ = input.readMessage(com.kptl.proto.JobSimplifyMessage.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(jobBaseMsg_);
+              jobBaseMsg_ = subBuilder.buildPartial();
+            }
 
-            jobId_ = input.readInt32();
             break;
           }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            jobName_ = s;
-            break;
-          }
-          case 32: {
-
-            jobMoney_ = input.readInt32();
-            break;
-          }
-          case 42: {
+          case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
             jobReq_ = s;
             break;
           }
-          case 50: {
+          case 24: {
+
+            jobNeed_ = input.readInt32();
+            break;
+          }
+          case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            jobLocation_ = s;
+            industry_ = s;
             break;
           }
-          case 56: {
-
-            companyId_ = input.readInt32();
-            break;
-          }
-          case 66: {
+          case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
             recruiterName_ = s;
             break;
           }
-          case 74: {
+          case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
             recruiterPhone_ = s;
             break;
           }
-          case 80: {
-
-            jobNeed_ = input.readInt32();
-            break;
-          }
-          case 88: {
+          case 64: {
 
             recruiterId_ = input.readInt32();
             break;
           }
-          case 96: {
-
-            openTime_ = input.readInt64();
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            jobTags_ = s;
-            break;
-          }
-          case 112: {
+          case 72: {
 
             updateTime_ = input.readInt64();
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            industry_ = s;
             break;
           }
         }
@@ -164,82 +132,35 @@ private static final long serialVersionUID = 0L;
             com.kptl.proto.JobMessage.class, com.kptl.proto.JobMessage.Builder.class);
   }
 
-  public static final int JOBID_FIELD_NUMBER = 2;
-  private int jobId_;
+  public static final int JOBBASEMSG_FIELD_NUMBER = 1;
+  private com.kptl.proto.JobSimplifyMessage jobBaseMsg_;
   /**
-   * <pre>
-   *职位id
-   * </pre>
-   *
-   * <code>int32 jobId = 2;</code>
+   * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
    */
-  public int getJobId() {
-    return jobId_;
+  public boolean hasJobBaseMsg() {
+    return jobBaseMsg_ != null;
+  }
+  /**
+   * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
+   */
+  public com.kptl.proto.JobSimplifyMessage getJobBaseMsg() {
+    return jobBaseMsg_ == null ? com.kptl.proto.JobSimplifyMessage.getDefaultInstance() : jobBaseMsg_;
+  }
+  /**
+   * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
+   */
+  public com.kptl.proto.JobSimplifyMessageOrBuilder getJobBaseMsgOrBuilder() {
+    return getJobBaseMsg();
   }
 
-  public static final int JOBNAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object jobName_;
-  /**
-   * <pre>
-   *职位名称
-   * </pre>
-   *
-   * <code>string jobName = 3;</code>
-   */
-  public java.lang.String getJobName() {
-    java.lang.Object ref = jobName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      jobName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *职位名称
-   * </pre>
-   *
-   * <code>string jobName = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getJobNameBytes() {
-    java.lang.Object ref = jobName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      jobName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int JOBMONEY_FIELD_NUMBER = 4;
-  private int jobMoney_;
-  /**
-   * <pre>
-   *薪资
-   * </pre>
-   *
-   * <code>int32 jobMoney = 4;</code>
-   */
-  public int getJobMoney() {
-    return jobMoney_;
-  }
-
-  public static final int JOBREQ_FIELD_NUMBER = 5;
+  public static final int JOBREQ_FIELD_NUMBER = 2;
   private volatile java.lang.Object jobReq_;
   /**
    * <pre>
    *职位要求
    * </pre>
    *
-   * <code>string jobReq = 5;</code>
+   * <code>string jobReq = 2;</code>
    */
   public java.lang.String getJobReq() {
     java.lang.Object ref = jobReq_;
@@ -258,7 +179,7 @@ private static final long serialVersionUID = 0L;
    *职位要求
    * </pre>
    *
-   * <code>string jobReq = 5;</code>
+   * <code>string jobReq = 2;</code>
    */
   public com.google.protobuf.ByteString
       getJobReqBytes() {
@@ -274,247 +195,27 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int JOBLOCATION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object jobLocation_;
-  /**
-   * <pre>
-   *职位地址
-   * </pre>
-   *
-   * <code>string jobLocation = 6;</code>
-   */
-  public java.lang.String getJobLocation() {
-    java.lang.Object ref = jobLocation_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      jobLocation_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *职位地址
-   * </pre>
-   *
-   * <code>string jobLocation = 6;</code>
-   */
-  public com.google.protobuf.ByteString
-      getJobLocationBytes() {
-    java.lang.Object ref = jobLocation_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      jobLocation_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int COMPANYID_FIELD_NUMBER = 7;
-  private int companyId_;
-  /**
-   * <pre>
-   *公司id(用户id)
-   * </pre>
-   *
-   * <code>int32 companyId = 7;</code>
-   */
-  public int getCompanyId() {
-    return companyId_;
-  }
-
-  public static final int RECRUITERNAME_FIELD_NUMBER = 8;
-  private volatile java.lang.Object recruiterName_;
-  /**
-   * <pre>
-   *招聘者
-   * </pre>
-   *
-   * <code>string recruiterName = 8;</code>
-   */
-  public java.lang.String getRecruiterName() {
-    java.lang.Object ref = recruiterName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      recruiterName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *招聘者
-   * </pre>
-   *
-   * <code>string recruiterName = 8;</code>
-   */
-  public com.google.protobuf.ByteString
-      getRecruiterNameBytes() {
-    java.lang.Object ref = recruiterName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      recruiterName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int RECRUITERPHONE_FIELD_NUMBER = 9;
-  private volatile java.lang.Object recruiterPhone_;
-  /**
-   * <pre>
-   *招聘者手机号
-   * </pre>
-   *
-   * <code>string recruiterPhone = 9;</code>
-   */
-  public java.lang.String getRecruiterPhone() {
-    java.lang.Object ref = recruiterPhone_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      recruiterPhone_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *招聘者手机号
-   * </pre>
-   *
-   * <code>string recruiterPhone = 9;</code>
-   */
-  public com.google.protobuf.ByteString
-      getRecruiterPhoneBytes() {
-    java.lang.Object ref = recruiterPhone_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      recruiterPhone_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int JOBNEED_FIELD_NUMBER = 10;
+  public static final int JOBNEED_FIELD_NUMBER = 3;
   private int jobNeed_;
   /**
    * <pre>
    *招聘人数
    * </pre>
    *
-   * <code>int32 jobNeed = 10;</code>
+   * <code>int32 jobNeed = 3;</code>
    */
   public int getJobNeed() {
     return jobNeed_;
   }
 
-  public static final int RECRUITERID_FIELD_NUMBER = 11;
-  private int recruiterId_;
-  /**
-   * <pre>
-   *招聘者id
-   * </pre>
-   *
-   * <code>int32 recruiterId = 11;</code>
-   */
-  public int getRecruiterId() {
-    return recruiterId_;
-  }
-
-  public static final int OPENTIME_FIELD_NUMBER = 12;
-  private long openTime_;
-  /**
-   * <pre>
-   *职位发布时间
-   * </pre>
-   *
-   * <code>int64 openTime = 12;</code>
-   */
-  public long getOpenTime() {
-    return openTime_;
-  }
-
-  public static final int JOBTAGS_FIELD_NUMBER = 13;
-  private volatile java.lang.Object jobTags_;
-  /**
-   * <pre>
-   *职位标签
-   * </pre>
-   *
-   * <code>string jobTags = 13;</code>
-   */
-  public java.lang.String getJobTags() {
-    java.lang.Object ref = jobTags_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      jobTags_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *职位标签
-   * </pre>
-   *
-   * <code>string jobTags = 13;</code>
-   */
-  public com.google.protobuf.ByteString
-      getJobTagsBytes() {
-    java.lang.Object ref = jobTags_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      jobTags_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int UPDATETIME_FIELD_NUMBER = 14;
-  private long updateTime_;
-  /**
-   * <pre>
-   *职位刷新时间
-   * </pre>
-   *
-   * <code>int64 updateTime = 14;</code>
-   */
-  public long getUpdateTime() {
-    return updateTime_;
-  }
-
-  public static final int INDUSTRY_FIELD_NUMBER = 15;
+  public static final int INDUSTRY_FIELD_NUMBER = 5;
   private volatile java.lang.Object industry_;
   /**
    * <pre>
    *行业
    * </pre>
    *
-   * <code>string industry = 15;</code>
+   * <code>string industry = 5;</code>
    */
   public java.lang.String getIndustry() {
     java.lang.Object ref = industry_;
@@ -533,7 +234,7 @@ private static final long serialVersionUID = 0L;
    *行业
    * </pre>
    *
-   * <code>string industry = 15;</code>
+   * <code>string industry = 5;</code>
    */
   public com.google.protobuf.ByteString
       getIndustryBytes() {
@@ -549,6 +250,116 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int RECRUITERNAME_FIELD_NUMBER = 6;
+  private volatile java.lang.Object recruiterName_;
+  /**
+   * <pre>
+   *招聘者
+   * </pre>
+   *
+   * <code>string recruiterName = 6;</code>
+   */
+  public java.lang.String getRecruiterName() {
+    java.lang.Object ref = recruiterName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      recruiterName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *招聘者
+   * </pre>
+   *
+   * <code>string recruiterName = 6;</code>
+   */
+  public com.google.protobuf.ByteString
+      getRecruiterNameBytes() {
+    java.lang.Object ref = recruiterName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      recruiterName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int RECRUITERPHONE_FIELD_NUMBER = 7;
+  private volatile java.lang.Object recruiterPhone_;
+  /**
+   * <pre>
+   *招聘者手机号
+   * </pre>
+   *
+   * <code>string recruiterPhone = 7;</code>
+   */
+  public java.lang.String getRecruiterPhone() {
+    java.lang.Object ref = recruiterPhone_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      recruiterPhone_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *招聘者手机号
+   * </pre>
+   *
+   * <code>string recruiterPhone = 7;</code>
+   */
+  public com.google.protobuf.ByteString
+      getRecruiterPhoneBytes() {
+    java.lang.Object ref = recruiterPhone_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      recruiterPhone_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int RECRUITERID_FIELD_NUMBER = 8;
+  private int recruiterId_;
+  /**
+   * <pre>
+   *招聘者id
+   * </pre>
+   *
+   * <code>int32 recruiterId = 8;</code>
+   */
+  public int getRecruiterId() {
+    return recruiterId_;
+  }
+
+  public static final int UPDATETIME_FIELD_NUMBER = 9;
+  private long updateTime_;
+  /**
+   * <pre>
+   *职位刷新时间
+   * </pre>
+   *
+   * <code>int64 updateTime = 9;</code>
+   */
+  public long getUpdateTime() {
+    return updateTime_;
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -561,47 +372,29 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (jobId_ != 0) {
-      output.writeInt32(2, jobId_);
-    }
-    if (!getJobNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, jobName_);
-    }
-    if (jobMoney_ != 0) {
-      output.writeInt32(4, jobMoney_);
+    if (jobBaseMsg_ != null) {
+      output.writeMessage(1, getJobBaseMsg());
     }
     if (!getJobReqBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, jobReq_);
-    }
-    if (!getJobLocationBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, jobLocation_);
-    }
-    if (companyId_ != 0) {
-      output.writeInt32(7, companyId_);
-    }
-    if (!getRecruiterNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, recruiterName_);
-    }
-    if (!getRecruiterPhoneBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, recruiterPhone_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, jobReq_);
     }
     if (jobNeed_ != 0) {
-      output.writeInt32(10, jobNeed_);
-    }
-    if (recruiterId_ != 0) {
-      output.writeInt32(11, recruiterId_);
-    }
-    if (openTime_ != 0L) {
-      output.writeInt64(12, openTime_);
-    }
-    if (!getJobTagsBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, jobTags_);
-    }
-    if (updateTime_ != 0L) {
-      output.writeInt64(14, updateTime_);
+      output.writeInt32(3, jobNeed_);
     }
     if (!getIndustryBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, industry_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, industry_);
+    }
+    if (!getRecruiterNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, recruiterName_);
+    }
+    if (!getRecruiterPhoneBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, recruiterPhone_);
+    }
+    if (recruiterId_ != 0) {
+      output.writeInt32(8, recruiterId_);
+    }
+    if (updateTime_ != 0L) {
+      output.writeInt64(9, updateTime_);
     }
     unknownFields.writeTo(output);
   }
@@ -611,54 +404,33 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (jobId_ != 0) {
+    if (jobBaseMsg_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, jobId_);
-    }
-    if (!getJobNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, jobName_);
-    }
-    if (jobMoney_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, jobMoney_);
+        .computeMessageSize(1, getJobBaseMsg());
     }
     if (!getJobReqBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, jobReq_);
-    }
-    if (!getJobLocationBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, jobLocation_);
-    }
-    if (companyId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(7, companyId_);
-    }
-    if (!getRecruiterNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, recruiterName_);
-    }
-    if (!getRecruiterPhoneBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, recruiterPhone_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, jobReq_);
     }
     if (jobNeed_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(10, jobNeed_);
+        .computeInt32Size(3, jobNeed_);
+    }
+    if (!getIndustryBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, industry_);
+    }
+    if (!getRecruiterNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, recruiterName_);
+    }
+    if (!getRecruiterPhoneBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, recruiterPhone_);
     }
     if (recruiterId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(11, recruiterId_);
-    }
-    if (openTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(12, openTime_);
-    }
-    if (!getJobTagsBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, jobTags_);
+        .computeInt32Size(8, recruiterId_);
     }
     if (updateTime_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(14, updateTime_);
-    }
-    if (!getIndustryBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, industry_);
+        .computeInt64Size(9, updateTime_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -676,34 +448,25 @@ private static final long serialVersionUID = 0L;
     com.kptl.proto.JobMessage other = (com.kptl.proto.JobMessage) obj;
 
     boolean result = true;
-    result = result && (getJobId()
-        == other.getJobId());
-    result = result && getJobName()
-        .equals(other.getJobName());
-    result = result && (getJobMoney()
-        == other.getJobMoney());
+    result = result && (hasJobBaseMsg() == other.hasJobBaseMsg());
+    if (hasJobBaseMsg()) {
+      result = result && getJobBaseMsg()
+          .equals(other.getJobBaseMsg());
+    }
     result = result && getJobReq()
         .equals(other.getJobReq());
-    result = result && getJobLocation()
-        .equals(other.getJobLocation());
-    result = result && (getCompanyId()
-        == other.getCompanyId());
+    result = result && (getJobNeed()
+        == other.getJobNeed());
+    result = result && getIndustry()
+        .equals(other.getIndustry());
     result = result && getRecruiterName()
         .equals(other.getRecruiterName());
     result = result && getRecruiterPhone()
         .equals(other.getRecruiterPhone());
-    result = result && (getJobNeed()
-        == other.getJobNeed());
     result = result && (getRecruiterId()
         == other.getRecruiterId());
-    result = result && (getOpenTime()
-        == other.getOpenTime());
-    result = result && getJobTags()
-        .equals(other.getJobTags());
     result = result && (getUpdateTime()
         == other.getUpdateTime());
-    result = result && getIndustry()
-        .equals(other.getIndustry());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -715,36 +478,25 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + JOBID_FIELD_NUMBER;
-    hash = (53 * hash) + getJobId();
-    hash = (37 * hash) + JOBNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getJobName().hashCode();
-    hash = (37 * hash) + JOBMONEY_FIELD_NUMBER;
-    hash = (53 * hash) + getJobMoney();
+    if (hasJobBaseMsg()) {
+      hash = (37 * hash) + JOBBASEMSG_FIELD_NUMBER;
+      hash = (53 * hash) + getJobBaseMsg().hashCode();
+    }
     hash = (37 * hash) + JOBREQ_FIELD_NUMBER;
     hash = (53 * hash) + getJobReq().hashCode();
-    hash = (37 * hash) + JOBLOCATION_FIELD_NUMBER;
-    hash = (53 * hash) + getJobLocation().hashCode();
-    hash = (37 * hash) + COMPANYID_FIELD_NUMBER;
-    hash = (53 * hash) + getCompanyId();
+    hash = (37 * hash) + JOBNEED_FIELD_NUMBER;
+    hash = (53 * hash) + getJobNeed();
+    hash = (37 * hash) + INDUSTRY_FIELD_NUMBER;
+    hash = (53 * hash) + getIndustry().hashCode();
     hash = (37 * hash) + RECRUITERNAME_FIELD_NUMBER;
     hash = (53 * hash) + getRecruiterName().hashCode();
     hash = (37 * hash) + RECRUITERPHONE_FIELD_NUMBER;
     hash = (53 * hash) + getRecruiterPhone().hashCode();
-    hash = (37 * hash) + JOBNEED_FIELD_NUMBER;
-    hash = (53 * hash) + getJobNeed();
     hash = (37 * hash) + RECRUITERID_FIELD_NUMBER;
     hash = (53 * hash) + getRecruiterId();
-    hash = (37 * hash) + OPENTIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getOpenTime());
-    hash = (37 * hash) + JOBTAGS_FIELD_NUMBER;
-    hash = (53 * hash) + getJobTags().hashCode();
     hash = (37 * hash) + UPDATETIME_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUpdateTime());
-    hash = (37 * hash) + INDUSTRY_FIELD_NUMBER;
-    hash = (53 * hash) + getIndustry().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -874,33 +626,25 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      jobId_ = 0;
-
-      jobName_ = "";
-
-      jobMoney_ = 0;
-
+      if (jobBaseMsgBuilder_ == null) {
+        jobBaseMsg_ = null;
+      } else {
+        jobBaseMsg_ = null;
+        jobBaseMsgBuilder_ = null;
+      }
       jobReq_ = "";
 
-      jobLocation_ = "";
+      jobNeed_ = 0;
 
-      companyId_ = 0;
+      industry_ = "";
 
       recruiterName_ = "";
 
       recruiterPhone_ = "";
 
-      jobNeed_ = 0;
-
       recruiterId_ = 0;
 
-      openTime_ = 0L;
-
-      jobTags_ = "";
-
       updateTime_ = 0L;
-
-      industry_ = "";
 
       return this;
     }
@@ -924,20 +668,18 @@ private static final long serialVersionUID = 0L;
 
     public com.kptl.proto.JobMessage buildPartial() {
       com.kptl.proto.JobMessage result = new com.kptl.proto.JobMessage(this);
-      result.jobId_ = jobId_;
-      result.jobName_ = jobName_;
-      result.jobMoney_ = jobMoney_;
+      if (jobBaseMsgBuilder_ == null) {
+        result.jobBaseMsg_ = jobBaseMsg_;
+      } else {
+        result.jobBaseMsg_ = jobBaseMsgBuilder_.build();
+      }
       result.jobReq_ = jobReq_;
-      result.jobLocation_ = jobLocation_;
-      result.companyId_ = companyId_;
+      result.jobNeed_ = jobNeed_;
+      result.industry_ = industry_;
       result.recruiterName_ = recruiterName_;
       result.recruiterPhone_ = recruiterPhone_;
-      result.jobNeed_ = jobNeed_;
       result.recruiterId_ = recruiterId_;
-      result.openTime_ = openTime_;
-      result.jobTags_ = jobTags_;
       result.updateTime_ = updateTime_;
-      result.industry_ = industry_;
       onBuilt();
       return result;
     }
@@ -979,26 +721,19 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.kptl.proto.JobMessage other) {
       if (other == com.kptl.proto.JobMessage.getDefaultInstance()) return this;
-      if (other.getJobId() != 0) {
-        setJobId(other.getJobId());
-      }
-      if (!other.getJobName().isEmpty()) {
-        jobName_ = other.jobName_;
-        onChanged();
-      }
-      if (other.getJobMoney() != 0) {
-        setJobMoney(other.getJobMoney());
+      if (other.hasJobBaseMsg()) {
+        mergeJobBaseMsg(other.getJobBaseMsg());
       }
       if (!other.getJobReq().isEmpty()) {
         jobReq_ = other.jobReq_;
         onChanged();
       }
-      if (!other.getJobLocation().isEmpty()) {
-        jobLocation_ = other.jobLocation_;
-        onChanged();
+      if (other.getJobNeed() != 0) {
+        setJobNeed(other.getJobNeed());
       }
-      if (other.getCompanyId() != 0) {
-        setCompanyId(other.getCompanyId());
+      if (!other.getIndustry().isEmpty()) {
+        industry_ = other.industry_;
+        onChanged();
       }
       if (!other.getRecruiterName().isEmpty()) {
         recruiterName_ = other.recruiterName_;
@@ -1008,25 +743,11 @@ private static final long serialVersionUID = 0L;
         recruiterPhone_ = other.recruiterPhone_;
         onChanged();
       }
-      if (other.getJobNeed() != 0) {
-        setJobNeed(other.getJobNeed());
-      }
       if (other.getRecruiterId() != 0) {
         setRecruiterId(other.getRecruiterId());
       }
-      if (other.getOpenTime() != 0L) {
-        setOpenTime(other.getOpenTime());
-      }
-      if (!other.getJobTags().isEmpty()) {
-        jobTags_ = other.jobTags_;
-        onChanged();
-      }
       if (other.getUpdateTime() != 0L) {
         setUpdateTime(other.getUpdateTime());
-      }
-      if (!other.getIndustry().isEmpty()) {
-        industry_ = other.industry_;
-        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1055,169 +776,121 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int jobId_ ;
+    private com.kptl.proto.JobSimplifyMessage jobBaseMsg_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.kptl.proto.JobSimplifyMessage, com.kptl.proto.JobSimplifyMessage.Builder, com.kptl.proto.JobSimplifyMessageOrBuilder> jobBaseMsgBuilder_;
     /**
-     * <pre>
-     *职位id
-     * </pre>
-     *
-     * <code>int32 jobId = 2;</code>
+     * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
      */
-    public int getJobId() {
-      return jobId_;
+    public boolean hasJobBaseMsg() {
+      return jobBaseMsgBuilder_ != null || jobBaseMsg_ != null;
     }
     /**
-     * <pre>
-     *职位id
-     * </pre>
-     *
-     * <code>int32 jobId = 2;</code>
+     * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
      */
-    public Builder setJobId(int value) {
-      
-      jobId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *职位id
-     * </pre>
-     *
-     * <code>int32 jobId = 2;</code>
-     */
-    public Builder clearJobId() {
-      
-      jobId_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object jobName_ = "";
-    /**
-     * <pre>
-     *职位名称
-     * </pre>
-     *
-     * <code>string jobName = 3;</code>
-     */
-    public java.lang.String getJobName() {
-      java.lang.Object ref = jobName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        jobName_ = s;
-        return s;
+    public com.kptl.proto.JobSimplifyMessage getJobBaseMsg() {
+      if (jobBaseMsgBuilder_ == null) {
+        return jobBaseMsg_ == null ? com.kptl.proto.JobSimplifyMessage.getDefaultInstance() : jobBaseMsg_;
       } else {
-        return (java.lang.String) ref;
+        return jobBaseMsgBuilder_.getMessage();
       }
     }
     /**
-     * <pre>
-     *职位名称
-     * </pre>
-     *
-     * <code>string jobName = 3;</code>
+     * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getJobNameBytes() {
-      java.lang.Object ref = jobName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        jobName_ = b;
-        return b;
+    public Builder setJobBaseMsg(com.kptl.proto.JobSimplifyMessage value) {
+      if (jobBaseMsgBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        jobBaseMsg_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        jobBaseMsgBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
+     */
+    public Builder setJobBaseMsg(
+        com.kptl.proto.JobSimplifyMessage.Builder builderForValue) {
+      if (jobBaseMsgBuilder_ == null) {
+        jobBaseMsg_ = builderForValue.build();
+        onChanged();
+      } else {
+        jobBaseMsgBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
+     */
+    public Builder mergeJobBaseMsg(com.kptl.proto.JobSimplifyMessage value) {
+      if (jobBaseMsgBuilder_ == null) {
+        if (jobBaseMsg_ != null) {
+          jobBaseMsg_ =
+            com.kptl.proto.JobSimplifyMessage.newBuilder(jobBaseMsg_).mergeFrom(value).buildPartial();
+        } else {
+          jobBaseMsg_ = value;
+        }
+        onChanged();
+      } else {
+        jobBaseMsgBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
+     */
+    public Builder clearJobBaseMsg() {
+      if (jobBaseMsgBuilder_ == null) {
+        jobBaseMsg_ = null;
+        onChanged();
+      } else {
+        jobBaseMsg_ = null;
+        jobBaseMsgBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
+     */
+    public com.kptl.proto.JobSimplifyMessage.Builder getJobBaseMsgBuilder() {
+      
+      onChanged();
+      return getJobBaseMsgFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
+     */
+    public com.kptl.proto.JobSimplifyMessageOrBuilder getJobBaseMsgOrBuilder() {
+      if (jobBaseMsgBuilder_ != null) {
+        return jobBaseMsgBuilder_.getMessageOrBuilder();
+      } else {
+        return jobBaseMsg_ == null ?
+            com.kptl.proto.JobSimplifyMessage.getDefaultInstance() : jobBaseMsg_;
       }
     }
     /**
-     * <pre>
-     *职位名称
-     * </pre>
-     *
-     * <code>string jobName = 3;</code>
+     * <code>.job.JobSimplifyMessage jobBaseMsg = 1;</code>
      */
-    public Builder setJobName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      jobName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *职位名称
-     * </pre>
-     *
-     * <code>string jobName = 3;</code>
-     */
-    public Builder clearJobName() {
-      
-      jobName_ = getDefaultInstance().getJobName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *职位名称
-     * </pre>
-     *
-     * <code>string jobName = 3;</code>
-     */
-    public Builder setJobNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      jobName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private int jobMoney_ ;
-    /**
-     * <pre>
-     *薪资
-     * </pre>
-     *
-     * <code>int32 jobMoney = 4;</code>
-     */
-    public int getJobMoney() {
-      return jobMoney_;
-    }
-    /**
-     * <pre>
-     *薪资
-     * </pre>
-     *
-     * <code>int32 jobMoney = 4;</code>
-     */
-    public Builder setJobMoney(int value) {
-      
-      jobMoney_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *薪资
-     * </pre>
-     *
-     * <code>int32 jobMoney = 4;</code>
-     */
-    public Builder clearJobMoney() {
-      
-      jobMoney_ = 0;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.kptl.proto.JobSimplifyMessage, com.kptl.proto.JobSimplifyMessage.Builder, com.kptl.proto.JobSimplifyMessageOrBuilder> 
+        getJobBaseMsgFieldBuilder() {
+      if (jobBaseMsgBuilder_ == null) {
+        jobBaseMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.kptl.proto.JobSimplifyMessage, com.kptl.proto.JobSimplifyMessage.Builder, com.kptl.proto.JobSimplifyMessageOrBuilder>(
+                getJobBaseMsg(),
+                getParentForChildren(),
+                isClean());
+        jobBaseMsg_ = null;
+      }
+      return jobBaseMsgBuilder_;
     }
 
     private java.lang.Object jobReq_ = "";
@@ -1226,7 +899,7 @@ private static final long serialVersionUID = 0L;
      *职位要求
      * </pre>
      *
-     * <code>string jobReq = 5;</code>
+     * <code>string jobReq = 2;</code>
      */
     public java.lang.String getJobReq() {
       java.lang.Object ref = jobReq_;
@@ -1245,7 +918,7 @@ private static final long serialVersionUID = 0L;
      *职位要求
      * </pre>
      *
-     * <code>string jobReq = 5;</code>
+     * <code>string jobReq = 2;</code>
      */
     public com.google.protobuf.ByteString
         getJobReqBytes() {
@@ -1265,7 +938,7 @@ private static final long serialVersionUID = 0L;
      *职位要求
      * </pre>
      *
-     * <code>string jobReq = 5;</code>
+     * <code>string jobReq = 2;</code>
      */
     public Builder setJobReq(
         java.lang.String value) {
@@ -1282,7 +955,7 @@ private static final long serialVersionUID = 0L;
      *职位要求
      * </pre>
      *
-     * <code>string jobReq = 5;</code>
+     * <code>string jobReq = 2;</code>
      */
     public Builder clearJobReq() {
       
@@ -1295,7 +968,7 @@ private static final long serialVersionUID = 0L;
      *职位要求
      * </pre>
      *
-     * <code>string jobReq = 5;</code>
+     * <code>string jobReq = 2;</code>
      */
     public Builder setJobReqBytes(
         com.google.protobuf.ByteString value) {
@@ -1309,318 +982,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object jobLocation_ = "";
-    /**
-     * <pre>
-     *职位地址
-     * </pre>
-     *
-     * <code>string jobLocation = 6;</code>
-     */
-    public java.lang.String getJobLocation() {
-      java.lang.Object ref = jobLocation_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        jobLocation_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *职位地址
-     * </pre>
-     *
-     * <code>string jobLocation = 6;</code>
-     */
-    public com.google.protobuf.ByteString
-        getJobLocationBytes() {
-      java.lang.Object ref = jobLocation_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        jobLocation_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *职位地址
-     * </pre>
-     *
-     * <code>string jobLocation = 6;</code>
-     */
-    public Builder setJobLocation(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      jobLocation_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *职位地址
-     * </pre>
-     *
-     * <code>string jobLocation = 6;</code>
-     */
-    public Builder clearJobLocation() {
-      
-      jobLocation_ = getDefaultInstance().getJobLocation();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *职位地址
-     * </pre>
-     *
-     * <code>string jobLocation = 6;</code>
-     */
-    public Builder setJobLocationBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      jobLocation_ = value;
-      onChanged();
-      return this;
-    }
-
-    private int companyId_ ;
-    /**
-     * <pre>
-     *公司id(用户id)
-     * </pre>
-     *
-     * <code>int32 companyId = 7;</code>
-     */
-    public int getCompanyId() {
-      return companyId_;
-    }
-    /**
-     * <pre>
-     *公司id(用户id)
-     * </pre>
-     *
-     * <code>int32 companyId = 7;</code>
-     */
-    public Builder setCompanyId(int value) {
-      
-      companyId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *公司id(用户id)
-     * </pre>
-     *
-     * <code>int32 companyId = 7;</code>
-     */
-    public Builder clearCompanyId() {
-      
-      companyId_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object recruiterName_ = "";
-    /**
-     * <pre>
-     *招聘者
-     * </pre>
-     *
-     * <code>string recruiterName = 8;</code>
-     */
-    public java.lang.String getRecruiterName() {
-      java.lang.Object ref = recruiterName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        recruiterName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *招聘者
-     * </pre>
-     *
-     * <code>string recruiterName = 8;</code>
-     */
-    public com.google.protobuf.ByteString
-        getRecruiterNameBytes() {
-      java.lang.Object ref = recruiterName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        recruiterName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *招聘者
-     * </pre>
-     *
-     * <code>string recruiterName = 8;</code>
-     */
-    public Builder setRecruiterName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      recruiterName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *招聘者
-     * </pre>
-     *
-     * <code>string recruiterName = 8;</code>
-     */
-    public Builder clearRecruiterName() {
-      
-      recruiterName_ = getDefaultInstance().getRecruiterName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *招聘者
-     * </pre>
-     *
-     * <code>string recruiterName = 8;</code>
-     */
-    public Builder setRecruiterNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      recruiterName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object recruiterPhone_ = "";
-    /**
-     * <pre>
-     *招聘者手机号
-     * </pre>
-     *
-     * <code>string recruiterPhone = 9;</code>
-     */
-    public java.lang.String getRecruiterPhone() {
-      java.lang.Object ref = recruiterPhone_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        recruiterPhone_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *招聘者手机号
-     * </pre>
-     *
-     * <code>string recruiterPhone = 9;</code>
-     */
-    public com.google.protobuf.ByteString
-        getRecruiterPhoneBytes() {
-      java.lang.Object ref = recruiterPhone_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        recruiterPhone_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *招聘者手机号
-     * </pre>
-     *
-     * <code>string recruiterPhone = 9;</code>
-     */
-    public Builder setRecruiterPhone(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      recruiterPhone_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *招聘者手机号
-     * </pre>
-     *
-     * <code>string recruiterPhone = 9;</code>
-     */
-    public Builder clearRecruiterPhone() {
-      
-      recruiterPhone_ = getDefaultInstance().getRecruiterPhone();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *招聘者手机号
-     * </pre>
-     *
-     * <code>string recruiterPhone = 9;</code>
-     */
-    public Builder setRecruiterPhoneBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      recruiterPhone_ = value;
-      onChanged();
-      return this;
-    }
-
     private int jobNeed_ ;
     /**
      * <pre>
      *招聘人数
      * </pre>
      *
-     * <code>int32 jobNeed = 10;</code>
+     * <code>int32 jobNeed = 3;</code>
      */
     public int getJobNeed() {
       return jobNeed_;
@@ -1630,7 +998,7 @@ private static final long serialVersionUID = 0L;
      *招聘人数
      * </pre>
      *
-     * <code>int32 jobNeed = 10;</code>
+     * <code>int32 jobNeed = 3;</code>
      */
     public Builder setJobNeed(int value) {
       
@@ -1643,214 +1011,11 @@ private static final long serialVersionUID = 0L;
      *招聘人数
      * </pre>
      *
-     * <code>int32 jobNeed = 10;</code>
+     * <code>int32 jobNeed = 3;</code>
      */
     public Builder clearJobNeed() {
       
       jobNeed_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int recruiterId_ ;
-    /**
-     * <pre>
-     *招聘者id
-     * </pre>
-     *
-     * <code>int32 recruiterId = 11;</code>
-     */
-    public int getRecruiterId() {
-      return recruiterId_;
-    }
-    /**
-     * <pre>
-     *招聘者id
-     * </pre>
-     *
-     * <code>int32 recruiterId = 11;</code>
-     */
-    public Builder setRecruiterId(int value) {
-      
-      recruiterId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *招聘者id
-     * </pre>
-     *
-     * <code>int32 recruiterId = 11;</code>
-     */
-    public Builder clearRecruiterId() {
-      
-      recruiterId_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private long openTime_ ;
-    /**
-     * <pre>
-     *职位发布时间
-     * </pre>
-     *
-     * <code>int64 openTime = 12;</code>
-     */
-    public long getOpenTime() {
-      return openTime_;
-    }
-    /**
-     * <pre>
-     *职位发布时间
-     * </pre>
-     *
-     * <code>int64 openTime = 12;</code>
-     */
-    public Builder setOpenTime(long value) {
-      
-      openTime_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *职位发布时间
-     * </pre>
-     *
-     * <code>int64 openTime = 12;</code>
-     */
-    public Builder clearOpenTime() {
-      
-      openTime_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object jobTags_ = "";
-    /**
-     * <pre>
-     *职位标签
-     * </pre>
-     *
-     * <code>string jobTags = 13;</code>
-     */
-    public java.lang.String getJobTags() {
-      java.lang.Object ref = jobTags_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        jobTags_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *职位标签
-     * </pre>
-     *
-     * <code>string jobTags = 13;</code>
-     */
-    public com.google.protobuf.ByteString
-        getJobTagsBytes() {
-      java.lang.Object ref = jobTags_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        jobTags_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *职位标签
-     * </pre>
-     *
-     * <code>string jobTags = 13;</code>
-     */
-    public Builder setJobTags(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      jobTags_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *职位标签
-     * </pre>
-     *
-     * <code>string jobTags = 13;</code>
-     */
-    public Builder clearJobTags() {
-      
-      jobTags_ = getDefaultInstance().getJobTags();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *职位标签
-     * </pre>
-     *
-     * <code>string jobTags = 13;</code>
-     */
-    public Builder setJobTagsBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      jobTags_ = value;
-      onChanged();
-      return this;
-    }
-
-    private long updateTime_ ;
-    /**
-     * <pre>
-     *职位刷新时间
-     * </pre>
-     *
-     * <code>int64 updateTime = 14;</code>
-     */
-    public long getUpdateTime() {
-      return updateTime_;
-    }
-    /**
-     * <pre>
-     *职位刷新时间
-     * </pre>
-     *
-     * <code>int64 updateTime = 14;</code>
-     */
-    public Builder setUpdateTime(long value) {
-      
-      updateTime_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *职位刷新时间
-     * </pre>
-     *
-     * <code>int64 updateTime = 14;</code>
-     */
-    public Builder clearUpdateTime() {
-      
-      updateTime_ = 0L;
       onChanged();
       return this;
     }
@@ -1861,7 +1026,7 @@ private static final long serialVersionUID = 0L;
      *行业
      * </pre>
      *
-     * <code>string industry = 15;</code>
+     * <code>string industry = 5;</code>
      */
     public java.lang.String getIndustry() {
       java.lang.Object ref = industry_;
@@ -1880,7 +1045,7 @@ private static final long serialVersionUID = 0L;
      *行业
      * </pre>
      *
-     * <code>string industry = 15;</code>
+     * <code>string industry = 5;</code>
      */
     public com.google.protobuf.ByteString
         getIndustryBytes() {
@@ -1900,7 +1065,7 @@ private static final long serialVersionUID = 0L;
      *行业
      * </pre>
      *
-     * <code>string industry = 15;</code>
+     * <code>string industry = 5;</code>
      */
     public Builder setIndustry(
         java.lang.String value) {
@@ -1917,7 +1082,7 @@ private static final long serialVersionUID = 0L;
      *行业
      * </pre>
      *
-     * <code>string industry = 15;</code>
+     * <code>string industry = 5;</code>
      */
     public Builder clearIndustry() {
       
@@ -1930,7 +1095,7 @@ private static final long serialVersionUID = 0L;
      *行业
      * </pre>
      *
-     * <code>string industry = 15;</code>
+     * <code>string industry = 5;</code>
      */
     public Builder setIndustryBytes(
         com.google.protobuf.ByteString value) {
@@ -1940,6 +1105,260 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       industry_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object recruiterName_ = "";
+    /**
+     * <pre>
+     *招聘者
+     * </pre>
+     *
+     * <code>string recruiterName = 6;</code>
+     */
+    public java.lang.String getRecruiterName() {
+      java.lang.Object ref = recruiterName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        recruiterName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *招聘者
+     * </pre>
+     *
+     * <code>string recruiterName = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRecruiterNameBytes() {
+      java.lang.Object ref = recruiterName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        recruiterName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *招聘者
+     * </pre>
+     *
+     * <code>string recruiterName = 6;</code>
+     */
+    public Builder setRecruiterName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      recruiterName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *招聘者
+     * </pre>
+     *
+     * <code>string recruiterName = 6;</code>
+     */
+    public Builder clearRecruiterName() {
+      
+      recruiterName_ = getDefaultInstance().getRecruiterName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *招聘者
+     * </pre>
+     *
+     * <code>string recruiterName = 6;</code>
+     */
+    public Builder setRecruiterNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      recruiterName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object recruiterPhone_ = "";
+    /**
+     * <pre>
+     *招聘者手机号
+     * </pre>
+     *
+     * <code>string recruiterPhone = 7;</code>
+     */
+    public java.lang.String getRecruiterPhone() {
+      java.lang.Object ref = recruiterPhone_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        recruiterPhone_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *招聘者手机号
+     * </pre>
+     *
+     * <code>string recruiterPhone = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRecruiterPhoneBytes() {
+      java.lang.Object ref = recruiterPhone_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        recruiterPhone_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *招聘者手机号
+     * </pre>
+     *
+     * <code>string recruiterPhone = 7;</code>
+     */
+    public Builder setRecruiterPhone(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      recruiterPhone_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *招聘者手机号
+     * </pre>
+     *
+     * <code>string recruiterPhone = 7;</code>
+     */
+    public Builder clearRecruiterPhone() {
+      
+      recruiterPhone_ = getDefaultInstance().getRecruiterPhone();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *招聘者手机号
+     * </pre>
+     *
+     * <code>string recruiterPhone = 7;</code>
+     */
+    public Builder setRecruiterPhoneBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      recruiterPhone_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int recruiterId_ ;
+    /**
+     * <pre>
+     *招聘者id
+     * </pre>
+     *
+     * <code>int32 recruiterId = 8;</code>
+     */
+    public int getRecruiterId() {
+      return recruiterId_;
+    }
+    /**
+     * <pre>
+     *招聘者id
+     * </pre>
+     *
+     * <code>int32 recruiterId = 8;</code>
+     */
+    public Builder setRecruiterId(int value) {
+      
+      recruiterId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *招聘者id
+     * </pre>
+     *
+     * <code>int32 recruiterId = 8;</code>
+     */
+    public Builder clearRecruiterId() {
+      
+      recruiterId_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private long updateTime_ ;
+    /**
+     * <pre>
+     *职位刷新时间
+     * </pre>
+     *
+     * <code>int64 updateTime = 9;</code>
+     */
+    public long getUpdateTime() {
+      return updateTime_;
+    }
+    /**
+     * <pre>
+     *职位刷新时间
+     * </pre>
+     *
+     * <code>int64 updateTime = 9;</code>
+     */
+    public Builder setUpdateTime(long value) {
+      
+      updateTime_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *职位刷新时间
+     * </pre>
+     *
+     * <code>int64 updateTime = 9;</code>
+     */
+    public Builder clearUpdateTime() {
+      
+      updateTime_ = 0L;
       onChanged();
       return this;
     }

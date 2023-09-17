@@ -1,5 +1,6 @@
 package com.kptl.job.service;
 
+import com.kptl.job.dto.JobDTO;
 import com.kptl.proto.*;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +19,5 @@ public interface JobService {
 
     List<JobMessage> findAllJobs(FindAllJobRequest request);
 
-
+    List<JobSimplifyMessage> findJobsSimplify(FindAllJobRequest request);
 }

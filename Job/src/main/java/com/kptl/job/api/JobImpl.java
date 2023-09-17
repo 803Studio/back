@@ -1,6 +1,5 @@
 package com.kptl.job.api;
 
-import com.kptl.job.config.GrpcService;
 import com.kptl.job.service.CompanyService;
 import com.kptl.job.service.JobService;
 import com.kptl.proto.*;
@@ -41,6 +40,27 @@ public class JobImpl extends JobGrpc.JobImplBase {
         responseObserver.onCompleted();
     }
 
+    @Override
+    public void findJobsSimplify(FindAllJobRequest request, StreamObserver<FindSimplifyJobResponse> responseObserver) {
+        List<JobSimplifyMessage> jobs = new ArrayList<>();
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        FindSimplifyJobResponse.Builder builder = FindSimplifyJobResponse.newBuilder();
+        try {
+            jobs = jobService.findJobsSimplify(request);
+            if (jobs != null) {
+                for (JobSimplifyMessage jobMessage : jobs) {
+                    builder.addJobMsg(jobMessage);
+                }
+            }
+            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+        } catch (Exception e) {
+            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+        }
+        builder.setHeader(header);
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+    }
+
     /**
      * 通用接口，查询所有职位
      */
@@ -51,14 +71,16 @@ public class JobImpl extends JobGrpc.JobImplBase {
         FindJobResponse.Builder builder = FindJobResponse.newBuilder();
         try {
             jobs = jobService.findAllJobs(request);
+            if (jobs != null) {
+                for (JobMessage jobMessage : jobs) {
+                    builder.addJobMsg(jobMessage);
+                }
+            }
             header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
         } catch (Exception e) {
             header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
         }
         builder.setHeader(header);
-        for (JobMessage jobMessage : jobs) {
-            builder.addJobMsg(jobMessage);
-        }
         responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
     }

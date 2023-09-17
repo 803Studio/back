@@ -33,12 +33,32 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public Boolean saveJob(JobMessage request) {
-        return jobMapper.saveJob(request);
+        return jobMapper.saveJob(jobCast(request));
+    }
+    private JobDTO jobCast(JobMessage request) {
+        JobDTO jobDTO = new JobDTO();
+        jobDTO.setJobName(request.getJobBaseMsg().getJobName());
+        jobDTO.setJobLocation(request.getJobBaseMsg().getJobLocation());
+        jobDTO.setCompanyName(request.getJobBaseMsg().getCompanyName());
+        jobDTO.setJobTags(request.getJobBaseMsg().getJobTags());
+        jobDTO.setCompanyId(request.getJobBaseMsg().getCompanyId());
+        jobDTO.setJobMoneyType(request.getJobBaseMsg().getJobMoney().getType().toString());
+        jobDTO.setSalaryLow(request.getJobBaseMsg().getJobMoney().getLow());
+        jobDTO.setSalaryTop(request.getJobBaseMsg().getJobMoney().getHigh());
+        jobDTO.setJobReq(request.getJobReq());
+        jobDTO.setJobNeed(request.getJobNeed());
+        jobDTO.setIndustry(request.getIndustry());
+        jobDTO.setRecruiterName(request.getRecruiterName());
+        jobDTO.setRecruiterPhone(request.getRecruiterPhone());
+        jobDTO.setRecruiterId(request.getRecruiterId());
+        return jobDTO;
     }
 
     @Override
     public Boolean updateJob(JobMessage request) {
-         return jobMapper.updateJob(request);
+        JobDTO jobDTO = jobCast(request);
+        jobDTO.setJobId(request.getJobBaseMsg().getJobId());
+        return jobMapper.updateJob(jobDTO);
     }
 
     @Override
@@ -69,6 +89,37 @@ public class JobServiceImpl implements JobService {
         return copyToJobMessage(allJobs);
     }
 
+    @Override
+    public List<JobSimplifyMessage> findJobsSimplify(FindAllJobRequest request) {
+        System.out.println("begin findAllJobs");
+        List<JobDTO> allJobs = jobMapper.findJobsSimplify(request.getIndex(), request.getSize());
+
+        return copyToSimp(allJobs);
+    }
+    private List<JobSimplifyMessage> copyToSimp(List<JobDTO> allJobs) {
+        if (allJobs == null || allJobs.size() == 0) {
+            return null;
+        }
+        List<JobSimplifyMessage> jobMessages = new ArrayList<>();
+        for (JobDTO job : allJobs) {
+            JobSimplifyMessage.Builder jobMessage = JobSimplifyMessage.newBuilder();
+            JobMoney.Builder money = JobMoney.newBuilder();
+            money.setType(JobMoneyType.valueOf(job.getJobMoneyType()));
+            money.setLow(job.getSalaryLow());
+            money.setHigh(job.getSalaryTop());
+            jobMessage.setJobMoney(money.build());
+            jobMessage.setJobId(job.getJobId());
+            jobMessage.setJobName(job.getJobName());
+            jobMessage.setJobLocation(job.getJobLocation());
+            jobMessage.setCompanyId(job.getCompanyId());
+            jobMessage.setOpenTime(job.getOpenTime().getTime());
+            jobMessage.setJobTags(job.getJobTags());
+            jobMessage.setCompanyName(job.getCompanyName());
+            jobMessages.add(jobMessage.build());
+        }
+        return jobMessages;
+    }
+
     private List<JobMessage> copyToJobMessage(List<JobDTO> allJobs) {
         System.out.println("begin copyToJobMessage");
         if (allJobs == null || allJobs.size() == 0) {
@@ -78,18 +129,25 @@ public class JobServiceImpl implements JobService {
         List<JobMessage> jobMessages = new ArrayList<>();
         for (JobDTO job : allJobs) {
             JobMessage.Builder jobMessage = JobMessage.newBuilder();
-            jobMessage.setJobId(job.getJobId());
-            jobMessage.setJobName(job.getJobName());
-            jobMessage.setJobMoney(job.getJobMoney());
+            JobSimplifyMessage.Builder jobSimp = JobSimplifyMessage.newBuilder();
+            JobMoney.Builder money = JobMoney.newBuilder();
+            money.setType(JobMoneyType.valueOf(job.getJobMoneyType()));
+            money.setLow(job.getSalaryLow());
+            money.setHigh(job.getSalaryTop());
+            jobSimp.setJobMoney(money.build());
+            jobSimp.setJobId(job.getJobId());
+            jobSimp.setJobName(job.getJobName());
+            jobSimp.setJobLocation(job.getJobLocation());
+            jobSimp.setCompanyName(job.getCompanyName());
+            jobSimp.setCompanyId(job.getCompanyId());
+            jobSimp.setOpenTime(job.getOpenTime().getTime());
+            jobSimp.setJobTags(job.getJobTags());
             jobMessage.setJobReq(job.getJobReq());
-            jobMessage.setJobLocation(job.getJobLocation());
-            jobMessage.setCompanyId(job.getCompanyId());
             jobMessage.setRecruiterName(job.getRecruiterName());
             jobMessage.setRecruiterPhone(job.getRecruiterPhone());
-            jobMessage.setOpenTime(job.getOpenTime().getTime());
-            jobMessage.setJobTags(job.getJobTags());
             jobMessage.setUpdateTime(job.getUpdateTime().getTime());
             jobMessage.setIndustry(job.getIndustry());
+            jobMessage.setJobBaseMsg(jobSimp.build());
             jobMessages.add(jobMessage.build());
         }
         System.out.println("return");
