@@ -11,6 +11,11 @@ message OperateRequest {
   int32 jobId = 2;
 }
 
+message FindRecordsReq {
+  int32 id = 1;
+}
+
+
 message OperateResponse {
   ResponseHeader header = 1;
   repeated int32 jobIds = 2;
@@ -30,4 +35,5 @@ enum ResponseStatus {
 service Employee {
   rpc Deliver (OperateRequest) returns (OperateResponse) {};
   rpc Browses (OperateRequest) returns (OperateResponse) {};
+  rpc DeliverRecords (FindRecordsReq) returns (OperateResponse) {};
 }

@@ -9,5 +9,5 @@
     <select id="deliverRecords" resultType="java.lang.Integer">
         select job_id from deliver where id = #{id}
     </select>
-
+    
 </mapper>

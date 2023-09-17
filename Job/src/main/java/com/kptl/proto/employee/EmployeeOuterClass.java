@@ -20,6 +20,11 @@ public final class EmployeeOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_employee_OperateRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_employee_FindRecordsReq_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_employee_FindRecordsReq_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_employee_OperateResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -39,17 +44,19 @@ public final class EmployeeOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\016employee.proto\022\010employee\"+\n\016OperateReq" +
-      "uest\022\n\n\002id\030\001 \001(\005\022\r\n\005jobId\030\002 \001(\005\"K\n\017Opera" +
-      "teResponse\022(\n\006header\030\001 \001(\0132\030.employee.Re" +
-      "sponseHeader\022\016\n\006jobIds\030\002 \003(\005\"K\n\016Response" +
-      "Header\022(\n\006status\030\001 \001(\0162\030.employee.Respon" +
-      "seStatus\022\017\n\007message\030\002 \001(\t*)\n\016ResponseSta" +
-      "tus\022\006\n\002OK\020\000\022\017\n\013InternalErr\020\0012\216\001\n\010Employe" +
-      "e\022@\n\007Deliver\022\030.employee.OperateRequest\032\031" +
-      ".employee.OperateResponse\"\000\022@\n\007Browses\022\030" +
-      ".employee.OperateRequest\032\031.employee.Oper" +
-      "ateResponse\"\000B\033\n\027com.kptl.proto.employee" +
-      "P\001b\006proto3"
+      "uest\022\n\n\002id\030\001 \001(\005\022\r\n\005jobId\030\002 \001(\005\"\034\n\016FindR" +
+      "ecordsReq\022\n\n\002id\030\001 \001(\005\"K\n\017OperateResponse" +
+      "\022(\n\006header\030\001 \001(\0132\030.employee.ResponseHead" +
+      "er\022\016\n\006jobIds\030\002 \003(\005\"K\n\016ResponseHeader\022(\n\006" +
+      "status\030\001 \001(\0162\030.employee.ResponseStatus\022\017" +
+      "\n\007message\030\002 \001(\t*)\n\016ResponseStatus\022\006\n\002OK\020" +
+      "\000\022\017\n\013InternalErr\020\0012\327\001\n\010Employee\022@\n\007Deliv" +
+      "er\022\030.employee.OperateRequest\032\031.employee." +
+      "OperateResponse\"\000\022@\n\007Browses\022\030.employee." +
+      "OperateRequest\032\031.employee.OperateRespons" +
+      "e\"\000\022G\n\016DeliverRecords\022\030.employee.FindRec" +
+      "ordsReq\032\031.employee.OperateResponse\"\000B\033\n\027" +
+      "com.kptl.proto.employeeP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -69,14 +76,20 @@ public final class EmployeeOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_employee_OperateRequest_descriptor,
         new java.lang.String[] { "Id", "JobId", });
-    internal_static_employee_OperateResponse_descriptor =
+    internal_static_employee_FindRecordsReq_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_employee_FindRecordsReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_employee_FindRecordsReq_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_employee_OperateResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_employee_OperateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_employee_OperateResponse_descriptor,
         new java.lang.String[] { "Header", "JobIds", });
     internal_static_employee_ResponseHeader_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_employee_ResponseHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_employee_ResponseHeader_descriptor,

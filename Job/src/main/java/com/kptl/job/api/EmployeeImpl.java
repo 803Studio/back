@@ -1,13 +1,8 @@
 package com.kptl.job.api;
 
-import com.kptl.job.config.GrpcService;
 import com.kptl.job.service.EmployeeDeliverService;
-import com.kptl.proto.employee.EmployeeGrpc;
+import com.kptl.proto.employee.*;
 
-import com.kptl.proto.employee.ResponseStatus;
-import com.kptl.proto.employee.OperateRequest;
-import com.kptl.proto.employee.OperateResponse;
-import com.kptl.proto.employee.ResponseHeader;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +19,21 @@ public class EmployeeImpl extends EmployeeGrpc.EmployeeImplBase {
     @Autowired
     private EmployeeDeliverService employeeDeliverService;
 
-    public void deliverRecords(OperateRequest request, StreamObserver<OperateResponse> responseObserver) {
+    @Override
+    public void browses(OperateRequest request, StreamObserver<OperateResponse> responseObserver) {
+        super.browses(request, responseObserver);
+    }
+
+    @Override
+    public void deliverRecords(FindRecordsReq request, StreamObserver<OperateResponse> responseObserver) {
         List<Integer> list = employeeDeliverService.deliverRecords(request);
         ResponseHeader header = ResponseHeader.newBuilder().setStatus(ResponseStatus.OK).setMessage("查询成功！").build();
         OperateResponse.Builder builder = OperateResponse.newBuilder();
         builder.setHeader(header);
-        for (Integer jobId : list) {
-            builder.addJobIds(jobId);
+        if (list != null && !list.isEmpty()) {
+            for (Integer jobId : list) {
+                builder.addJobIds(jobId);
+            }
         }
         responseObserver.onNext(builder.build());
         responseObserver.onCompleted();

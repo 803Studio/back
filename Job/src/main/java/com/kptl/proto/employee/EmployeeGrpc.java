@@ -104,6 +104,43 @@ public final class EmployeeGrpc {
      }
      return getBrowsesMethod;
   }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getDeliverRecordsMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<com.kptl.proto.employee.FindRecordsReq,
+      com.kptl.proto.employee.OperateResponse> METHOD_DELIVER_RECORDS = getDeliverRecordsMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.employee.FindRecordsReq,
+      com.kptl.proto.employee.OperateResponse> getDeliverRecordsMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<com.kptl.proto.employee.FindRecordsReq,
+      com.kptl.proto.employee.OperateResponse> getDeliverRecordsMethod() {
+    return getDeliverRecordsMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<com.kptl.proto.employee.FindRecordsReq,
+      com.kptl.proto.employee.OperateResponse> getDeliverRecordsMethodHelper() {
+    io.grpc.MethodDescriptor<com.kptl.proto.employee.FindRecordsReq, com.kptl.proto.employee.OperateResponse> getDeliverRecordsMethod;
+    if ((getDeliverRecordsMethod = EmployeeGrpc.getDeliverRecordsMethod) == null) {
+      synchronized (EmployeeGrpc.class) {
+        if ((getDeliverRecordsMethod = EmployeeGrpc.getDeliverRecordsMethod) == null) {
+          EmployeeGrpc.getDeliverRecordsMethod = getDeliverRecordsMethod = 
+              io.grpc.MethodDescriptor.<com.kptl.proto.employee.FindRecordsReq, com.kptl.proto.employee.OperateResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "employee.Employee", "DeliverRecords"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.employee.FindRecordsReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.employee.OperateResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new EmployeeMethodDescriptorSupplier("DeliverRecords"))
+                  .build();
+          }
+        }
+     }
+     return getDeliverRecordsMethod;
+  }
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -149,6 +186,13 @@ public final class EmployeeGrpc {
       asyncUnimplementedUnaryCall(getBrowsesMethodHelper(), responseObserver);
     }
 
+    /**
+     */
+    public void deliverRecords(com.kptl.proto.employee.FindRecordsReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.employee.OperateResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getDeliverRecordsMethodHelper(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -165,6 +209,13 @@ public final class EmployeeGrpc {
                 com.kptl.proto.employee.OperateRequest,
                 com.kptl.proto.employee.OperateResponse>(
                   this, METHODID_BROWSES)))
+          .addMethod(
+            getDeliverRecordsMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.kptl.proto.employee.FindRecordsReq,
+                com.kptl.proto.employee.OperateResponse>(
+                  this, METHODID_DELIVER_RECORDS)))
           .build();
     }
   }
@@ -205,6 +256,14 @@ public final class EmployeeGrpc {
       asyncUnaryCall(
           getChannel().newCall(getBrowsesMethodHelper(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void deliverRecords(com.kptl.proto.employee.FindRecordsReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.employee.OperateResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getDeliverRecordsMethodHelper(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -240,6 +299,13 @@ public final class EmployeeGrpc {
     public com.kptl.proto.employee.OperateResponse browses(com.kptl.proto.employee.OperateRequest request) {
       return blockingUnaryCall(
           getChannel(), getBrowsesMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.kptl.proto.employee.OperateResponse deliverRecords(com.kptl.proto.employee.FindRecordsReq request) {
+      return blockingUnaryCall(
+          getChannel(), getDeliverRecordsMethodHelper(), getCallOptions(), request);
     }
   }
 
@@ -279,10 +345,19 @@ public final class EmployeeGrpc {
       return futureUnaryCall(
           getChannel().newCall(getBrowsesMethodHelper(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.employee.OperateResponse> deliverRecords(
+        com.kptl.proto.employee.FindRecordsReq request) {
+      return futureUnaryCall(
+          getChannel().newCall(getDeliverRecordsMethodHelper(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_DELIVER = 0;
   private static final int METHODID_BROWSES = 1;
+  private static final int METHODID_DELIVER_RECORDS = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -307,6 +382,10 @@ public final class EmployeeGrpc {
           break;
         case METHODID_BROWSES:
           serviceImpl.browses((com.kptl.proto.employee.OperateRequest) request,
+              (io.grpc.stub.StreamObserver<com.kptl.proto.employee.OperateResponse>) responseObserver);
+          break;
+        case METHODID_DELIVER_RECORDS:
+          serviceImpl.deliverRecords((com.kptl.proto.employee.FindRecordsReq) request,
               (io.grpc.stub.StreamObserver<com.kptl.proto.employee.OperateResponse>) responseObserver);
           break;
         default:
@@ -372,6 +451,7 @@ public final class EmployeeGrpc {
               .setSchemaDescriptor(new EmployeeFileDescriptorSupplier())
               .addMethod(getDeliverMethodHelper())
               .addMethod(getBrowsesMethodHelper())
+              .addMethod(getDeliverRecordsMethodHelper())
               .build();
         }
       }

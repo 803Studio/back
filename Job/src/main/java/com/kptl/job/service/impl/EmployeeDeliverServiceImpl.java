@@ -3,6 +3,7 @@ package com.kptl.job.service.impl;
 import com.kptl.job.dao.EmployeeDeliverMapper;
 import com.kptl.job.dto.DeliverDTO;
 import com.kptl.job.service.EmployeeDeliverService;
+import com.kptl.proto.employee.FindRecordsReq;
 import com.kptl.proto.employee.OperateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class EmployeeDeliverServiceImpl implements EmployeeDeliverService {
     }
 
     @Override
-    public List<Integer> deliverRecords(OperateRequest request) {
+    public List<Integer> deliverRecords(FindRecordsReq request) {
         return employeeDeliverMapper.deliverRecords(request.getId());
     }
 }
