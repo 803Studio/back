@@ -20,4 +20,6 @@ public interface JobService {
     List<JobMessage> findAllJobs(FindAllJobRequest request);
 
     List<JobSimplifyMessage> findJobsSimplify(FindAllJobRequest request);
+
+    List<JobSimplifyMessage> findJobsByType(FindJobsByTypeReq request);
 }

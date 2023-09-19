@@ -26,4 +26,6 @@ public interface JobMapper {
     List<JobDTO>  findJobsByCompany(@Param("request") FindJobRequest request);
 
     List<JobDTO> findJobsSimplify(@Param("index") Integer index, @Param("size") Integer size);
+
+    List<JobDTO> findJobsByType(@Param("request") FindJobsByTypeReq request);
 }

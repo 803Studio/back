@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private FindJobByIdRequest() {
     jobId_ = 0;
+    id_ = 0;
   }
 
   @java.lang.Override
@@ -55,6 +56,11 @@ private static final long serialVersionUID = 0L;
             jobId_ = input.readInt32();
             break;
           }
+          case 16: {
+
+            id_ = input.readInt32();
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -82,10 +88,27 @@ private static final long serialVersionUID = 0L;
   public static final int JOBID_FIELD_NUMBER = 1;
   private int jobId_;
   /**
+   * <pre>
+   *职位id
+   * </pre>
+   *
    * <code>int32 jobId = 1;</code>
    */
   public int getJobId() {
     return jobId_;
+  }
+
+  public static final int ID_FIELD_NUMBER = 2;
+  private int id_;
+  /**
+   * <pre>
+   *用户id
+   * </pre>
+   *
+   * <code>int32 id = 2;</code>
+   */
+  public int getId() {
+    return id_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -103,6 +126,9 @@ private static final long serialVersionUID = 0L;
     if (jobId_ != 0) {
       output.writeInt32(1, jobId_);
     }
+    if (id_ != 0) {
+      output.writeInt32(2, id_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -114,6 +140,10 @@ private static final long serialVersionUID = 0L;
     if (jobId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(1, jobId_);
+    }
+    if (id_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, id_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -133,6 +163,8 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && (getJobId()
         == other.getJobId());
+    result = result && (getId()
+        == other.getId());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -146,6 +178,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + JOBID_FIELD_NUMBER;
     hash = (53 * hash) + getJobId();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -277,6 +311,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       jobId_ = 0;
 
+      id_ = 0;
+
       return this;
     }
 
@@ -300,6 +336,7 @@ private static final long serialVersionUID = 0L;
     public com.kptl.proto.FindJobByIdRequest buildPartial() {
       com.kptl.proto.FindJobByIdRequest result = new com.kptl.proto.FindJobByIdRequest(this);
       result.jobId_ = jobId_;
+      result.id_ = id_;
       onBuilt();
       return result;
     }
@@ -344,6 +381,9 @@ private static final long serialVersionUID = 0L;
       if (other.getJobId() != 0) {
         setJobId(other.getJobId());
       }
+      if (other.getId() != 0) {
+        setId(other.getId());
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -373,12 +413,20 @@ private static final long serialVersionUID = 0L;
 
     private int jobId_ ;
     /**
+     * <pre>
+     *职位id
+     * </pre>
+     *
      * <code>int32 jobId = 1;</code>
      */
     public int getJobId() {
       return jobId_;
     }
     /**
+     * <pre>
+     *职位id
+     * </pre>
+     *
      * <code>int32 jobId = 1;</code>
      */
     public Builder setJobId(int value) {
@@ -388,11 +436,53 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *职位id
+     * </pre>
+     *
      * <code>int32 jobId = 1;</code>
      */
     public Builder clearJobId() {
       
       jobId_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int id_ ;
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>int32 id = 2;</code>
+     */
+    public int getId() {
+      return id_;
+    }
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>int32 id = 2;</code>
+     */
+    public Builder setId(int value) {
+      
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>int32 id = 2;</code>
+     */
+    public Builder clearId() {
+      
+      id_ = 0;
       onChanged();
       return this;
     }
