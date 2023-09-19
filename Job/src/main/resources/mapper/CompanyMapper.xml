@@ -22,6 +22,10 @@
         where company_id = #{company.companyId}
     </update>
 
+    <update id="verifyCompany" parameterType="com.kptl.job.dto.CompanyDTO">
+        update companies set is_certified = 1 where id = #{id}
+    </update>
+
     <select id="findCompanies" resultMap="companyResultMap">
         select * from companies limit #{request.index}, #{request.size}
     </select>
