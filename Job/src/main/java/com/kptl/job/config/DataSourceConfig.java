@@ -16,12 +16,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DataSourceConfig {
     private static final String MYSQL_PATH = "/usr/local/kptl/mysql.json";
-    private static final String MYSQL_PATH_LOCAL = "E:\\Code\\KPTL\\config\\test.json";
+    private static final String MYSQL_PATH_LOCAL = "B:\\test.json";
     private KeyDTO keyDTO;
     @Bean
     public DataSource dataSource() {
         try {
-            File file = new File(MYSQL_PATH_LOCAL);
+            File file = new File(MYSQL_PATH);
             InputStream inputStream = new FileInputStream(file);
             keyDTO = JSON.parseObject(inputStream, KeyDTO.class);
             System.out.println(keyDTO.toString());
