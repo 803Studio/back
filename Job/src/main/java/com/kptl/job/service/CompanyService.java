@@ -14,6 +14,8 @@ public interface CompanyService {
 
     void updateCompany(Company company);
 
+    void verifyCompany(Integer id);
+
     List<Company> findCompanies(FindAllCompaniesReq request);
 
     List<Company> findCompanyByName(FindCompanyByNameReq request);

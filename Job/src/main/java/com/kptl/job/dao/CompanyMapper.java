@@ -15,6 +15,8 @@ public interface CompanyMapper {
 
     void updateCompany(@Param("company") CompanyDTO company);
 
+    void verifyCompany(@Param("id") Integer id);
+
     List<CompanyDTO> findCompanies(@Param("request") FindAllCompaniesReq request);
 
     List<CompanyDTO> findCompanyByName(@Param("request") FindCompanyByNameReq request);
@@ -22,4 +24,5 @@ public interface CompanyMapper {
     List<Company> findCompanyByIndustry(@Param("industry") String industry);
 
     List<CompanyDTO> findCompaniesById(@Param("id") Integer id);
+
 }

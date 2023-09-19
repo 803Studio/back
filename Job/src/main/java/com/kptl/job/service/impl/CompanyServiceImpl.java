@@ -41,6 +41,11 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
+    public void verifyCompany(Integer id) {
+        companyMapper.verifyCompany(id);
+    }
+
+    @Override
     public List<Company> findCompanies(FindAllCompaniesReq request) {
         List<CompanyDTO> companies = companyMapper.findCompanies(request);
         return copyToCompany(companies);

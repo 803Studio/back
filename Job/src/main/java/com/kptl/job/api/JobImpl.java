@@ -289,6 +289,15 @@ public class JobImpl extends JobGrpc.JobImplBase {
 
     @Override
     public void verifyCompany(CommonCompanyReq request, StreamObserver<CommonResponse> responseObserver) {
-        super.verifyCompany(request, responseObserver);
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        try {
+            companyService.verifyCompany(request.getId());
+            header.setStatus(ResponseStatus.OK).setMessage("验证成功！");
+        } catch (Exception e) {
+            header.setStatus(ResponseStatus.InternalErr).setMessage("验证失败！");
+        }
+        CommonResponse result = CommonResponse.newBuilder().setHeader(header).build();
+        responseObserver.onNext(result);
+        responseObserver.onCompleted();
     }
 }
