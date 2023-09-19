@@ -23,4 +23,5 @@ public class JobDTO {
     private Integer salaryLow;
     private Integer salaryTop;
     private String companyName;
+    private String JobType;
 }

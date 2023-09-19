@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     jobTags_ = "";
     companyId_ = 0;
     openTime_ = 0L;
+    jobType_ = 0;
   }
 
   @java.lang.Override
@@ -106,6 +107,12 @@ private static final long serialVersionUID = 0L;
               jobMoney_ = subBuilder.buildPartial();
             }
 
+            break;
+          }
+          case 72: {
+            int rawValue = input.readEnum();
+
+            jobType_ = rawValue;
             break;
           }
         }
@@ -344,6 +351,22 @@ private static final long serialVersionUID = 0L;
     return getJobMoney();
   }
 
+  public static final int JOBTYPE_FIELD_NUMBER = 9;
+  private int jobType_;
+  /**
+   * <code>.job.JobType jobType = 9;</code>
+   */
+  public int getJobTypeValue() {
+    return jobType_;
+  }
+  /**
+   * <code>.job.JobType jobType = 9;</code>
+   */
+  public com.kptl.proto.JobType getJobType() {
+    com.kptl.proto.JobType result = com.kptl.proto.JobType.valueOf(jobType_);
+    return result == null ? com.kptl.proto.JobType.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -379,6 +402,9 @@ private static final long serialVersionUID = 0L;
     }
     if (jobMoney_ != null) {
       output.writeMessage(8, getJobMoney());
+    }
+    if (jobType_ != com.kptl.proto.JobType.LONG.getNumber()) {
+      output.writeEnum(9, jobType_);
     }
     unknownFields.writeTo(output);
   }
@@ -416,6 +442,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getJobMoney());
     }
+    if (jobType_ != com.kptl.proto.JobType.LONG.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(9, jobType_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -451,6 +481,7 @@ private static final long serialVersionUID = 0L;
       result = result && getJobMoney()
           .equals(other.getJobMoney());
     }
+    result = result && jobType_ == other.jobType_;
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -481,6 +512,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + JOBMONEY_FIELD_NUMBER;
       hash = (53 * hash) + getJobMoney().hashCode();
     }
+    hash = (37 * hash) + JOBTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + jobType_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -630,6 +663,8 @@ private static final long serialVersionUID = 0L;
         jobMoney_ = null;
         jobMoneyBuilder_ = null;
       }
+      jobType_ = 0;
+
       return this;
     }
 
@@ -664,6 +699,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.jobMoney_ = jobMoneyBuilder_.build();
       }
+      result.jobType_ = jobType_;
       onBuilt();
       return result;
     }
@@ -732,6 +768,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasJobMoney()) {
         mergeJobMoney(other.getJobMoney());
+      }
+      if (other.jobType_ != 0) {
+        setJobTypeValue(other.getJobTypeValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1301,6 +1340,50 @@ private static final long serialVersionUID = 0L;
         jobMoney_ = null;
       }
       return jobMoneyBuilder_;
+    }
+
+    private int jobType_ = 0;
+    /**
+     * <code>.job.JobType jobType = 9;</code>
+     */
+    public int getJobTypeValue() {
+      return jobType_;
+    }
+    /**
+     * <code>.job.JobType jobType = 9;</code>
+     */
+    public Builder setJobTypeValue(int value) {
+      jobType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.job.JobType jobType = 9;</code>
+     */
+    public com.kptl.proto.JobType getJobType() {
+      com.kptl.proto.JobType result = com.kptl.proto.JobType.valueOf(jobType_);
+      return result == null ? com.kptl.proto.JobType.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.job.JobType jobType = 9;</code>
+     */
+    public Builder setJobType(com.kptl.proto.JobType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      jobType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.job.JobType jobType = 9;</code>
+     */
+    public Builder clearJobType() {
+      
+      jobType_ = 0;
+      onChanged();
+      return this;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

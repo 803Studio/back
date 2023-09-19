@@ -79,7 +79,7 @@ public enum ResponseStatus
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.kptl.proto.JobOuterClass.getDescriptor().getEnumTypes().get(1);
+    return com.kptl.proto.JobOuterClass.getDescriptor().getEnumTypes().get(2);
   }
 
   private static final ResponseStatus[] VALUES = values();

@@ -35,6 +35,11 @@ public final class JobOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_job_FindAllJobRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_job_FindJobsByTypeReq_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_job_FindJobsByTypeReq_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_job_FindJobResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -122,71 +127,77 @@ public final class JobOuterClass {
       "\030\001 \001(\005\022\014\n\004role\030\002 \001(\005\022\014\n\004byId\030\003 \001(\005\022\r\n\005in" +
       "dex\030\004 \001(\005\022\014\n\004size\030\005 \001(\005\"D\n\024FindJobByName" +
       "Request\022\017\n\007jobName\030\001 \001(\t\022\r\n\005index\030\002 \001(\005\022" +
-      "\014\n\004size\030\003 \001(\005\"#\n\022FindJobByIdRequest\022\r\n\005j" +
-      "obId\030\001 \001(\005\"0\n\021FindAllJobRequest\022\r\n\005index" +
-      "\030\001 \001(\005\022\014\n\004size\030\002 \001(\005\"W\n\017FindJobResponse\022" +
-      "#\n\006header\030\001 \001(\0132\023.job.ResponseHeader\022\037\n\006" +
-      "jobMsg\030\002 \003(\0132\017.job.JobMessage\"g\n\027FindSim" +
-      "plifyJobResponse\022#\n\006header\030\001 \001(\0132\023.job.R" +
-      "esponseHeader\022\'\n\006jobMsg\030\002 \003(\0132\027.job.JobS" +
-      "implifyMessage\"6\n\017SaveJobResponse\022#\n\006hea" +
-      "der\030\001 \001(\0132\023.job.ResponseHeader\"F\n\016Respon" +
-      "seHeader\022#\n\006status\030\001 \001(\0162\023.job.ResponseS" +
-      "tatus\022\017\n\007message\030\002 \001(\t\"5\n\024RegisteredComp" +
-      "anyReq\022\035\n\007company\030\001 \001(\0132\014.job.Company\"\266\001" +
-      "\n\007Company\022\n\n\002id\030\001 \001(\005\022\023\n\013companyName\030\002 \001" +
-      "(\t\022\027\n\017companyLocation\030\003 \001(\t\022\r\n\005isVip\030\004 \001" +
-      "(\005\022\023\n\013isCertified\030\005 \001(\005\022\024\n\014registerTime\030" +
-      "\006 \001(\003\022\022\n\nupdateTime\030\007 \001(\003\022\020\n\010industry\030\010 " +
-      "\001(\t\022\021\n\tcompanyId\030\t \001(\005\"\036\n\020CommonCompanyR" +
-      "eq\022\n\n\002id\030\001 \001(\005\"5\n\016CommonResponse\022#\n\006head" +
-      "er\030\001 \001(\0132\023.job.ResponseHeader\"F\n\010JobMone" +
-      "y\022\037\n\004type\030\001 \001(\0162\021.job.JobMoneyType\022\013\n\003lo" +
-      "w\030\002 \001(\005\022\014\n\004high\030\003 \001(\005\"\304\001\n\nJobMessage\022+\n\n" +
-      "jobBaseMsg\030\001 \001(\0132\027.job.JobSimplifyMessag" +
-      "e\022\016\n\006jobReq\030\002 \001(\t\022\017\n\007jobNeed\030\003 \001(\005\022\020\n\010in" +
-      "dustry\030\005 \001(\t\022\025\n\rrecruiterName\030\006 \001(\t\022\026\n\016r" +
-      "ecruiterPhone\030\007 \001(\t\022\023\n\013recruiterId\030\010 \001(\005" +
-      "\022\022\n\nupdateTime\030\t \001(\003\"\265\001\n\022JobSimplifyMess" +
-      "age\022\r\n\005jobId\030\001 \001(\005\022\017\n\007jobName\030\002 \001(\t\022\023\n\013j" +
-      "obLocation\030\003 \001(\t\022\023\n\013companyName\030\004 \001(\t\022\017\n" +
-      "\007jobTags\030\005 \001(\t\022\021\n\tcompanyId\030\006 \001(\005\022\020\n\010ope" +
-      "nTime\030\007 \001(\003\022\037\n\010jobMoney\030\010 \001(\0132\r.job.JobM" +
-      "oney\"A\n\024FindCompanyByNameReq\022\014\n\004name\030\001 \001" +
-      "(\t\022\r\n\005index\030\002 \001(\005\022\014\n\004size\030\003 \001(\005\"2\n\023FindA" +
-      "llCompaniesReq\022\r\n\005index\030\001 \001(\005\022\014\n\004size\030\002 " +
-      "\001(\005\"]\n\025CommonCompanyResponse\022#\n\006header\030\001" +
-      " \001(\0132\023.job.ResponseHeader\022\037\n\tcompanies\030\002" +
-      " \003(\0132\014.job.Company\"]\n\027FindCompanyByIdRes" +
-      "ponse\022#\n\006header\030\001 \001(\0132\023.job.ResponseHead" +
-      "er\022\035\n\007company\030\002 \001(\0132\014.job.Company*=\n\014Job" +
-      "MoneyType\022\007\n\003F2F\020\000\022\007\n\003DAY\020\001\022\007\n\003MON\020\002\022\010\n\004" +
-      "TIME\020\003\022\010\n\004HOUR\020\004*)\n\016ResponseStatus\022\006\n\002OK" +
-      "\020\000\022\017\n\013InternalErr\020\0012\225\007\n\003Job\022=\n\013FindAllJo" +
-      "bs\022\026.job.FindAllJobRequest\032\024.job.FindJob" +
-      "Response\"\000\022B\n\rFindJobByName\022\031.job.FindJo" +
-      "bByNameRequest\032\024.job.FindJobResponse\"\000\022>" +
-      "\n\013FindJobById\022\027.job.FindJobByIdRequest\032\024" +
-      ".job.FindJobResponse\"\000\0227\n\010FindJobs\022\023.job" +
-      ".FindJobRequest\032\024.job.FindJobResponse\"\000\022" +
-      "3\n\010SaveJobs\022\017.job.JobMessage\032\024.job.SaveJ" +
-      "obResponse\"\000\022H\n\020FindJobsSimplify\022\026.job.F" +
-      "indAllJobRequest\032\034.job.FindSimplifyJobRe" +
-      "sponse\0225\n\nUpdateJobs\022\017.job.JobMessage\032\024." +
-      "job.SaveJobResponse\"\000\0228\n\021RegisteredCompa" +
-      "ny\022\014.job.Company\032\023.job.CommonResponse\"\000\022" +
-      "A\n\rUpdateCompany\022\031.job.RegisteredCompany" +
-      "Req\032\023.job.CommonResponse\"\000\022L\n\021FindCompan" +
-      "yByName\022\031.job.FindCompanyByNameReq\032\032.job" +
-      ".CommonCompanyResponse\"\000\022H\n\017FindCompanyB" +
-      "yId\022\025.job.CommonCompanyReq\032\034.job.FindCom" +
-      "panyByIdResponse\"\000\022J\n\020FindAllCompanies\022\030" +
-      ".job.FindAllCompaniesReq\032\032.job.CommonCom" +
-      "panyResponse\"\000\022<\n\014BoundCompany\022\025.job.Com" +
-      "monCompanyReq\032\023.job.CommonResponse\"\000\022=\n\r" +
-      "VerifyCompany\022\025.job.CommonCompanyReq\032\023.j" +
-      "ob.CommonResponse\"\000B\031\n\016com.kptl.protoP\001Z" +
-      "\005./jobb\006proto3"
+      "\014\n\004size\030\003 \001(\005\"/\n\022FindJobByIdRequest\022\r\n\005j" +
+      "obId\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"0\n\021FindAllJobRequ" +
+      "est\022\r\n\005index\030\001 \001(\005\022\014\n\004size\030\002 \001(\005\"A\n\021Find" +
+      "JobsByTypeReq\022\r\n\005index\030\001 \001(\005\022\014\n\004size\030\002 \001" +
+      "(\005\022\017\n\007jobType\030\003 \001(\005\"W\n\017FindJobResponse\022#" +
+      "\n\006header\030\001 \001(\0132\023.job.ResponseHeader\022\037\n\006j" +
+      "obMsg\030\002 \003(\0132\017.job.JobMessage\"g\n\027FindSimp" +
+      "lifyJobResponse\022#\n\006header\030\001 \001(\0132\023.job.Re" +
+      "sponseHeader\022\'\n\006jobMsg\030\002 \003(\0132\027.job.JobSi" +
+      "mplifyMessage\"6\n\017SaveJobResponse\022#\n\006head" +
+      "er\030\001 \001(\0132\023.job.ResponseHeader\"F\n\016Respons" +
+      "eHeader\022#\n\006status\030\001 \001(\0162\023.job.ResponseSt" +
+      "atus\022\017\n\007message\030\002 \001(\t\"5\n\024RegisteredCompa" +
+      "nyReq\022\035\n\007company\030\001 \001(\0132\014.job.Company\"\266\001\n" +
+      "\007Company\022\n\n\002id\030\001 \001(\005\022\023\n\013companyName\030\002 \001(" +
+      "\t\022\027\n\017companyLocation\030\003 \001(\t\022\r\n\005isVip\030\004 \001(" +
+      "\005\022\023\n\013isCertified\030\005 \001(\005\022\024\n\014registerTime\030\006" +
+      " \001(\003\022\022\n\nupdateTime\030\007 \001(\003\022\020\n\010industry\030\010 \001" +
+      "(\t\022\021\n\tcompanyId\030\t \001(\005\"\036\n\020CommonCompanyRe" +
+      "q\022\n\n\002id\030\001 \001(\005\"5\n\016CommonResponse\022#\n\006heade" +
+      "r\030\001 \001(\0132\023.job.ResponseHeader\"F\n\010JobMoney" +
+      "\022\037\n\004type\030\001 \001(\0162\021.job.JobMoneyType\022\013\n\003low" +
+      "\030\002 \001(\005\022\014\n\004high\030\003 \001(\005\"\304\001\n\nJobMessage\022+\n\nj" +
+      "obBaseMsg\030\001 \001(\0132\027.job.JobSimplifyMessage" +
+      "\022\016\n\006jobReq\030\002 \001(\t\022\017\n\007jobNeed\030\003 \001(\005\022\020\n\010ind" +
+      "ustry\030\005 \001(\t\022\025\n\rrecruiterName\030\006 \001(\t\022\026\n\016re" +
+      "cruiterPhone\030\007 \001(\t\022\023\n\013recruiterId\030\010 \001(\005\022" +
+      "\022\n\nupdateTime\030\t \001(\003\"\324\001\n\022JobSimplifyMessa" +
+      "ge\022\r\n\005jobId\030\001 \001(\005\022\017\n\007jobName\030\002 \001(\t\022\023\n\013jo" +
+      "bLocation\030\003 \001(\t\022\023\n\013companyName\030\004 \001(\t\022\017\n\007" +
+      "jobTags\030\005 \001(\t\022\021\n\tcompanyId\030\006 \001(\005\022\020\n\010open" +
+      "Time\030\007 \001(\003\022\037\n\010jobMoney\030\010 \001(\0132\r.job.JobMo" +
+      "ney\022\035\n\007jobType\030\t \001(\0162\014.job.JobType\"A\n\024Fi" +
+      "ndCompanyByNameReq\022\014\n\004name\030\001 \001(\t\022\r\n\005inde" +
+      "x\030\002 \001(\005\022\014\n\004size\030\003 \001(\005\"2\n\023FindAllCompanie" +
+      "sReq\022\r\n\005index\030\001 \001(\005\022\014\n\004size\030\002 \001(\005\"]\n\025Com" +
+      "monCompanyResponse\022#\n\006header\030\001 \001(\0132\023.job" +
+      ".ResponseHeader\022\037\n\tcompanies\030\002 \003(\0132\014.job" +
+      ".Company\"]\n\027FindCompanyByIdResponse\022#\n\006h" +
+      "eader\030\001 \001(\0132\023.job.ResponseHeader\022\035\n\007comp" +
+      "any\030\002 \001(\0132\014.job.Company*=\n\014JobMoneyType\022" +
+      "\007\n\003F2F\020\000\022\007\n\003DAY\020\001\022\007\n\003MON\020\002\022\010\n\004TIME\020\003\022\010\n\004" +
+      "HOUR\020\004*/\n\007JobType\022\010\n\004LONG\020\000\022\t\n\005SHORT\020\001\022\017" +
+      "\n\013PARTTIMEJOB\020\002*)\n\016ResponseStatus\022\006\n\002OK\020" +
+      "\000\022\017\n\013InternalErr\020\0012\337\007\n\003Job\022=\n\013FindAllJob" +
+      "s\022\026.job.FindAllJobRequest\032\024.job.FindJobR" +
+      "esponse\"\000\022B\n\rFindJobByName\022\031.job.FindJob" +
+      "ByNameRequest\032\024.job.FindJobResponse\"\000\022>\n" +
+      "\013FindJobById\022\027.job.FindJobByIdRequest\032\024." +
+      "job.FindJobResponse\"\000\0227\n\010FindJobs\022\023.job." +
+      "FindJobRequest\032\024.job.FindJobResponse\"\000\022H" +
+      "\n\016FindJobsByType\022\026.job.FindJobsByTypeReq" +
+      "\032\034.job.FindSimplifyJobResponse\"\000\0223\n\010Save" +
+      "Jobs\022\017.job.JobMessage\032\024.job.SaveJobRespo" +
+      "nse\"\000\022H\n\020FindJobsSimplify\022\026.job.FindAllJ" +
+      "obRequest\032\034.job.FindSimplifyJobResponse\022" +
+      "5\n\nUpdateJobs\022\017.job.JobMessage\032\024.job.Sav" +
+      "eJobResponse\"\000\0228\n\021RegisteredCompany\022\014.jo" +
+      "b.Company\032\023.job.CommonResponse\"\000\022A\n\rUpda" +
+      "teCompany\022\031.job.RegisteredCompanyReq\032\023.j" +
+      "ob.CommonResponse\"\000\022L\n\021FindCompanyByName" +
+      "\022\031.job.FindCompanyByNameReq\032\032.job.Common" +
+      "CompanyResponse\"\000\022H\n\017FindCompanyById\022\025.j" +
+      "ob.CommonCompanyReq\032\034.job.FindCompanyByI" +
+      "dResponse\"\000\022J\n\020FindAllCompanies\022\030.job.Fi" +
+      "ndAllCompaniesReq\032\032.job.CommonCompanyRes" +
+      "ponse\"\000\022<\n\014BoundCompany\022\025.job.CommonComp" +
+      "anyReq\032\023.job.CommonResponse\"\000\022=\n\rVerifyC" +
+      "ompany\022\025.job.CommonCompanyReq\032\023.job.Comm" +
+      "onResponse\"\000B\031\n\016com.kptl.protoP\001Z\005./jobb" +
+      "\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -217,99 +228,105 @@ public final class JobOuterClass {
     internal_static_job_FindJobByIdRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_FindJobByIdRequest_descriptor,
-        new java.lang.String[] { "JobId", });
+        new java.lang.String[] { "JobId", "Id", });
     internal_static_job_FindAllJobRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_job_FindAllJobRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_FindAllJobRequest_descriptor,
         new java.lang.String[] { "Index", "Size", });
-    internal_static_job_FindJobResponse_descriptor =
+    internal_static_job_FindJobsByTypeReq_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_job_FindJobsByTypeReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_job_FindJobsByTypeReq_descriptor,
+        new java.lang.String[] { "Index", "Size", "JobType", });
+    internal_static_job_FindJobResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_job_FindJobResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_FindJobResponse_descriptor,
         new java.lang.String[] { "Header", "JobMsg", });
     internal_static_job_FindSimplifyJobResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_job_FindSimplifyJobResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_FindSimplifyJobResponse_descriptor,
         new java.lang.String[] { "Header", "JobMsg", });
     internal_static_job_SaveJobResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_job_SaveJobResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_SaveJobResponse_descriptor,
         new java.lang.String[] { "Header", });
     internal_static_job_ResponseHeader_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_job_ResponseHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_ResponseHeader_descriptor,
         new java.lang.String[] { "Status", "Message", });
     internal_static_job_RegisteredCompanyReq_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_job_RegisteredCompanyReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_RegisteredCompanyReq_descriptor,
         new java.lang.String[] { "Company", });
     internal_static_job_Company_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_job_Company_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_Company_descriptor,
         new java.lang.String[] { "Id", "CompanyName", "CompanyLocation", "IsVip", "IsCertified", "RegisterTime", "UpdateTime", "Industry", "CompanyId", });
     internal_static_job_CommonCompanyReq_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_job_CommonCompanyReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_CommonCompanyReq_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_job_CommonResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_job_CommonResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_CommonResponse_descriptor,
         new java.lang.String[] { "Header", });
     internal_static_job_JobMoney_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_job_JobMoney_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_JobMoney_descriptor,
         new java.lang.String[] { "Type", "Low", "High", });
     internal_static_job_JobMessage_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_job_JobMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_JobMessage_descriptor,
         new java.lang.String[] { "JobBaseMsg", "JobReq", "JobNeed", "Industry", "RecruiterName", "RecruiterPhone", "RecruiterId", "UpdateTime", });
     internal_static_job_JobSimplifyMessage_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_job_JobSimplifyMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_JobSimplifyMessage_descriptor,
-        new java.lang.String[] { "JobId", "JobName", "JobLocation", "CompanyName", "JobTags", "CompanyId", "OpenTime", "JobMoney", });
+        new java.lang.String[] { "JobId", "JobName", "JobLocation", "CompanyName", "JobTags", "CompanyId", "OpenTime", "JobMoney", "JobType", });
     internal_static_job_FindCompanyByNameReq_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_job_FindCompanyByNameReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_FindCompanyByNameReq_descriptor,
         new java.lang.String[] { "Name", "Index", "Size", });
     internal_static_job_FindAllCompaniesReq_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_job_FindAllCompaniesReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_FindAllCompaniesReq_descriptor,
         new java.lang.String[] { "Index", "Size", });
     internal_static_job_CommonCompanyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_job_CommonCompanyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_CommonCompanyResponse_descriptor,
         new java.lang.String[] { "Header", "Companies", });
     internal_static_job_FindCompanyByIdResponse_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_job_FindCompanyByIdResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_FindCompanyByIdResponse_descriptor,

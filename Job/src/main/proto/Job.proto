@@ -21,12 +21,19 @@ message FindJobByNameRequest {
 }
 
 message FindJobByIdRequest {
-  int32 jobId = 1;
+  int32 jobId = 1;  //职位id
+  int32 id = 2;     //用户id
 }
 
 message FindAllJobRequest {
   int32 index = 1;
   int32 size = 2;
+}
+
+message FindJobsByTypeReq {
+  int32 index = 1;
+  int32 size = 2;
+  int32 jobType = 3;
 }
 
 message FindJobResponse {
@@ -107,6 +114,13 @@ message JobSimplifyMessage {
   int32 companyId = 6;
   int64 openTime = 7;                    //职位发布时间
   JobMoney jobMoney = 8;
+  JobType jobType = 9;
+}
+
+enum JobType {
+  LONG = 0;       //长工
+  SHORT = 1;      //短工
+  PARTTIMEJOB = 2;//兼职
 }
 
 //错误码
@@ -140,6 +154,7 @@ service Job {
   rpc FindJobByName(FindJobByNameRequest) returns (FindJobResponse) {};   //根据职位名称模糊查询
   rpc FindJobById(FindJobByIdRequest) returns (FindJobResponse) {};       //根据职位id查询
   rpc FindJobs(FindJobRequest) returns (FindJobResponse) {};              //根据角色不同查询
+  rpc FindJobsByType(FindJobsByTypeReq) returns (FindSimplifyJobResponse) {}      //根据工作类型来查询如长工、短工、兼职
   rpc SaveJobs(JobMessage) returns (SaveJobResponse) {};                  //新建职位
   rpc FindJobsSimplify(FindAllJobRequest) returns (FindSimplifyJobResponse);   //职位简洁信息
   rpc UpdateJobs(JobMessage) returns (SaveJobResponse) {};                //更新职位

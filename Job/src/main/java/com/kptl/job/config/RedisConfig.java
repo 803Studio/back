@@ -1,27 +1,27 @@
 //package com.kptl.job.config;
 //
-//import com.fasterxml.jackson.databind.ObjectMapper;
-//import org.springframework.beans.factory.annotation.Value;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//
+//import com.alibaba.fastjson.JSON;
 //import java.io.IOException;
 //import java.nio.file.Files;
 //import java.nio.file.Paths;
+//import java.util.Map;
 //
-//@Configuration
 //public class RedisConfig {
+//    public static void main(String[] args) {
+//        // 读取JSON文件中的Redis配置信息
+//        String jsonFilePath = "path/to/redis-config.json"; // 替换为您的JSON文件路径
+//        Map<String, Object> redisConfig;
+//        try {
+//            String jsonContent = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
+//            redisConfig = JSON.parseObject(jsonContent, Map.class);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return;
+//        }
 //
-//    @Value("${spring.redis.password}")
-//    private String redisPassword;
-//
-//    private static final String REDIS_PATH = "B:\\redis.json";
-////    private static final String REDIS_PATH = "/usr/local/kptl/redis.json";
-//
-//    @Bean
-//    public String getRedisPassword() throws IOException {
-//
-//        String redisPasswordFromFile = new ObjectMapper().readValue(Files.newInputStream(Paths.get("path/to/external-config.json")), String.class);
-//        return redisPasswordFromFile;
+//        // 设置系统属性
+//        System.setProperty("spring.redis.host", (String) redisConfig.get("host"));
+//        System.setProperty("spring.redis.port", (String) redisConfig.get("port"));
+//        System.setProperty("spring.redis.password", (String) redisConfig.get("password"));
 //    }
 //}

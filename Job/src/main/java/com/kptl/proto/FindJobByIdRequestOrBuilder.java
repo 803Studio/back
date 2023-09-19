@@ -8,7 +8,20 @@ public interface FindJobByIdRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   *职位id
+   * </pre>
+   *
    * <code>int32 jobId = 1;</code>
    */
   int getJobId();
+
+  /**
+   * <pre>
+   *用户id
+   * </pre>
+   *
+   * <code>int32 id = 2;</code>
+   */
+  int getId();
 }

@@ -179,6 +179,43 @@ public final class JobGrpc {
      return getFindJobsMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getFindJobsByTypeMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<com.kptl.proto.FindJobsByTypeReq,
+      com.kptl.proto.FindSimplifyJobResponse> METHOD_FIND_JOBS_BY_TYPE = getFindJobsByTypeMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.FindJobsByTypeReq,
+      com.kptl.proto.FindSimplifyJobResponse> getFindJobsByTypeMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<com.kptl.proto.FindJobsByTypeReq,
+      com.kptl.proto.FindSimplifyJobResponse> getFindJobsByTypeMethod() {
+    return getFindJobsByTypeMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<com.kptl.proto.FindJobsByTypeReq,
+      com.kptl.proto.FindSimplifyJobResponse> getFindJobsByTypeMethodHelper() {
+    io.grpc.MethodDescriptor<com.kptl.proto.FindJobsByTypeReq, com.kptl.proto.FindSimplifyJobResponse> getFindJobsByTypeMethod;
+    if ((getFindJobsByTypeMethod = JobGrpc.getFindJobsByTypeMethod) == null) {
+      synchronized (JobGrpc.class) {
+        if ((getFindJobsByTypeMethod = JobGrpc.getFindJobsByTypeMethod) == null) {
+          JobGrpc.getFindJobsByTypeMethod = getFindJobsByTypeMethod = 
+              io.grpc.MethodDescriptor.<com.kptl.proto.FindJobsByTypeReq, com.kptl.proto.FindSimplifyJobResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "job.Job", "FindJobsByType"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.FindJobsByTypeReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.FindSimplifyJobResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new JobMethodDescriptorSupplier("FindJobsByType"))
+                  .build();
+          }
+        }
+     }
+     return getFindJobsByTypeMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getSaveJobsMethod()} instead. 
   public static final io.grpc.MethodDescriptor<com.kptl.proto.JobMessage,
       com.kptl.proto.SaveJobResponse> METHOD_SAVE_JOBS = getSaveJobsMethodHelper();
@@ -609,6 +646,13 @@ public final class JobGrpc {
 
     /**
      */
+    public void findJobsByType(com.kptl.proto.FindJobsByTypeReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.FindSimplifyJobResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getFindJobsByTypeMethodHelper(), responseObserver);
+    }
+
+    /**
+     */
     public void saveJobs(com.kptl.proto.JobMessage request,
         io.grpc.stub.StreamObserver<com.kptl.proto.SaveJobResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getSaveJobsMethodHelper(), responseObserver);
@@ -710,6 +754,13 @@ public final class JobGrpc {
                 com.kptl.proto.FindJobRequest,
                 com.kptl.proto.FindJobResponse>(
                   this, METHODID_FIND_JOBS)))
+          .addMethod(
+            getFindJobsByTypeMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.kptl.proto.FindJobsByTypeReq,
+                com.kptl.proto.FindSimplifyJobResponse>(
+                  this, METHODID_FIND_JOBS_BY_TYPE)))
           .addMethod(
             getSaveJobsMethodHelper(),
             asyncUnaryCall(
@@ -835,6 +886,14 @@ public final class JobGrpc {
         io.grpc.stub.StreamObserver<com.kptl.proto.FindJobResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getFindJobsMethodHelper(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void findJobsByType(com.kptl.proto.FindJobsByTypeReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.FindSimplifyJobResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getFindJobsByTypeMethodHelper(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -972,6 +1031,13 @@ public final class JobGrpc {
 
     /**
      */
+    public com.kptl.proto.FindSimplifyJobResponse findJobsByType(com.kptl.proto.FindJobsByTypeReq request) {
+      return blockingUnaryCall(
+          getChannel(), getFindJobsByTypeMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public com.kptl.proto.SaveJobResponse saveJobs(com.kptl.proto.JobMessage request) {
       return blockingUnaryCall(
           getChannel(), getSaveJobsMethodHelper(), getCallOptions(), request);
@@ -1099,6 +1165,14 @@ public final class JobGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.FindSimplifyJobResponse> findJobsByType(
+        com.kptl.proto.FindJobsByTypeReq request) {
+      return futureUnaryCall(
+          getChannel().newCall(getFindJobsByTypeMethodHelper(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.SaveJobResponse> saveJobs(
         com.kptl.proto.JobMessage request) {
       return futureUnaryCall(
@@ -1185,16 +1259,17 @@ public final class JobGrpc {
   private static final int METHODID_FIND_JOB_BY_NAME = 1;
   private static final int METHODID_FIND_JOB_BY_ID = 2;
   private static final int METHODID_FIND_JOBS = 3;
-  private static final int METHODID_SAVE_JOBS = 4;
-  private static final int METHODID_FIND_JOBS_SIMPLIFY = 5;
-  private static final int METHODID_UPDATE_JOBS = 6;
-  private static final int METHODID_REGISTERED_COMPANY = 7;
-  private static final int METHODID_UPDATE_COMPANY = 8;
-  private static final int METHODID_FIND_COMPANY_BY_NAME = 9;
-  private static final int METHODID_FIND_COMPANY_BY_ID = 10;
-  private static final int METHODID_FIND_ALL_COMPANIES = 11;
-  private static final int METHODID_BOUND_COMPANY = 12;
-  private static final int METHODID_VERIFY_COMPANY = 13;
+  private static final int METHODID_FIND_JOBS_BY_TYPE = 4;
+  private static final int METHODID_SAVE_JOBS = 5;
+  private static final int METHODID_FIND_JOBS_SIMPLIFY = 6;
+  private static final int METHODID_UPDATE_JOBS = 7;
+  private static final int METHODID_REGISTERED_COMPANY = 8;
+  private static final int METHODID_UPDATE_COMPANY = 9;
+  private static final int METHODID_FIND_COMPANY_BY_NAME = 10;
+  private static final int METHODID_FIND_COMPANY_BY_ID = 11;
+  private static final int METHODID_FIND_ALL_COMPANIES = 12;
+  private static final int METHODID_BOUND_COMPANY = 13;
+  private static final int METHODID_VERIFY_COMPANY = 14;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1228,6 +1303,10 @@ public final class JobGrpc {
         case METHODID_FIND_JOBS:
           serviceImpl.findJobs((com.kptl.proto.FindJobRequest) request,
               (io.grpc.stub.StreamObserver<com.kptl.proto.FindJobResponse>) responseObserver);
+          break;
+        case METHODID_FIND_JOBS_BY_TYPE:
+          serviceImpl.findJobsByType((com.kptl.proto.FindJobsByTypeReq) request,
+              (io.grpc.stub.StreamObserver<com.kptl.proto.FindSimplifyJobResponse>) responseObserver);
           break;
         case METHODID_SAVE_JOBS:
           serviceImpl.saveJobs((com.kptl.proto.JobMessage) request,
@@ -1334,6 +1413,7 @@ public final class JobGrpc {
               .addMethod(getFindJobByNameMethodHelper())
               .addMethod(getFindJobByIdMethodHelper())
               .addMethod(getFindJobsMethodHelper())
+              .addMethod(getFindJobsByTypeMethodHelper())
               .addMethod(getSaveJobsMethodHelper())
               .addMethod(getFindJobsSimplifyMethodHelper())
               .addMethod(getUpdateJobsMethodHelper())

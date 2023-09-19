@@ -102,4 +102,13 @@ public interface JobSimplifyMessageOrBuilder extends
    * <code>.job.JobMoney jobMoney = 8;</code>
    */
   com.kptl.proto.JobMoneyOrBuilder getJobMoneyOrBuilder();
+
+  /**
+   * <code>.job.JobType jobType = 9;</code>
+   */
+  int getJobTypeValue();
+  /**
+   * <code>.job.JobType jobType = 9;</code>
+   */
+  com.kptl.proto.JobType getJobType();
 }

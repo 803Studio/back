@@ -1,6 +1,5 @@
 package com.kptl.job.util;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +9,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Component
-class RedisUtil {
+public class RedisUtil {
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
@@ -37,6 +36,7 @@ class RedisUtil {
         redisTemplate.opsForValue().set(key, value);
     }
 
+    /**
     /**
      * 批量设置key和value
      *
@@ -177,6 +177,11 @@ class RedisUtil {
      * @return 返回是否设置成功
      */
     public Boolean hmset(String key, Map<String, Object> map, long time) {
+        redisTemplate.opsForHash().putAll(key, map);
+        return expire(key, time);
+    }
+
+    public Boolean SeeRecordMap(String key, Map<Integer, Long> map, long time) {
         redisTemplate.opsForHash().putAll(key, map);
         return expire(key, time);
     }

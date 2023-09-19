@@ -3,17 +3,24 @@ package com.kptl.job.service.impl;
 import com.kptl.job.dao.JobMapper;
 import com.kptl.job.dto.JobDTO;
 import com.kptl.job.service.JobService;
+import com.kptl.job.util.RedisUtil;
 import com.kptl.proto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class JobServiceImpl implements JobService {
     @Autowired
     JobMapper jobMapper;
+    @Autowired
+    RedisUtil redisUtil;
+
+    private static Long SEVEN_DAY = 604800L; // 七天
     @Override
     public List<JobMessage> findJobs(FindJobRequest request) throws Exception{
         System.out.println("begin findjobs");
@@ -74,7 +81,6 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public JobMessage findJobById(FindJobByIdRequest request) {
-        System.out.println("begin findJobById");
         List<JobDTO> jobById = jobMapper.findJobById(request.getJobId());
         if (jobById == null || jobById.isEmpty()) {
             return null;
@@ -96,6 +102,13 @@ public class JobServiceImpl implements JobService {
 
         return copyToSimp(allJobs);
     }
+
+    @Override
+    public List<JobSimplifyMessage> findJobsByType(FindJobsByTypeReq request) {
+        List<JobDTO> jobsByType = jobMapper.findJobsByType(request);
+        return copyToSimp(jobsByType);
+    }
+
     private List<JobSimplifyMessage> copyToSimp(List<JobDTO> allJobs) {
         if (allJobs == null || allJobs.size() == 0) {
             return null;
@@ -115,6 +128,7 @@ public class JobServiceImpl implements JobService {
             jobMessage.setOpenTime(job.getOpenTime().getTime());
             jobMessage.setJobTags(job.getJobTags());
             jobMessage.setCompanyName(job.getCompanyName());
+            jobMessage.setJobType(JobType.valueOf(job.getJobType()));
             jobMessages.add(jobMessage.build());
         }
         return jobMessages;
@@ -142,6 +156,7 @@ public class JobServiceImpl implements JobService {
             jobSimp.setCompanyId(job.getCompanyId());
             jobSimp.setOpenTime(job.getOpenTime().getTime());
             jobSimp.setJobTags(job.getJobTags());
+            jobSimp.setJobType(JobType.valueOf(job.getJobType()));
             jobMessage.setJobReq(job.getJobReq());
             jobMessage.setRecruiterName(job.getRecruiterName());
             jobMessage.setRecruiterPhone(job.getRecruiterPhone());
