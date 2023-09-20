@@ -1,24 +1,27 @@
 package com.kptl.job.service.impl;
 
 import com.kptl.job.dao.JobMapper;
+import com.kptl.job.dto.BrowseRecordDTO;
 import com.kptl.job.dto.JobDTO;
 import com.kptl.job.service.JobService;
 import com.kptl.job.util.RedisUtil;
 import com.kptl.proto.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.annotation.Resource;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 @Service
 public class JobServiceImpl implements JobService {
     @Autowired
     JobMapper jobMapper;
-    @Autowired
-    RedisUtil redisUtil;
+
+    @Resource
+    private RedisTemplate<String, Object> redisTemplate;
 
     private static Long SEVEN_DAY = 604800L; // 七天
     @Override
@@ -87,11 +90,19 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public JobMessage findJobById(FindJobByIdRequest request) {
+        addBrowseRecord(String.valueOf(request.getId()), request.getJobId());
         List<JobDTO> jobById = jobMapper.findJobById(request.getJobId());
         if (jobById == null || jobById.isEmpty()) {
             return null;
         }
         return copyToJobMessage(jobById).get(0);
+    }
+
+    public void addBrowseRecord(String userId, int jobId) {
+        Long time = System.currentTimeMillis();
+        Map<String, Object> record = new HashMap<>();
+        redisTemplate.opsForHash().put(userId, String.valueOf(jobId), time);
+        redisTemplate.expire(userId, 7, TimeUnit.DAYS); // 设置过期时间为七天
     }
 
     @Override
