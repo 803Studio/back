@@ -11,7 +11,7 @@ import java.util.Map;
 
 @SpringBootApplication
 public class JobApplication {
-    private static final String REDIS_PATH_LOCAL = "B:\\redis.json";
+    private static final String REDIS_PATH_LOCAL = "E:\\Code\\KPTL\\config\\redis.json";
 
     public static void main(String[] args) {
         Map<String, Object> redisConfig;

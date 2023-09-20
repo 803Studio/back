@@ -282,11 +282,36 @@ public class JobImpl extends JobGrpc.JobImplBase {
         responseObserver.onCompleted();
     }
 
+    /**
+     *根据行业找公司
+     */
+    public void findCompanyByIndustry(FindCompanyByIndustryReq request, StreamObserver<CommonCompanyResponse> responseObserver) {
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        CommonCompanyResponse.Builder builder = CommonCompanyResponse.newBuilder();
+        List<Company> companies = new ArrayList<>();
+        try {
+            companies = companyService.findCompanyByIndustry(request);
+            header.setStatus(ResponseStatus.OK).setMessage("查找成功！");
+        } catch (Exception e) {
+            header.setStatus(ResponseStatus.InternalErr).setMessage("查找失败companyService = {CompanyServiceImpl@8450} ！");
+        }
+        builder.setHeader(header);
+        for (Company company : companies) {
+            builder.addCompanies(company);
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+    }
+
     @Override
     public void boundCompany(CommonCompanyReq request, StreamObserver<CommonResponse> responseObserver) {
         super.boundCompany(request, responseObserver);
     }
 
+
+    /**
+     *验证公司
+     */
     @Override
     public void verifyCompany(CommonCompanyReq request, StreamObserver<CommonResponse> responseObserver) {
         ResponseHeader.Builder header = ResponseHeader.newBuilder();
@@ -300,4 +325,5 @@ public class JobImpl extends JobGrpc.JobImplBase {
         responseObserver.onNext(result);
         responseObserver.onCompleted();
     }
+
 }

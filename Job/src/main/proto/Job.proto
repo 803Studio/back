@@ -148,6 +148,11 @@ message FindCompanyByIdResponse {
   ResponseHeader header = 1;
   Company company = 2;
 }
+
+message FindCompanyByIndustryReq {
+  string industry = 1;
+}
+
 //定义员工服务
 service Job {
   rpc FindAllJobs(FindAllJobRequest) returns (FindJobResponse) {};        //查询所有职位，所有人都能查
@@ -165,4 +170,5 @@ service Job {
   rpc FindAllCompanies(FindAllCompaniesReq) returns (CommonCompanyResponse) {};
   rpc BoundCompany(CommonCompanyReq) returns (CommonResponse) {};          //绑定公司
   rpc VerifyCompany(CommonCompanyReq) returns (CommonResponse) {};          //审核公司
+  rpc FindCompanyByIndustry(FindCompanyByIndustryReq) returns (CommonCompanyResponse) {};
 }
