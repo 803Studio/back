@@ -131,6 +131,26 @@ public class JobImpl extends JobGrpc.JobImplBase {
     }
 
     /**
+     * 根据industry查询职位
+     */
+    @Override
+    public void findJobsByIndustry(FindJobsByIndustryReq request, StreamObserver<FindJobResponse> responseObserver) {
+        List<JobMessage> jobs = new ArrayList<>();
+        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        FindJobResponse.Builder builder = FindJobResponse.newBuilder();
+        try {
+            jobs = jobService.findJobsByIndustry(request);
+            jobs.forEach(builder::addJobMsg);
+            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+        } catch (Exception e) {
+            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+        }
+        builder.setHeader(header);
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+    }
+
+    /**
      * 根据id查询职位详细信息
      */
     @Override

@@ -142,6 +142,43 @@ public final class JobGrpc {
      return getFindJobByIdMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getFindJobsByIndustryMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<com.kptl.proto.FindJobsByIndustryReq,
+      com.kptl.proto.FindJobResponse> METHOD_FIND_JOBS_BY_INDUSTRY = getFindJobsByIndustryMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.FindJobsByIndustryReq,
+      com.kptl.proto.FindJobResponse> getFindJobsByIndustryMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<com.kptl.proto.FindJobsByIndustryReq,
+      com.kptl.proto.FindJobResponse> getFindJobsByIndustryMethod() {
+    return getFindJobsByIndustryMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<com.kptl.proto.FindJobsByIndustryReq,
+      com.kptl.proto.FindJobResponse> getFindJobsByIndustryMethodHelper() {
+    io.grpc.MethodDescriptor<com.kptl.proto.FindJobsByIndustryReq, com.kptl.proto.FindJobResponse> getFindJobsByIndustryMethod;
+    if ((getFindJobsByIndustryMethod = JobGrpc.getFindJobsByIndustryMethod) == null) {
+      synchronized (JobGrpc.class) {
+        if ((getFindJobsByIndustryMethod = JobGrpc.getFindJobsByIndustryMethod) == null) {
+          JobGrpc.getFindJobsByIndustryMethod = getFindJobsByIndustryMethod = 
+              io.grpc.MethodDescriptor.<com.kptl.proto.FindJobsByIndustryReq, com.kptl.proto.FindJobResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "job.Job", "FindJobsByIndustry"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.FindJobsByIndustryReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.FindJobResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new JobMethodDescriptorSupplier("FindJobsByIndustry"))
+                  .build();
+          }
+        }
+     }
+     return getFindJobsByIndustryMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getFindJobsMethod()} instead. 
   public static final io.grpc.MethodDescriptor<com.kptl.proto.FindJobRequest,
       com.kptl.proto.FindJobResponse> METHOD_FIND_JOBS = getFindJobsMethodHelper();
@@ -676,6 +713,13 @@ public final class JobGrpc {
 
     /**
      */
+    public void findJobsByIndustry(com.kptl.proto.FindJobsByIndustryReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.FindJobResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getFindJobsByIndustryMethodHelper(), responseObserver);
+    }
+
+    /**
+     */
     public void findJobs(com.kptl.proto.FindJobRequest request,
         io.grpc.stub.StreamObserver<com.kptl.proto.FindJobResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getFindJobsMethodHelper(), responseObserver);
@@ -791,6 +835,13 @@ public final class JobGrpc {
                 com.kptl.proto.FindJobByIdRequest,
                 com.kptl.proto.FindJobResponse>(
                   this, METHODID_FIND_JOB_BY_ID)))
+          .addMethod(
+            getFindJobsByIndustryMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.kptl.proto.FindJobsByIndustryReq,
+                com.kptl.proto.FindJobResponse>(
+                  this, METHODID_FIND_JOBS_BY_INDUSTRY)))
           .addMethod(
             getFindJobsMethodHelper(),
             asyncUnaryCall(
@@ -929,6 +980,14 @@ public final class JobGrpc {
         io.grpc.stub.StreamObserver<com.kptl.proto.FindJobResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getFindJobByIdMethodHelper(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void findJobsByIndustry(com.kptl.proto.FindJobsByIndustryReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.FindJobResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getFindJobsByIndustryMethodHelper(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -1083,6 +1142,13 @@ public final class JobGrpc {
 
     /**
      */
+    public com.kptl.proto.FindJobResponse findJobsByIndustry(com.kptl.proto.FindJobsByIndustryReq request) {
+      return blockingUnaryCall(
+          getChannel(), getFindJobsByIndustryMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public com.kptl.proto.FindJobResponse findJobs(com.kptl.proto.FindJobRequest request) {
       return blockingUnaryCall(
           getChannel(), getFindJobsMethodHelper(), getCallOptions(), request);
@@ -1223,6 +1289,14 @@ public final class JobGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.FindJobResponse> findJobsByIndustry(
+        com.kptl.proto.FindJobsByIndustryReq request) {
+      return futureUnaryCall(
+          getChannel().newCall(getFindJobsByIndustryMethodHelper(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.FindJobResponse> findJobs(
         com.kptl.proto.FindJobRequest request) {
       return futureUnaryCall(
@@ -1332,19 +1406,20 @@ public final class JobGrpc {
   private static final int METHODID_FIND_ALL_JOBS = 0;
   private static final int METHODID_FIND_JOB_BY_NAME = 1;
   private static final int METHODID_FIND_JOB_BY_ID = 2;
-  private static final int METHODID_FIND_JOBS = 3;
-  private static final int METHODID_FIND_JOBS_BY_TYPE = 4;
-  private static final int METHODID_SAVE_JOBS = 5;
-  private static final int METHODID_FIND_JOBS_SIMPLIFY = 6;
-  private static final int METHODID_UPDATE_JOBS = 7;
-  private static final int METHODID_REGISTERED_COMPANY = 8;
-  private static final int METHODID_UPDATE_COMPANY = 9;
-  private static final int METHODID_FIND_COMPANY_BY_NAME = 10;
-  private static final int METHODID_FIND_COMPANY_BY_ID = 11;
-  private static final int METHODID_FIND_ALL_COMPANIES = 12;
-  private static final int METHODID_BOUND_COMPANY = 13;
-  private static final int METHODID_VERIFY_COMPANY = 14;
-  private static final int METHODID_FIND_COMPANY_BY_INDUSTRY = 15;
+  private static final int METHODID_FIND_JOBS_BY_INDUSTRY = 3;
+  private static final int METHODID_FIND_JOBS = 4;
+  private static final int METHODID_FIND_JOBS_BY_TYPE = 5;
+  private static final int METHODID_SAVE_JOBS = 6;
+  private static final int METHODID_FIND_JOBS_SIMPLIFY = 7;
+  private static final int METHODID_UPDATE_JOBS = 8;
+  private static final int METHODID_REGISTERED_COMPANY = 9;
+  private static final int METHODID_UPDATE_COMPANY = 10;
+  private static final int METHODID_FIND_COMPANY_BY_NAME = 11;
+  private static final int METHODID_FIND_COMPANY_BY_ID = 12;
+  private static final int METHODID_FIND_ALL_COMPANIES = 13;
+  private static final int METHODID_BOUND_COMPANY = 14;
+  private static final int METHODID_VERIFY_COMPANY = 15;
+  private static final int METHODID_FIND_COMPANY_BY_INDUSTRY = 16;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1373,6 +1448,10 @@ public final class JobGrpc {
           break;
         case METHODID_FIND_JOB_BY_ID:
           serviceImpl.findJobById((com.kptl.proto.FindJobByIdRequest) request,
+              (io.grpc.stub.StreamObserver<com.kptl.proto.FindJobResponse>) responseObserver);
+          break;
+        case METHODID_FIND_JOBS_BY_INDUSTRY:
+          serviceImpl.findJobsByIndustry((com.kptl.proto.FindJobsByIndustryReq) request,
               (io.grpc.stub.StreamObserver<com.kptl.proto.FindJobResponse>) responseObserver);
           break;
         case METHODID_FIND_JOBS:
@@ -1491,6 +1570,7 @@ public final class JobGrpc {
               .addMethod(getFindAllJobsMethodHelper())
               .addMethod(getFindJobByNameMethodHelper())
               .addMethod(getFindJobByIdMethodHelper())
+              .addMethod(getFindJobsByIndustryMethodHelper())
               .addMethod(getFindJobsMethodHelper())
               .addMethod(getFindJobsByTypeMethodHelper())
               .addMethod(getSaveJobsMethodHelper())
