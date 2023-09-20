@@ -80,6 +80,12 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
+    public List<JobMessage> findJobsByIndustry(FindJobsByIndustryReq request) {
+        List<JobDTO> jobByIndustry = jobMapper.findJobsByIndustry(request);
+        return copyToJobMessage(jobByIndustry);
+    }
+
+    @Override
     public JobMessage findJobById(FindJobByIdRequest request) {
         List<JobDTO> jobById = jobMapper.findJobById(request.getJobId());
         if (jobById == null || jobById.isEmpty()) {

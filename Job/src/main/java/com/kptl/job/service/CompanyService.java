@@ -3,6 +3,7 @@ package com.kptl.job.service;
 
 import com.kptl.proto.Company;
 import com.kptl.proto.FindAllCompaniesReq;
+import com.kptl.proto.FindCompanyByIndustryReq;
 import com.kptl.proto.FindCompanyByNameReq;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public interface CompanyService {
 
     List<Company> findCompanyByName(FindCompanyByNameReq request);
 
-    List<Company> findCompanyByIndustry(String industry);
+    List<Company> findCompanyByIndustry(FindCompanyByIndustryReq request);
 
     Company findCompaniesById(Integer id);
 }

@@ -39,7 +39,7 @@
     </select>
 
     <select id="findCompanyByIndustry" resultMap="companyResultMap">
-        select * from companies where industry = #{industry}
+        select * from companies where industry = #{request.industry} limit #{request.index}, #{request.size}
     </select>
 
 </mapper>

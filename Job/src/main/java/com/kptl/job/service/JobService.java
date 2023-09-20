@@ -15,6 +15,8 @@ public interface JobService {
 
     List<JobMessage> findJobByName(FindJobByNameRequest request);
 
+    List<JobMessage> findJobsByIndustry(FindJobsByIndustryReq request);
+
     JobMessage findJobById(FindJobByIdRequest request);
 
     List<JobMessage> findAllJobs(FindAllJobRequest request);

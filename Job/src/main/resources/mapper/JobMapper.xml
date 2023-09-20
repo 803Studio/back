@@ -28,6 +28,7 @@
                 #{job.recruiterPhone}, #{job.industry}, #{job.jobType}, #{job.jobNeed}, #{job.recruiterId}, now(), #{job.jobTags}, now(),
                 #{job.salaryLow},  #{job.salaryTop}, #{job.companyName})
     </insert>
+
     <update id="updateJob" parameterType="com.kptl.job.dto.JobDTO">
         update job set job_name = #{job.jobName}, job_money_type = #{job.jobMoneyType}, job_req = #{job.jobReq}, job_location = #{job.jobLocation}, job_type = #{job.jobType},
                        industry = #{job.industry}, recruiter_name = #{job.recruiterName}, recruiter_phone = #{job.recruiterPhone}, job_need = #{job.jobNeed},
@@ -62,6 +63,10 @@
 
     <select id="findJobsByCompany" resultMap="jobResultMap">
         select * from job where company_id = #{request.id} limit #{request.index}, #{request.size}
+    </select>
+
+    <select id="findJobsByIndustry" resultMap="jobResultMap">
+        select * from job where industry = #{request.industry} order by update_time desc limit #{request.index}, #{request.size}
     </select>
 
 </mapper>

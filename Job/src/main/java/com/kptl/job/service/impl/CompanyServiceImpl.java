@@ -5,9 +5,11 @@ import com.kptl.job.dto.CompanyDTO;
 import com.kptl.job.service.CompanyService;
 import com.kptl.proto.Company;
 import com.kptl.proto.FindAllCompaniesReq;
+import com.kptl.proto.FindCompanyByIndustryReq;
 import com.kptl.proto.FindCompanyByNameReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,8 +60,9 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<Company> findCompanyByIndustry(String industry) {
-        return companyMapper.findCompanyByIndustry(industry);
+    public List<Company> findCompanyByIndustry(FindCompanyByIndustryReq request) {
+        List<CompanyDTO> companyByIndustry = companyMapper.findCompanyByIndustry(request);
+        return copyToCompany(companyByIndustry);
     }
 
     @Override
