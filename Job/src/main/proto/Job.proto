@@ -151,6 +151,8 @@ message FindCompanyByIdResponse {
 
 message FindCompanyByIndustryReq {
   string industry = 1;
+  int32 index = 2;
+  int32 size = 3;
 }
 
 //定义员工服务

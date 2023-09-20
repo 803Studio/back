@@ -16,4 +16,14 @@ public interface FindCompanyByIndustryReqOrBuilder extends
    */
   com.google.protobuf.ByteString
       getIndustryBytes();
+
+  /**
+   * <code>int32 index = 2;</code>
+   */
+  int getIndex();
+
+  /**
+   * <code>int32 size = 3;</code>
+   */
+  int getSize();
 }

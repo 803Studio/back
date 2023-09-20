@@ -172,40 +172,41 @@ public final class JobOuterClass {
       ".ResponseHeader\022\037\n\tcompanies\030\002 \003(\0132\014.job" +
       ".Company\"]\n\027FindCompanyByIdResponse\022#\n\006h" +
       "eader\030\001 \001(\0132\023.job.ResponseHeader\022\035\n\007comp" +
-      "any\030\002 \001(\0132\014.job.Company\",\n\030FindCompanyBy" +
-      "IndustryReq\022\020\n\010industry\030\001 \001(\t*=\n\014JobMone" +
-      "yType\022\007\n\003F2F\020\000\022\007\n\003DAY\020\001\022\007\n\003MON\020\002\022\010\n\004TIME" +
-      "\020\003\022\010\n\004HOUR\020\004*/\n\007JobType\022\010\n\004LONG\020\000\022\t\n\005SHO" +
-      "RT\020\001\022\017\n\013PARTTIMEJOB\020\002*)\n\016ResponseStatus\022" +
-      "\006\n\002OK\020\000\022\017\n\013InternalErr\020\0012\265\010\n\003Job\022=\n\013Find" +
-      "AllJobs\022\026.job.FindAllJobRequest\032\024.job.Fi" +
-      "ndJobResponse\"\000\022B\n\rFindJobByName\022\031.job.F" +
-      "indJobByNameRequest\032\024.job.FindJobRespons" +
-      "e\"\000\022>\n\013FindJobById\022\027.job.FindJobByIdRequ" +
-      "est\032\024.job.FindJobResponse\"\000\0227\n\010FindJobs\022" +
-      "\023.job.FindJobRequest\032\024.job.FindJobRespon" +
-      "se\"\000\022H\n\016FindJobsByType\022\026.job.FindJobsByT" +
-      "ypeReq\032\034.job.FindSimplifyJobResponse\"\000\0223" +
-      "\n\010SaveJobs\022\017.job.JobMessage\032\024.job.SaveJo" +
-      "bResponse\"\000\022H\n\020FindJobsSimplify\022\026.job.Fi" +
-      "ndAllJobRequest\032\034.job.FindSimplifyJobRes" +
-      "ponse\0225\n\nUpdateJobs\022\017.job.JobMessage\032\024.j" +
-      "ob.SaveJobResponse\"\000\0228\n\021RegisteredCompan" +
-      "y\022\014.job.Company\032\023.job.CommonResponse\"\000\022A" +
-      "\n\rUpdateCompany\022\031.job.RegisteredCompanyR" +
-      "eq\032\023.job.CommonResponse\"\000\022L\n\021FindCompany" +
-      "ByName\022\031.job.FindCompanyByNameReq\032\032.job." +
-      "CommonCompanyResponse\"\000\022H\n\017FindCompanyBy" +
-      "Id\022\025.job.CommonCompanyReq\032\034.job.FindComp" +
-      "anyByIdResponse\"\000\022J\n\020FindAllCompanies\022\030." +
-      "job.FindAllCompaniesReq\032\032.job.CommonComp" +
-      "anyResponse\"\000\022<\n\014BoundCompany\022\025.job.Comm" +
-      "onCompanyReq\032\023.job.CommonResponse\"\000\022=\n\rV" +
-      "erifyCompany\022\025.job.CommonCompanyReq\032\023.jo" +
-      "b.CommonResponse\"\000\022T\n\025FindCompanyByIndus" +
-      "try\022\035.job.FindCompanyByIndustryReq\032\032.job" +
-      ".CommonCompanyResponse\"\000B\031\n\016com.kptl.pro" +
-      "toP\001Z\005./jobb\006proto3"
+      "any\030\002 \001(\0132\014.job.Company\"I\n\030FindCompanyBy" +
+      "IndustryReq\022\020\n\010industry\030\001 \001(\t\022\r\n\005index\030\002" +
+      " \001(\005\022\014\n\004size\030\003 \001(\005*=\n\014JobMoneyType\022\007\n\003F2" +
+      "F\020\000\022\007\n\003DAY\020\001\022\007\n\003MON\020\002\022\010\n\004TIME\020\003\022\010\n\004HOUR\020" +
+      "\004*/\n\007JobType\022\010\n\004LONG\020\000\022\t\n\005SHORT\020\001\022\017\n\013PAR" +
+      "TTIMEJOB\020\002*)\n\016ResponseStatus\022\006\n\002OK\020\000\022\017\n\013" +
+      "InternalErr\020\0012\265\010\n\003Job\022=\n\013FindAllJobs\022\026.j" +
+      "ob.FindAllJobRequest\032\024.job.FindJobRespon" +
+      "se\"\000\022B\n\rFindJobByName\022\031.job.FindJobByNam" +
+      "eRequest\032\024.job.FindJobResponse\"\000\022>\n\013Find" +
+      "JobById\022\027.job.FindJobByIdRequest\032\024.job.F" +
+      "indJobResponse\"\000\0227\n\010FindJobs\022\023.job.FindJ" +
+      "obRequest\032\024.job.FindJobResponse\"\000\022H\n\016Fin" +
+      "dJobsByType\022\026.job.FindJobsByTypeReq\032\034.jo" +
+      "b.FindSimplifyJobResponse\"\000\0223\n\010SaveJobs\022" +
+      "\017.job.JobMessage\032\024.job.SaveJobResponse\"\000" +
+      "\022H\n\020FindJobsSimplify\022\026.job.FindAllJobReq" +
+      "uest\032\034.job.FindSimplifyJobResponse\0225\n\nUp" +
+      "dateJobs\022\017.job.JobMessage\032\024.job.SaveJobR" +
+      "esponse\"\000\0228\n\021RegisteredCompany\022\014.job.Com" +
+      "pany\032\023.job.CommonResponse\"\000\022A\n\rUpdateCom" +
+      "pany\022\031.job.RegisteredCompanyReq\032\023.job.Co" +
+      "mmonResponse\"\000\022L\n\021FindCompanyByName\022\031.jo" +
+      "b.FindCompanyByNameReq\032\032.job.CommonCompa" +
+      "nyResponse\"\000\022H\n\017FindCompanyById\022\025.job.Co" +
+      "mmonCompanyReq\032\034.job.FindCompanyByIdResp" +
+      "onse\"\000\022J\n\020FindAllCompanies\022\030.job.FindAll" +
+      "CompaniesReq\032\032.job.CommonCompanyResponse" +
+      "\"\000\022<\n\014BoundCompany\022\025.job.CommonCompanyRe" +
+      "q\032\023.job.CommonResponse\"\000\022=\n\rVerifyCompan" +
+      "y\022\025.job.CommonCompanyReq\032\023.job.CommonRes" +
+      "ponse\"\000\022T\n\025FindCompanyByIndustry\022\035.job.F" +
+      "indCompanyByIndustryReq\032\032.job.CommonComp" +
+      "anyResponse\"\000B\031\n\016com.kptl.protoP\001Z\005./job" +
+      "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -344,7 +345,7 @@ public final class JobOuterClass {
     internal_static_job_FindCompanyByIndustryReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_FindCompanyByIndustryReq_descriptor,
-        new java.lang.String[] { "Industry", });
+        new java.lang.String[] { "Industry", "Index", "Size", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
