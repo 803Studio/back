@@ -11,4 +11,6 @@ public interface EmployeeDeliverService {
     boolean deliver(OperateRequest request);
 
     List<Integer> deliverRecords(FindRecordsReq request);
+
+    List<Integer> browses(Integer id);
 }

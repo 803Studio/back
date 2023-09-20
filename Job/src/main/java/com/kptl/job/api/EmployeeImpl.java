@@ -21,7 +21,17 @@ public class EmployeeImpl extends EmployeeGrpc.EmployeeImplBase {
 
     @Override
     public void browses(OperateRequest request, StreamObserver<OperateResponse> responseObserver) {
-        super.browses(request, responseObserver);
+        List<Integer> list = employeeDeliverService.browses(request.getId());
+        ResponseHeader header = ResponseHeader.newBuilder().setStatus(ResponseStatus.OK).setMessage("查询成功！").build();
+        OperateResponse.Builder builder = OperateResponse.newBuilder();
+        builder.setHeader(header);
+        if (list != null && !list.isEmpty()) {
+            for (Integer jobId : list) {
+                builder.addJobIds(jobId);
+            }
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
     }
 
     @Override
@@ -44,17 +54,13 @@ public class EmployeeImpl extends EmployeeGrpc.EmployeeImplBase {
         int id = request.getId();
         Map<Integer, List<Integer>> result = new HashMap<>();
         List<Integer> list = new ArrayList<>();
-        list.add(123);
-        list.add(1232);
         result.put(id, list);
         ResponseHeader header = ResponseHeader.newBuilder().setStatus(ResponseStatus.OK).setMessage(deliver.toString()).build();
         OperateResponse.Builder builder = OperateResponse.newBuilder();
         builder.setHeader(header);
-        for (Integer i : list) {
-            builder.addJobIds(i);
-        }
         responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
     }
+
 
 }

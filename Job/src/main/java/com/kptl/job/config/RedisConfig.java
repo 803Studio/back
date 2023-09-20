@@ -1,27 +1,59 @@
-//package com.kptl.job.config;
-//
-//import com.alibaba.fastjson.JSON;
-//import java.io.IOException;
-//import java.nio.file.Files;
-//import java.nio.file.Paths;
-//import java.util.Map;
-//
-//public class RedisConfig {
-//    public static void main(String[] args) {
-//        // 读取JSON文件中的Redis配置信息
-//        String jsonFilePath = "path/to/redis-config.json"; // 替换为您的JSON文件路径
-//        Map<String, Object> redisConfig;
-//        try {
-//            String jsonContent = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
-//            redisConfig = JSON.parseObject(jsonContent, Map.class);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return;
-//        }
-//
-//        // 设置系统属性
-//        System.setProperty("spring.redis.host", (String) redisConfig.get("host"));
-//        System.setProperty("spring.redis.port", (String) redisConfig.get("port"));
-//        System.setProperty("spring.redis.password", (String) redisConfig.get("password"));
-//    }
-//}
+package com.kptl.job.config;
+
+import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
+
+@Configuration
+public class RedisConfig {
+
+    @Bean
+
+    @ConditionalOnMissingBean(name = "redisTemplate")
+
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+
+        RedisTemplate<String, Object> template = new RedisTemplate<>();
+
+        //使用fastjson序列化
+
+        FastJsonRedisSerializer fastJsonRedisSerializer = new FastJsonRedisSerializer(Object.class);
+
+        // value值的序列化采用fastJsonRedisSerializer
+
+        template.setValueSerializer(fastJsonRedisSerializer);
+
+        template.setHashValueSerializer(fastJsonRedisSerializer);
+
+        // key的序列化采用StringRedisSerializer
+
+        template.setKeySerializer(new StringRedisSerializer());
+
+        template.setHashKeySerializer(new StringRedisSerializer());
+
+        template.setConnectionFactory(redisConnectionFactory);
+
+        return template;
+
+    }
+
+    @Bean
+
+    @ConditionalOnMissingBean(StringRedisTemplate.class)
+
+    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+
+        StringRedisTemplate template = new StringRedisTemplate();
+
+        template.setConnectionFactory(redisConnectionFactory);
+
+        return template;
+
+    }
+
+}
