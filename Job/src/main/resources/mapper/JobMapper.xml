@@ -22,7 +22,7 @@
         <result column="job_type" property="jobType"/>
     </resultMap>
     <insert id="saveJob" parameterType="com.kptl.job.dto.JobDTO">
-        insert into job(job_name, job_money_type, job_req, job_location, company_id, recruiter_name, recruiter_phone, industry, job_type
+        insert into job(job_name, job_money_type, job_req, job_location, company_id, recruiter_name, recruiter_phone, industry, job_type,
                         job_need, recruiter_id, open_time, job_tags, update_time, salary_low, salary_top, company_name)
         value (#{job.jobName}, #{job.jobMoneyType}, #{job.jobReq}, #{job.jobLocation}, #{job.companyId}, #{job.recruiterName},
                 #{job.recruiterPhone}, #{job.industry}, #{job.jobType}, #{job.jobNeed}, #{job.recruiterId}, now(), #{job.jobTags}, now(),

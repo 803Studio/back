@@ -50,11 +50,11 @@ public final class EmployeeOuterClass {
       "er\022\016\n\006jobIds\030\002 \003(\005\"K\n\016ResponseHeader\022(\n\006" +
       "status\030\001 \001(\0162\030.employee.ResponseStatus\022\017" +
       "\n\007message\030\002 \001(\t*)\n\016ResponseStatus\022\006\n\002OK\020" +
-      "\000\022\017\n\013InternalErr\020\0012\327\001\n\010Employee\022@\n\007Deliv" +
+      "\000\022\017\n\013InternalErr\020\0012\327\001\n\010Employee\022@\n\007deliv" +
       "er\022\030.employee.OperateRequest\032\031.employee." +
-      "OperateResponse\"\000\022@\n\007Browses\022\030.employee." +
+      "OperateResponse\"\000\022@\n\007browses\022\030.employee." +
       "OperateRequest\032\031.employee.OperateRespons" +
-      "e\"\000\022G\n\016DeliverRecords\022\030.employee.FindRec" +
+      "e\"\000\022G\n\016deliverRecords\022\030.employee.FindRec" +
       "ordsReq\032\031.employee.OperateResponse\"\000B\033\n\027" +
       "com.kptl.proto.employeeP\001b\006proto3"
     };

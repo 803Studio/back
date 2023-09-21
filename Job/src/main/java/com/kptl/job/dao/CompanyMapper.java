@@ -1,10 +1,9 @@
 package com.kptl.job.dao;
 
 import com.kptl.job.dto.CompanyDTO;
-import com.kptl.proto.Company;
-import com.kptl.proto.FindAllCompaniesReq;
-import com.kptl.proto.FindCompanyByIndustryReq;
-import com.kptl.proto.FindCompanyByNameReq;
+import com.kptl.proto.company.FindAllCompaniesReq;
+import com.kptl.proto.company.FindCompanyByIndustryReq;
+import com.kptl.proto.company.FindCompanyByNameReq;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

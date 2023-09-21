@@ -1,7 +1,7 @@
 package com.kptl.job.dao;
 
 import com.kptl.job.dto.JobDTO;
-import com.kptl.proto.*;
+import com.kptl.proto.job.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

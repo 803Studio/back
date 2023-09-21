@@ -33,7 +33,7 @@ enum ResponseStatus {
 
 //定义员工服务
 service Employee {
-  rpc Deliver (OperateRequest) returns (OperateResponse) {};
-  rpc Browses (OperateRequest) returns (OperateResponse) {};
-  rpc DeliverRecords (FindRecordsReq) returns (OperateResponse) {};
+  rpc deliver (OperateRequest) returns (OperateResponse) {};
+  rpc browses (OperateRequest) returns (OperateResponse) {};
+  rpc deliverRecords (FindRecordsReq) returns (OperateResponse) {};
 }

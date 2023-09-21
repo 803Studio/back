@@ -1,10 +1,10 @@
 package com.kptl.job.service;
 
 
-import com.kptl.proto.Company;
-import com.kptl.proto.FindAllCompaniesReq;
-import com.kptl.proto.FindCompanyByIndustryReq;
-import com.kptl.proto.FindCompanyByNameReq;
+import com.kptl.proto.company.Company;
+import com.kptl.proto.company.FindAllCompaniesReq;
+import com.kptl.proto.company.FindCompanyByIndustryReq;
+import com.kptl.proto.company.FindCompanyByNameReq;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

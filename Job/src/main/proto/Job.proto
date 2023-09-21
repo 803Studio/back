@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package="com.kptl.proto";
+option java_package="com.kptl.proto.job";
 option go_package="./job";
 
 package job;
@@ -62,26 +62,6 @@ message ResponseHeader {
   string message = 2;
 }
 
-message RegisteredCompanyReq {
-  Company company = 1;
-}
-
-message Company {
-  int32 id = 1;                         //id
-  string companyName = 2;               //公司名称
-  string companyLocation = 3;           //地址
-  int32 isVip = 4;                      //是否会员
-  int32 isCertified = 5;                //是否认证
-  int64 registerTime = 6;               //注册时间
-  int64 updateTime = 7;                 //刷新时间
-  string industry = 8;                   //行业
-  int32 companyId = 9;                   //公司id
-}
-
-message CommonCompanyReq {
-  int32 id = 1;
-}
-
 message CommonResponse {
   ResponseHeader header = 1;
 }
@@ -134,50 +114,16 @@ enum ResponseStatus {
   OK = 0;
   InternalErr = 1;
 }
-message FindCompanyByNameReq {
-  string name = 1;
-  int32 index = 2;
-  int32 size = 3;
-}
-
-message FindAllCompaniesReq {
-  int32 index = 1;
-  int32 size = 2;
-}
-
-message CommonCompanyResponse {
-  ResponseHeader header = 1;
-  repeated Company companies = 2;
-}
-
-message FindCompanyByIdResponse {
-  ResponseHeader header = 1;
-  Company company = 2;
-}
-
-message FindCompanyByIndustryReq {
-  string industry = 1;
-  int32 index = 2;
-  int32 size = 3;
-}
 
 //定义员工服务
 service Job {
-  rpc FindAllJobs(FindAllJobRequest) returns (FindJobResponse) {};        //查询所有职位，所有人都能查
-  rpc FindJobByName(FindJobByNameRequest) returns (FindJobResponse) {};   //根据职位名称模糊查询
-  rpc FindJobById(FindJobByIdRequest) returns (FindJobResponse) {};       //根据职位id查询
-  rpc FindJobsByIndustry(FindJobsByIndustryReq) returns (FindJobResponse) {};
-  rpc FindJobs(FindJobRequest) returns (FindJobResponse) {};              //根据角色不同查询
-  rpc FindJobsByType(FindJobsByTypeReq) returns (FindSimplifyJobResponse) {}      //根据工作类型来查询如长工、短工、兼职
-  rpc SaveJobs(JobMessage) returns (SaveJobResponse) {};                  //新建职位
-  rpc FindJobsSimplify(FindAllJobRequest) returns (FindSimplifyJobResponse);   //职位简洁信息
-  rpc UpdateJobs(JobMessage) returns (SaveJobResponse) {};                //更新职位
-  rpc RegisteredCompany(Company) returns (CommonResponse) {};             //注册公司
-  rpc UpdateCompany(RegisteredCompanyReq) returns (CommonResponse) {};    //更新公司信息
-  rpc FindCompanyByName(FindCompanyByNameReq) returns (CommonCompanyResponse) {};
-  rpc FindCompanyById(CommonCompanyReq) returns (FindCompanyByIdResponse) {};
-  rpc FindAllCompanies(FindAllCompaniesReq) returns (CommonCompanyResponse) {};
-  rpc BoundCompany(CommonCompanyReq) returns (CommonResponse) {};          //绑定公司
-  rpc VerifyCompany(CommonCompanyReq) returns (CommonResponse) {};          //审核公司
-  rpc FindCompanyByIndustry(FindCompanyByIndustryReq) returns (CommonCompanyResponse) {};
+  rpc findAllJobs(FindAllJobRequest) returns (FindJobResponse) {};        //查询所有职位，所有人都能查
+  rpc findJobByName(FindJobByNameRequest) returns (FindJobResponse) {};   //根据职位名称模糊查询
+  rpc findJobById(FindJobByIdRequest) returns (FindJobResponse) {};       //根据职位id查询
+  rpc findJobsByIndustry(FindJobsByIndustryReq) returns (FindJobResponse) {};
+  rpc findJobs(FindJobRequest) returns (FindJobResponse) {};              //根据角色不同查询
+  rpc findJobsByType(FindJobsByTypeReq) returns (FindSimplifyJobResponse) {}      //根据工作类型来查询如长工、短工、兼职
+  rpc saveJobs(JobMessage) returns (SaveJobResponse) {};                  //新建职位
+  rpc findJobsSimplify(FindAllJobRequest) returns (FindSimplifyJobResponse);   //职位简洁信息
+  rpc updateJobs(JobMessage) returns (SaveJobResponse) {};                //更新职位
 }

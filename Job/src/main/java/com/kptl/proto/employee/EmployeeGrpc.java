@@ -54,13 +54,13 @@ public final class EmployeeGrpc {
               io.grpc.MethodDescriptor.<com.kptl.proto.employee.OperateRequest, com.kptl.proto.employee.OperateResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "employee.Employee", "Deliver"))
+                  "employee.Employee", "deliver"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.kptl.proto.employee.OperateRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.kptl.proto.employee.OperateResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new EmployeeMethodDescriptorSupplier("Deliver"))
+                  .setSchemaDescriptor(new EmployeeMethodDescriptorSupplier("deliver"))
                   .build();
           }
         }
@@ -91,13 +91,13 @@ public final class EmployeeGrpc {
               io.grpc.MethodDescriptor.<com.kptl.proto.employee.OperateRequest, com.kptl.proto.employee.OperateResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "employee.Employee", "Browses"))
+                  "employee.Employee", "browses"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.kptl.proto.employee.OperateRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.kptl.proto.employee.OperateResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new EmployeeMethodDescriptorSupplier("Browses"))
+                  .setSchemaDescriptor(new EmployeeMethodDescriptorSupplier("browses"))
                   .build();
           }
         }
@@ -128,13 +128,13 @@ public final class EmployeeGrpc {
               io.grpc.MethodDescriptor.<com.kptl.proto.employee.FindRecordsReq, com.kptl.proto.employee.OperateResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "employee.Employee", "DeliverRecords"))
+                  "employee.Employee", "deliverRecords"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.kptl.proto.employee.FindRecordsReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.kptl.proto.employee.OperateResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new EmployeeMethodDescriptorSupplier("DeliverRecords"))
+                  .setSchemaDescriptor(new EmployeeMethodDescriptorSupplier("deliverRecords"))
                   .build();
           }
         }

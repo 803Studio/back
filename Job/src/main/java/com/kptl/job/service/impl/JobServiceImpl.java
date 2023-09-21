@@ -1,11 +1,10 @@
 package com.kptl.job.service.impl;
 
 import com.kptl.job.dao.JobMapper;
-import com.kptl.job.dto.BrowseRecordDTO;
 import com.kptl.job.dto.JobDTO;
 import com.kptl.job.service.JobService;
-import com.kptl.job.util.RedisUtil;
-import com.kptl.proto.*;
+import com.kptl.job.util.JobUtil;
+import com.kptl.proto.job.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 @Service
 public class JobServiceImpl implements JobService {
@@ -22,6 +20,9 @@ public class JobServiceImpl implements JobService {
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
+
+    @Resource
+    JobUtil jobUtil;
 
     private static Long SEVEN_DAY = 604800L; // 七天
     @Override
@@ -43,30 +44,12 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public Boolean saveJob(JobMessage request) {
-        return jobMapper.saveJob(jobCast(request));
-    }
-    private JobDTO jobCast(JobMessage request) {
-        JobDTO jobDTO = new JobDTO();
-        jobDTO.setJobName(request.getJobBaseMsg().getJobName());
-        jobDTO.setJobLocation(request.getJobBaseMsg().getJobLocation());
-        jobDTO.setCompanyName(request.getJobBaseMsg().getCompanyName());
-        jobDTO.setJobTags(request.getJobBaseMsg().getJobTags());
-        jobDTO.setCompanyId(request.getJobBaseMsg().getCompanyId());
-        jobDTO.setJobMoneyType(request.getJobBaseMsg().getJobMoney().getType().toString());
-        jobDTO.setSalaryLow(request.getJobBaseMsg().getJobMoney().getLow());
-        jobDTO.setSalaryTop(request.getJobBaseMsg().getJobMoney().getHigh());
-        jobDTO.setJobReq(request.getJobReq());
-        jobDTO.setJobNeed(request.getJobNeed());
-        jobDTO.setIndustry(request.getIndustry());
-        jobDTO.setRecruiterName(request.getRecruiterName());
-        jobDTO.setRecruiterPhone(request.getRecruiterPhone());
-        jobDTO.setRecruiterId(request.getRecruiterId());
-        return jobDTO;
+        return jobMapper.saveJob(jobUtil.jobCast(request));
     }
 
     @Override
     public Boolean updateJob(JobMessage request) {
-        JobDTO jobDTO = jobCast(request);
+        JobDTO jobDTO = jobUtil.jobCast(request);
         jobDTO.setJobId(request.getJobBaseMsg().getJobId());
         return jobMapper.updateJob(jobDTO);
     }

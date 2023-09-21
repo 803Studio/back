@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package global;
+option go_package = "global";
+
+enum ResponseStatus {
+  OK = 0;
+  InternalErr = 1;
+  //user service
+  UserNotFound = 10001;
+}
+
+message ResponseHeader {
+  ResponseStatus status = 1;
+  string message = 2;
+}

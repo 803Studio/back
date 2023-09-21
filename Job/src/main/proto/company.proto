@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package="com.kptl.proto.company";
+option go_package="./company";
+
+package company;
+
+message ResponseHeader {
+  ResponseStatus status = 1;
+  string message = 2;
+}
+
+message RegisteredCompanyReq {
+  Company company = 1;
+}
+
+message Company {
+  int32 id = 1;                         //id
+  string companyName = 2;               //公司名称
+  string companyLocation = 3;           //地址
+  int32 isVip = 4;                      //是否会员
+  int32 isCertified = 5;                //是否认证
+  int64 registerTime = 6;               //注册时间
+  int64 updateTime = 7;                 //刷新时间
+  string industry = 8;                   //行业
+  int32 companyId = 9;                   //公司id
+}
+
+message CommonCompanyReq {
+  int32 id = 1;
+}
+
+message CommonResponse {
+  ResponseHeader header = 1;
+}
+
+//错误码
+enum ResponseStatus {
+  OK = 0;
+  InternalErr = 1;
+}
+
+message FindCompanyByNameReq {
+  string name = 1;
+  int32 index = 2;
+  int32 size = 3;
+}
+
+message FindAllCompaniesReq {
+  int32 index = 1;
+  int32 size = 2;
+}
+
+message CommonCompanyResponse {
+  ResponseHeader header = 1;
+  repeated Company companies = 2;
+}
+
+message FindCompanyByIdResponse {
+  ResponseHeader header = 1;
+  Company company = 2;
+}
+
+message FindCompanyByIndustryReq {
+  string industry = 1;
+  int32 index = 2;
+  int32 size = 3;
+}
+
+//定义员工服务
+service CompanyService {
+  rpc registeredCompany(Company) returns (CommonResponse) {};             //注册公司
+  rpc updateCompany(RegisteredCompanyReq) returns (CommonResponse) {};    //更新公司信息
+  rpc findCompanyByName(FindCompanyByNameReq) returns (CommonCompanyResponse) {};
+  rpc findCompanyById(CommonCompanyReq) returns (FindCompanyByIdResponse) {};
+  rpc findAllCompanies(FindAllCompaniesReq) returns (CommonCompanyResponse) {};
+  rpc boundCompany(CommonCompanyReq) returns (CommonResponse) {};          //绑定公司
+  rpc verifyCompany(CommonCompanyReq) returns (CommonResponse) {};          //审核公司
+  rpc findCompanyByIndustry(FindCompanyByIndustryReq) returns (CommonCompanyResponse) {};
+}

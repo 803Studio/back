@@ -11,12 +11,12 @@ import java.util.Map;
 
 @SpringBootApplication
 public class JobApplication {
-    private static final String REDIS_PATH_LOCAL = "E:\\Code\\KPTL\\config\\redis.json";
+    private static final String REDIS_PATH_LOCAL = "B:\\redis.json";
     private static final String REDIS_PATH = "/usr/local/kptl/redis.json";
     public static void main(String[] args) {
         Map<String, Object> redisConfig;
         try {
-            String jsonContent = new String(Files.readAllBytes(Paths.get(REDIS_PATH)));
+            String jsonContent = new String(Files.readAllBytes(Paths.get(REDIS_PATH_LOCAL)));
             redisConfig = JSON.parseObject(jsonContent, Map.class);
         } catch (IOException e) {
             e.printStackTrace();

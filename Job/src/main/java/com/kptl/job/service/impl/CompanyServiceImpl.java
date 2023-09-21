@@ -3,13 +3,12 @@ package com.kptl.job.service.impl;
 import com.kptl.job.dao.CompanyMapper;
 import com.kptl.job.dto.CompanyDTO;
 import com.kptl.job.service.CompanyService;
-import com.kptl.proto.Company;
-import com.kptl.proto.FindAllCompaniesReq;
-import com.kptl.proto.FindCompanyByIndustryReq;
-import com.kptl.proto.FindCompanyByNameReq;
+import com.kptl.proto.company.Company;
+import com.kptl.proto.company.FindAllCompaniesReq;
+import com.kptl.proto.company.FindCompanyByIndustryReq;
+import com.kptl.proto.company.FindCompanyByNameReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;

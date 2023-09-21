@@ -62,5 +62,4 @@ public class EmployeeImpl extends EmployeeGrpc.EmployeeImplBase {
         responseObserver.onCompleted();
     }
 
-
 }
