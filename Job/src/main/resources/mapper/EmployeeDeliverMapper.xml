@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kptl.job.dao.EmployeeDeliverMapper">
+    <resultMap id="employeeResultMap" type="com.kptl.job.dto.EmployeeDTO">
+        <result column="id" property="id"/>
+        <result column="real_name" property="realName"/>
+        <result column="sex" property="sex"/>
+        <result column="work_year" property="workYear"/>
+        <result column="expected_location" property="expectedLocation"/>
+        <result column="industry" property="industry"/>
+        <result column="is_marry" property="isMarry"/>
+        <result column="education" property="education"/>
+        <result column="job_status" property="jobStatus"/>
+        <result column="job_type" property="jobType"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
 
     <insert id="deliver">
         insert into deliver(deliver_id, id, job_id, deliver_time) value (#{deliverDTO.deliverId}, #{deliverDTO.id}, #{deliverDTO.jobId}, now())
@@ -9,5 +23,23 @@
     <select id="deliverRecords" resultType="java.lang.Integer">
         select job_id from deliver where id = #{id}
     </select>
+
+    <select id="findEmployeeInformation" resultMap="employeeResultMap">
+        select * from employee where id = #{id}
+    </select>
+
+    <select id="findEmployeeInformation" resultMap="employeeResultMap">
+        select * from employee where id = #{id}
+    </select>
+
+    <select id="findEmployeeSimpleInformation" resultMap="employeeResultMap">
+        select * from employee limit #{index}, #{size}
+    </select>
+
+    <insert id="completeSelfInformation" parameterType="com.kptl.job.dto.EmployeeDTO">
+        insert into employee(id, real_name, sex, work_year, expected_location, industry, is_marry, education, job_status, job_type, create_time, update_time)
+        value (#{employee.id}, #{employee.realName}, #{employee.sex}, #{employee.workYear}, #{employee.expectedLocation}, #{employee.industry}, #{employee.isMarry},
+            #{employee.education}, #{employee.jobStatus}, #{employee.jobType}, now(), now())
+    </insert>
     
 </mapper>

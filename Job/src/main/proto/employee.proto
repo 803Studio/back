@@ -15,6 +15,47 @@ message FindRecordsReq {
   int32 id = 1;
 }
 
+message SelfInformation {
+  SimpleInformation simpleInfo = 1;
+  int32 isMarry = 2;
+  int32 education = 3;
+  int32 jobStatus = 4;
+}
+
+message SimpleInformation {
+  int32 id = 1;
+  string realName = 2;
+  int32 sex = 3;
+  int32 workYear = 4;
+  string expectedLocation = 5;
+  string industry = 6;
+  JobType jobType = 7;
+}
+
+enum JobType {
+  LONG = 0;       //长工
+  SHORT = 1;      //短工
+  PARTTIMEJOB = 2;//兼职
+}
+
+message FindEmployeeInfoReq {
+  int32 id = 1;
+}
+
+message SplitPage {
+  int32 index = 1;
+  int32 size = 2;
+}
+
+message FindEmployeeSimpleResponse {
+  ResponseHeader header = 1;
+  repeated SimpleInformation employees = 2;
+}
+
+message FindEmployeeResponse {
+  ResponseHeader header = 1;
+  SelfInformation selfInfo = 2;
+}
 
 message OperateResponse {
   ResponseHeader header = 1;
@@ -36,4 +77,8 @@ service Employee {
   rpc deliver (OperateRequest) returns (OperateResponse) {};
   rpc browses (OperateRequest) returns (OperateResponse) {};
   rpc deliverRecords (FindRecordsReq) returns (OperateResponse) {};
+  rpc completeSelfInformation (SelfInformation) returns (ResponseHeader) {};
+  rpc findEmployeeInformation (FindEmployeeInfoReq) returns (FindEmployeeResponse) {};
+  rpc findEmployeeSimpleInformation (SplitPage) returns (FindEmployeeSimpleResponse) {};
 }
+

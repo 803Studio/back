@@ -4,33 +4,61 @@
 package com.kptl.proto.employee;
 
 /**
- * <pre>
- *错误码
- * </pre>
- *
- * Protobuf enum {@code employee.ResponseStatus}
+ * Protobuf enum {@code employee.JobType}
  */
-public enum ResponseStatus
+public enum JobType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>OK = 0;</code>
+   * <pre>
+   *长工
+   * </pre>
+   *
+   * <code>LONG = 0;</code>
    */
-  OK(0),
+  LONG(0),
   /**
-   * <code>InternalErr = 1;</code>
+   * <pre>
+   *短工
+   * </pre>
+   *
+   * <code>SHORT = 1;</code>
    */
-  InternalErr(1),
+  SHORT(1),
+  /**
+   * <pre>
+   *兼职
+   * </pre>
+   *
+   * <code>PARTTIMEJOB = 2;</code>
+   */
+  PARTTIMEJOB(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>OK = 0;</code>
+   * <pre>
+   *长工
+   * </pre>
+   *
+   * <code>LONG = 0;</code>
    */
-  public static final int OK_VALUE = 0;
+  public static final int LONG_VALUE = 0;
   /**
-   * <code>InternalErr = 1;</code>
+   * <pre>
+   *短工
+   * </pre>
+   *
+   * <code>SHORT = 1;</code>
    */
-  public static final int InternalErr_VALUE = 1;
+  public static final int SHORT_VALUE = 1;
+  /**
+   * <pre>
+   *兼职
+   * </pre>
+   *
+   * <code>PARTTIMEJOB = 2;</code>
+   */
+  public static final int PARTTIMEJOB_VALUE = 2;
 
 
   public final int getNumber() {
@@ -45,27 +73,28 @@ public enum ResponseStatus
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static ResponseStatus valueOf(int value) {
+  public static JobType valueOf(int value) {
     return forNumber(value);
   }
 
-  public static ResponseStatus forNumber(int value) {
+  public static JobType forNumber(int value) {
     switch (value) {
-      case 0: return OK;
-      case 1: return InternalErr;
+      case 0: return LONG;
+      case 1: return SHORT;
+      case 2: return PARTTIMEJOB;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<ResponseStatus>
+  public static com.google.protobuf.Internal.EnumLiteMap<JobType>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      ResponseStatus> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<ResponseStatus>() {
-          public ResponseStatus findValueByNumber(int number) {
-            return ResponseStatus.forNumber(number);
+      JobType> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<JobType>() {
+          public JobType findValueByNumber(int number) {
+            return JobType.forNumber(number);
           }
         };
 
@@ -79,12 +108,12 @@ public enum ResponseStatus
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.kptl.proto.employee.EmployeeOuterClass.getDescriptor().getEnumTypes().get(1);
+    return com.kptl.proto.employee.EmployeeOuterClass.getDescriptor().getEnumTypes().get(0);
   }
 
-  private static final ResponseStatus[] VALUES = values();
+  private static final JobType[] VALUES = values();
 
-  public static ResponseStatus valueOf(
+  public static JobType valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -98,10 +127,10 @@ public enum ResponseStatus
 
   private final int value;
 
-  private ResponseStatus(int value) {
+  private JobType(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:employee.ResponseStatus)
+  // @@protoc_insertion_point(enum_scope:employee.JobType)
 }
 

@@ -68,7 +68,7 @@ message FindCompanyByIndustryReq {
   int32 size = 3;
 }
 
-//定义员工服务
+//定义公司服务
 service CompanyService {
   rpc registeredCompany(Company) returns (CommonResponse) {};             //注册公司
   rpc updateCompany(RegisteredCompanyReq) returns (CommonResponse) {};    //更新公司信息

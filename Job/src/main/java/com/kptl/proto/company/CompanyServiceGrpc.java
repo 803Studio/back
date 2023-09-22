@@ -17,7 +17,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
  * <pre>
- *定义员工服务
+ *定义公司服务
  * </pre>
  */
 @javax.annotation.Generated(
@@ -352,7 +352,7 @@ public final class CompanyServiceGrpc {
 
   /**
    * <pre>
-   *定义员工服务
+   *定义公司服务
    * </pre>
    */
   public static abstract class CompanyServiceImplBase implements io.grpc.BindableService {
@@ -477,7 +477,7 @@ public final class CompanyServiceGrpc {
 
   /**
    * <pre>
-   *定义员工服务
+   *定义公司服务
    * </pre>
    */
   public static final class CompanyServiceStub extends io.grpc.stub.AbstractStub<CompanyServiceStub> {
@@ -563,7 +563,7 @@ public final class CompanyServiceGrpc {
 
   /**
    * <pre>
-   *定义员工服务
+   *定义公司服务
    * </pre>
    */
   public static final class CompanyServiceBlockingStub extends io.grpc.stub.AbstractStub<CompanyServiceBlockingStub> {
@@ -641,7 +641,7 @@ public final class CompanyServiceGrpc {
 
   /**
    * <pre>
-   *定义员工服务
+   *定义公司服务
    * </pre>
    */
   public static final class CompanyServiceFutureStub extends io.grpc.stub.AbstractStub<CompanyServiceFutureStub> {

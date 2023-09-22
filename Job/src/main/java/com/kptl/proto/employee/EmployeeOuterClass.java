@@ -25,6 +25,36 @@ public final class EmployeeOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_employee_FindRecordsReq_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_employee_SelfInformation_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_employee_SelfInformation_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_employee_SimpleInformation_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_employee_SimpleInformation_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_employee_FindEmployeeInfoReq_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_employee_FindEmployeeInfoReq_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_employee_SplitPage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_employee_SplitPage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_employee_FindEmployeeSimpleResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_employee_FindEmployeeSimpleResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_employee_FindEmployeeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_employee_FindEmployeeResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_employee_OperateResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -45,18 +75,41 @@ public final class EmployeeOuterClass {
     java.lang.String[] descriptorData = {
       "\n\016employee.proto\022\010employee\"+\n\016OperateReq" +
       "uest\022\n\n\002id\030\001 \001(\005\022\r\n\005jobId\030\002 \001(\005\"\034\n\016FindR" +
-      "ecordsReq\022\n\n\002id\030\001 \001(\005\"K\n\017OperateResponse" +
-      "\022(\n\006header\030\001 \001(\0132\030.employee.ResponseHead" +
-      "er\022\016\n\006jobIds\030\002 \003(\005\"K\n\016ResponseHeader\022(\n\006" +
-      "status\030\001 \001(\0162\030.employee.ResponseStatus\022\017" +
-      "\n\007message\030\002 \001(\t*)\n\016ResponseStatus\022\006\n\002OK\020" +
-      "\000\022\017\n\013InternalErr\020\0012\327\001\n\010Employee\022@\n\007deliv" +
-      "er\022\030.employee.OperateRequest\032\031.employee." +
-      "OperateResponse\"\000\022@\n\007browses\022\030.employee." +
-      "OperateRequest\032\031.employee.OperateRespons" +
-      "e\"\000\022G\n\016deliverRecords\022\030.employee.FindRec" +
-      "ordsReq\032\031.employee.OperateResponse\"\000B\033\n\027" +
-      "com.kptl.proto.employeeP\001b\006proto3"
+      "ecordsReq\022\n\n\002id\030\001 \001(\005\"y\n\017SelfInformation" +
+      "\022/\n\nsimpleInfo\030\001 \001(\0132\033.employee.SimpleIn" +
+      "formation\022\017\n\007isMarry\030\002 \001(\005\022\021\n\teducation\030" +
+      "\003 \001(\005\022\021\n\tjobStatus\030\004 \001(\005\"\240\001\n\021SimpleInfor" +
+      "mation\022\n\n\002id\030\001 \001(\005\022\020\n\010realName\030\002 \001(\t\022\013\n\003" +
+      "sex\030\003 \001(\005\022\020\n\010workYear\030\004 \001(\005\022\030\n\020expectedL" +
+      "ocation\030\005 \001(\t\022\020\n\010industry\030\006 \001(\t\022\"\n\007jobTy" +
+      "pe\030\007 \001(\0162\021.employee.JobType\"!\n\023FindEmplo" +
+      "yeeInfoReq\022\n\n\002id\030\001 \001(\005\"(\n\tSplitPage\022\r\n\005i" +
+      "ndex\030\001 \001(\005\022\014\n\004size\030\002 \001(\005\"v\n\032FindEmployee" +
+      "SimpleResponse\022(\n\006header\030\001 \001(\0132\030.employe" +
+      "e.ResponseHeader\022.\n\temployees\030\002 \003(\0132\033.em" +
+      "ployee.SimpleInformation\"m\n\024FindEmployee" +
+      "Response\022(\n\006header\030\001 \001(\0132\030.employee.Resp" +
+      "onseHeader\022+\n\010selfInfo\030\002 \001(\0132\031.employee." +
+      "SelfInformation\"K\n\017OperateResponse\022(\n\006he" +
+      "ader\030\001 \001(\0132\030.employee.ResponseHeader\022\016\n\006" +
+      "jobIds\030\002 \003(\005\"K\n\016ResponseHeader\022(\n\006status" +
+      "\030\001 \001(\0162\030.employee.ResponseStatus\022\017\n\007mess" +
+      "age\030\002 \001(\t*/\n\007JobType\022\010\n\004LONG\020\000\022\t\n\005SHORT\020" +
+      "\001\022\017\n\013PARTTIMEJOB\020\002*)\n\016ResponseStatus\022\006\n\002" +
+      "OK\020\000\022\017\n\013InternalErr\020\0012\343\003\n\010Employee\022@\n\007de" +
+      "liver\022\030.employee.OperateRequest\032\031.employ" +
+      "ee.OperateResponse\"\000\022@\n\007browses\022\030.employ" +
+      "ee.OperateRequest\032\031.employee.OperateResp" +
+      "onse\"\000\022G\n\016deliverRecords\022\030.employee.Find" +
+      "RecordsReq\032\031.employee.OperateResponse\"\000\022" +
+      "P\n\027completeSelfInformation\022\031.employee.Se" +
+      "lfInformation\032\030.employee.ResponseHeader\"" +
+      "\000\022Z\n\027findEmployeeInformation\022\035.employee." +
+      "FindEmployeeInfoReq\032\036.employee.FindEmplo" +
+      "yeeResponse\"\000\022\\\n\035findEmployeeSimpleInfor" +
+      "mation\022\023.employee.SplitPage\032$.employee.F" +
+      "indEmployeeSimpleResponse\"\000B\033\n\027com.kptl." +
+      "proto.employeeP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -82,14 +135,50 @@ public final class EmployeeOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_employee_FindRecordsReq_descriptor,
         new java.lang.String[] { "Id", });
-    internal_static_employee_OperateResponse_descriptor =
+    internal_static_employee_SelfInformation_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_employee_SelfInformation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_employee_SelfInformation_descriptor,
+        new java.lang.String[] { "SimpleInfo", "IsMarry", "Education", "JobStatus", });
+    internal_static_employee_SimpleInformation_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_employee_SimpleInformation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_employee_SimpleInformation_descriptor,
+        new java.lang.String[] { "Id", "RealName", "Sex", "WorkYear", "ExpectedLocation", "Industry", "JobType", });
+    internal_static_employee_FindEmployeeInfoReq_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_employee_FindEmployeeInfoReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_employee_FindEmployeeInfoReq_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_employee_SplitPage_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_employee_SplitPage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_employee_SplitPage_descriptor,
+        new java.lang.String[] { "Index", "Size", });
+    internal_static_employee_FindEmployeeSimpleResponse_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_employee_FindEmployeeSimpleResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_employee_FindEmployeeSimpleResponse_descriptor,
+        new java.lang.String[] { "Header", "Employees", });
+    internal_static_employee_FindEmployeeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_employee_FindEmployeeResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_employee_FindEmployeeResponse_descriptor,
+        new java.lang.String[] { "Header", "SelfInfo", });
+    internal_static_employee_OperateResponse_descriptor =
+      getDescriptor().getMessageTypes().get(8);
     internal_static_employee_OperateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_employee_OperateResponse_descriptor,
         new java.lang.String[] { "Header", "JobIds", });
     internal_static_employee_ResponseHeader_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_employee_ResponseHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_employee_ResponseHeader_descriptor,

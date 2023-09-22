@@ -141,6 +141,117 @@ public final class EmployeeGrpc {
      }
      return getDeliverRecordsMethod;
   }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getCompleteSelfInformationMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<com.kptl.proto.employee.SelfInformation,
+      com.kptl.proto.employee.ResponseHeader> METHOD_COMPLETE_SELF_INFORMATION = getCompleteSelfInformationMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.employee.SelfInformation,
+      com.kptl.proto.employee.ResponseHeader> getCompleteSelfInformationMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<com.kptl.proto.employee.SelfInformation,
+      com.kptl.proto.employee.ResponseHeader> getCompleteSelfInformationMethod() {
+    return getCompleteSelfInformationMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<com.kptl.proto.employee.SelfInformation,
+      com.kptl.proto.employee.ResponseHeader> getCompleteSelfInformationMethodHelper() {
+    io.grpc.MethodDescriptor<com.kptl.proto.employee.SelfInformation, com.kptl.proto.employee.ResponseHeader> getCompleteSelfInformationMethod;
+    if ((getCompleteSelfInformationMethod = EmployeeGrpc.getCompleteSelfInformationMethod) == null) {
+      synchronized (EmployeeGrpc.class) {
+        if ((getCompleteSelfInformationMethod = EmployeeGrpc.getCompleteSelfInformationMethod) == null) {
+          EmployeeGrpc.getCompleteSelfInformationMethod = getCompleteSelfInformationMethod = 
+              io.grpc.MethodDescriptor.<com.kptl.proto.employee.SelfInformation, com.kptl.proto.employee.ResponseHeader>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "employee.Employee", "completeSelfInformation"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.employee.SelfInformation.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.employee.ResponseHeader.getDefaultInstance()))
+                  .setSchemaDescriptor(new EmployeeMethodDescriptorSupplier("completeSelfInformation"))
+                  .build();
+          }
+        }
+     }
+     return getCompleteSelfInformationMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getFindEmployeeInformationMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<com.kptl.proto.employee.FindEmployeeInfoReq,
+      com.kptl.proto.employee.FindEmployeeResponse> METHOD_FIND_EMPLOYEE_INFORMATION = getFindEmployeeInformationMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.employee.FindEmployeeInfoReq,
+      com.kptl.proto.employee.FindEmployeeResponse> getFindEmployeeInformationMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<com.kptl.proto.employee.FindEmployeeInfoReq,
+      com.kptl.proto.employee.FindEmployeeResponse> getFindEmployeeInformationMethod() {
+    return getFindEmployeeInformationMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<com.kptl.proto.employee.FindEmployeeInfoReq,
+      com.kptl.proto.employee.FindEmployeeResponse> getFindEmployeeInformationMethodHelper() {
+    io.grpc.MethodDescriptor<com.kptl.proto.employee.FindEmployeeInfoReq, com.kptl.proto.employee.FindEmployeeResponse> getFindEmployeeInformationMethod;
+    if ((getFindEmployeeInformationMethod = EmployeeGrpc.getFindEmployeeInformationMethod) == null) {
+      synchronized (EmployeeGrpc.class) {
+        if ((getFindEmployeeInformationMethod = EmployeeGrpc.getFindEmployeeInformationMethod) == null) {
+          EmployeeGrpc.getFindEmployeeInformationMethod = getFindEmployeeInformationMethod = 
+              io.grpc.MethodDescriptor.<com.kptl.proto.employee.FindEmployeeInfoReq, com.kptl.proto.employee.FindEmployeeResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "employee.Employee", "findEmployeeInformation"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.employee.FindEmployeeInfoReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.employee.FindEmployeeResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new EmployeeMethodDescriptorSupplier("findEmployeeInformation"))
+                  .build();
+          }
+        }
+     }
+     return getFindEmployeeInformationMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getFindEmployeeSimpleInformationMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<com.kptl.proto.employee.SplitPage,
+      com.kptl.proto.employee.FindEmployeeSimpleResponse> METHOD_FIND_EMPLOYEE_SIMPLE_INFORMATION = getFindEmployeeSimpleInformationMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<com.kptl.proto.employee.SplitPage,
+      com.kptl.proto.employee.FindEmployeeSimpleResponse> getFindEmployeeSimpleInformationMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<com.kptl.proto.employee.SplitPage,
+      com.kptl.proto.employee.FindEmployeeSimpleResponse> getFindEmployeeSimpleInformationMethod() {
+    return getFindEmployeeSimpleInformationMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<com.kptl.proto.employee.SplitPage,
+      com.kptl.proto.employee.FindEmployeeSimpleResponse> getFindEmployeeSimpleInformationMethodHelper() {
+    io.grpc.MethodDescriptor<com.kptl.proto.employee.SplitPage, com.kptl.proto.employee.FindEmployeeSimpleResponse> getFindEmployeeSimpleInformationMethod;
+    if ((getFindEmployeeSimpleInformationMethod = EmployeeGrpc.getFindEmployeeSimpleInformationMethod) == null) {
+      synchronized (EmployeeGrpc.class) {
+        if ((getFindEmployeeSimpleInformationMethod = EmployeeGrpc.getFindEmployeeSimpleInformationMethod) == null) {
+          EmployeeGrpc.getFindEmployeeSimpleInformationMethod = getFindEmployeeSimpleInformationMethod = 
+              io.grpc.MethodDescriptor.<com.kptl.proto.employee.SplitPage, com.kptl.proto.employee.FindEmployeeSimpleResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "employee.Employee", "findEmployeeSimpleInformation"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.employee.SplitPage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.kptl.proto.employee.FindEmployeeSimpleResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new EmployeeMethodDescriptorSupplier("findEmployeeSimpleInformation"))
+                  .build();
+          }
+        }
+     }
+     return getFindEmployeeSimpleInformationMethod;
+  }
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -193,6 +304,27 @@ public final class EmployeeGrpc {
       asyncUnimplementedUnaryCall(getDeliverRecordsMethodHelper(), responseObserver);
     }
 
+    /**
+     */
+    public void completeSelfInformation(com.kptl.proto.employee.SelfInformation request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.employee.ResponseHeader> responseObserver) {
+      asyncUnimplementedUnaryCall(getCompleteSelfInformationMethodHelper(), responseObserver);
+    }
+
+    /**
+     */
+    public void findEmployeeInformation(com.kptl.proto.employee.FindEmployeeInfoReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.employee.FindEmployeeResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getFindEmployeeInformationMethodHelper(), responseObserver);
+    }
+
+    /**
+     */
+    public void findEmployeeSimpleInformation(com.kptl.proto.employee.SplitPage request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.employee.FindEmployeeSimpleResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getFindEmployeeSimpleInformationMethodHelper(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -216,6 +348,27 @@ public final class EmployeeGrpc {
                 com.kptl.proto.employee.FindRecordsReq,
                 com.kptl.proto.employee.OperateResponse>(
                   this, METHODID_DELIVER_RECORDS)))
+          .addMethod(
+            getCompleteSelfInformationMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.kptl.proto.employee.SelfInformation,
+                com.kptl.proto.employee.ResponseHeader>(
+                  this, METHODID_COMPLETE_SELF_INFORMATION)))
+          .addMethod(
+            getFindEmployeeInformationMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.kptl.proto.employee.FindEmployeeInfoReq,
+                com.kptl.proto.employee.FindEmployeeResponse>(
+                  this, METHODID_FIND_EMPLOYEE_INFORMATION)))
+          .addMethod(
+            getFindEmployeeSimpleInformationMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.kptl.proto.employee.SplitPage,
+                com.kptl.proto.employee.FindEmployeeSimpleResponse>(
+                  this, METHODID_FIND_EMPLOYEE_SIMPLE_INFORMATION)))
           .build();
     }
   }
@@ -264,6 +417,30 @@ public final class EmployeeGrpc {
       asyncUnaryCall(
           getChannel().newCall(getDeliverRecordsMethodHelper(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void completeSelfInformation(com.kptl.proto.employee.SelfInformation request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.employee.ResponseHeader> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getCompleteSelfInformationMethodHelper(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void findEmployeeInformation(com.kptl.proto.employee.FindEmployeeInfoReq request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.employee.FindEmployeeResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getFindEmployeeInformationMethodHelper(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void findEmployeeSimpleInformation(com.kptl.proto.employee.SplitPage request,
+        io.grpc.stub.StreamObserver<com.kptl.proto.employee.FindEmployeeSimpleResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getFindEmployeeSimpleInformationMethodHelper(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -306,6 +483,27 @@ public final class EmployeeGrpc {
     public com.kptl.proto.employee.OperateResponse deliverRecords(com.kptl.proto.employee.FindRecordsReq request) {
       return blockingUnaryCall(
           getChannel(), getDeliverRecordsMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.kptl.proto.employee.ResponseHeader completeSelfInformation(com.kptl.proto.employee.SelfInformation request) {
+      return blockingUnaryCall(
+          getChannel(), getCompleteSelfInformationMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.kptl.proto.employee.FindEmployeeResponse findEmployeeInformation(com.kptl.proto.employee.FindEmployeeInfoReq request) {
+      return blockingUnaryCall(
+          getChannel(), getFindEmployeeInformationMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.kptl.proto.employee.FindEmployeeSimpleResponse findEmployeeSimpleInformation(com.kptl.proto.employee.SplitPage request) {
+      return blockingUnaryCall(
+          getChannel(), getFindEmployeeSimpleInformationMethodHelper(), getCallOptions(), request);
     }
   }
 
@@ -353,11 +551,38 @@ public final class EmployeeGrpc {
       return futureUnaryCall(
           getChannel().newCall(getDeliverRecordsMethodHelper(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.employee.ResponseHeader> completeSelfInformation(
+        com.kptl.proto.employee.SelfInformation request) {
+      return futureUnaryCall(
+          getChannel().newCall(getCompleteSelfInformationMethodHelper(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.employee.FindEmployeeResponse> findEmployeeInformation(
+        com.kptl.proto.employee.FindEmployeeInfoReq request) {
+      return futureUnaryCall(
+          getChannel().newCall(getFindEmployeeInformationMethodHelper(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.kptl.proto.employee.FindEmployeeSimpleResponse> findEmployeeSimpleInformation(
+        com.kptl.proto.employee.SplitPage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getFindEmployeeSimpleInformationMethodHelper(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_DELIVER = 0;
   private static final int METHODID_BROWSES = 1;
   private static final int METHODID_DELIVER_RECORDS = 2;
+  private static final int METHODID_COMPLETE_SELF_INFORMATION = 3;
+  private static final int METHODID_FIND_EMPLOYEE_INFORMATION = 4;
+  private static final int METHODID_FIND_EMPLOYEE_SIMPLE_INFORMATION = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -387,6 +612,18 @@ public final class EmployeeGrpc {
         case METHODID_DELIVER_RECORDS:
           serviceImpl.deliverRecords((com.kptl.proto.employee.FindRecordsReq) request,
               (io.grpc.stub.StreamObserver<com.kptl.proto.employee.OperateResponse>) responseObserver);
+          break;
+        case METHODID_COMPLETE_SELF_INFORMATION:
+          serviceImpl.completeSelfInformation((com.kptl.proto.employee.SelfInformation) request,
+              (io.grpc.stub.StreamObserver<com.kptl.proto.employee.ResponseHeader>) responseObserver);
+          break;
+        case METHODID_FIND_EMPLOYEE_INFORMATION:
+          serviceImpl.findEmployeeInformation((com.kptl.proto.employee.FindEmployeeInfoReq) request,
+              (io.grpc.stub.StreamObserver<com.kptl.proto.employee.FindEmployeeResponse>) responseObserver);
+          break;
+        case METHODID_FIND_EMPLOYEE_SIMPLE_INFORMATION:
+          serviceImpl.findEmployeeSimpleInformation((com.kptl.proto.employee.SplitPage) request,
+              (io.grpc.stub.StreamObserver<com.kptl.proto.employee.FindEmployeeSimpleResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -452,6 +689,9 @@ public final class EmployeeGrpc {
               .addMethod(getDeliverMethodHelper())
               .addMethod(getBrowsesMethodHelper())
               .addMethod(getDeliverRecordsMethodHelper())
+              .addMethod(getCompleteSelfInformationMethodHelper())
+              .addMethod(getFindEmployeeInformationMethodHelper())
+              .addMethod(getFindEmployeeSimpleInformationMethodHelper())
               .build();
         }
       }
