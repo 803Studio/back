@@ -5,6 +5,7 @@ option java_package="com.kptl.proto.job";
 option go_package="./job";
 
 package job;
+import "global/headers.proto";
 
 message FindJobRequest {
   int32 id = 1;
@@ -43,27 +44,22 @@ message FindJobsByTypeReq {
 }
 
 message FindJobResponse {
-  ResponseHeader header = 1;
+  global.ResponseHeader header = 1;
   repeated JobMessage jobMsg = 2;
 }
 
 message FindSimplifyJobResponse {
-  ResponseHeader header = 1;
+  global.ResponseHeader header = 1;
   repeated JobSimplifyMessage jobMsg = 2;
 }
 
 
 message SaveJobResponse {
-  ResponseHeader header = 1;
-}
-
-message ResponseHeader {
-  ResponseStatus status = 1;
-  string message = 2;
+  global.ResponseHeader header = 1;
 }
 
 message CommonResponse {
-  ResponseHeader header = 1;
+  global.ResponseHeader header = 1;
 }
 
 enum JobMoneyType {
@@ -107,12 +103,6 @@ enum JobType {
   LONG = 0;       //长工
   SHORT = 1;      //短工
   PARTTIMEJOB = 2;//兼职
-}
-
-//错误码
-enum ResponseStatus {
-  OK = 0;
-  InternalErr = 1;
 }
 
 //定义员工服务

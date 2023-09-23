@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package="com.kptl.proto.employee";
+
+package employee;
+import "global/headers.proto";
+
+//请求
+message OperateRequest {
+  int32 id = 1;
+  int32 jobId = 2;
+}
+
+message FindRecordsReq {
+  int32 id = 1;
+}
+
+message SelfInformation {
+  SimpleInformation simpleInfo = 1;
+  int32 isMarry = 2;               //是否结婚
+  int32 education = 3;             //学历，可以分几种；1表示小学，2表示初中，3表示高中，以此类推
+  int32 jobStatus = 4;             //求职状态，可以定几种类类型，例如1为在职，2为离职不到一个月，3为离职一个月以上
+  string home = 5;                 //家庭地址
+  int32 expectMoney = 6;           //期望薪资
+}
+
+message SimpleInformation {
+  int32 id = 1;                     //用户id
+  string realName = 2;              //真实名字
+  int32 sex = 3;                    //性别，0男，1女
+  int32 workYear = 4;               //工作年限
+  string expectedLocation = 5;      //期望工作地点
+  string industry = 6;              //行业
+  JobType jobType = 7;              //
+}
+
+enum JobType {
+  LONG = 0;       //长工
+  SHORT = 1;      //短工
+  PARTTIMEJOB = 2;//兼职
+}
+
+message FindEmployeeInfoReq {
+  int32 id = 1;
+}
+
+message SplitPage {
+  int32 index = 1;
+  int32 size = 2;
+}
+
+message FindEmployeeSimpleResponse {
+  ResponseHeader header = 1;
+  repeated SimpleInformation employees = 2;
+}
+
+message FindEmployeeResponse {
+  ResponseHeader header = 1;
+  SelfInformation selfInfo = 2;
+}
+
+message OperateResponse {
+  ResponseHeader header = 1;
+  repeated int32 jobIds = 2;
+}
+
+message ResponseHeader {
+  ResponseStatus status = 1;
+  string message = 2;
+}
+//错误码
+enum ResponseStatus {
+  OK = 0;
+  InternalErr = 1;
+}
+
+//定义员工服务
+service Employee {
+  rpc deliver (OperateRequest) returns (OperateResponse) {};                                  //投递简历
+  rpc browses (OperateRequest) returns (OperateResponse) {};                                  //浏览记录
+  rpc deliverRecords (FindRecordsReq) returns (OperateResponse) {};                           //投递记录
+  rpc completeSelfInformation (SelfInformation) returns (ResponseHeader) {};                  //完整个人信息
+  rpc findEmployeeInformation (FindEmployeeInfoReq) returns (FindEmployeeResponse) {};        //查看详细个人信息
+  rpc findEmployeeSimpleInformation (SplitPage) returns (FindEmployeeSimpleResponse) {};      //查看简历列表
+}
+

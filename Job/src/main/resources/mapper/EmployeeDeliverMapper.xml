@@ -28,10 +28,6 @@
         select * from employee where id = #{id}
     </select>
 
-    <select id="findEmployeeInformation" resultMap="employeeResultMap">
-        select * from employee where id = #{id}
-    </select>
-
     <select id="findEmployeeSimpleInformation" resultMap="employeeResultMap">
         select * from employee limit #{index}, #{size}
     </select>

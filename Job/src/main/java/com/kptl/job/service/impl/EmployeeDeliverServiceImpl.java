@@ -43,17 +43,29 @@ public class EmployeeDeliverServiceImpl implements EmployeeDeliverService {
     }
 
     @Override
-    public List<SelfInformation> findEmployeeSimpleInformation(SplitPage splitPage) {
+    public List<SimpleInformation> findEmployeeSimpleInformation(SplitPage splitPage) {
         List<EmployeeDTO> employeeSimpleInformation =
                 employeeDeliverMapper.findEmployeeSimpleInformation(splitPage.getIndex(), splitPage.getSize());
         if (employeeSimpleInformation == null || employeeSimpleInformation.isEmpty()) {
             return null;
         }
-        List<SelfInformation> selfInformations = new ArrayList<>();
+        List<SimpleInformation> selfInformations = new ArrayList<>();
         for (EmployeeDTO employeeDTO : employeeSimpleInformation) {
-            selfInformations.add(castToInformation(employeeDTO));
+            selfInformations.add(castToSimpInformation(employeeDTO));
         }
         return selfInformations;
+    }
+
+    private SimpleInformation castToSimpInformation(EmployeeDTO employeeDTO) {
+        SimpleInformation.Builder simp = SimpleInformation.newBuilder();
+        simp.setId(employeeDTO.getId());
+        simp.setRealName(employeeDTO.getRealName());
+        simp.setSex(employeeDTO.getSex());
+        simp.setWorkYear(employeeDTO.getWorkYear());
+        simp.setExpectedLocation(employeeDTO.getExpectedLocation());
+        simp.setIndustry(employeeDTO.getIndustry());
+        simp.setJobType(JobType.valueOf(employeeDTO.getJobType()));
+        return simp.build();
     }
 
     private SelfInformation castToInformation(EmployeeDTO employeeDTO) {
@@ -67,18 +79,35 @@ public class EmployeeDeliverServiceImpl implements EmployeeDeliverService {
         simp.setIndustry(employeeDTO.getIndustry());
         simp.setJobType(JobType.valueOf(employeeDTO.getJobType()));
         self.setSimpleInfo(simp.build());
+        self.setIsMarry(employeeDTO.getIsMarry());
+        self.setEducation(employeeDTO.getEducation());
+        self.setJobStatus(employeeDTO.getJobStatus());
         return self.build();
     }
 
 
     @Override
     public SelfInformation findEmployeeInformation(Integer id) {
-        return null;
+        EmployeeDTO employeeInformation = employeeDeliverMapper.findEmployeeInformation(id);
+        if (employeeInformation == null) {
+            return null;
+        }
+        return castToInformation(employeeInformation);
     }
 
     @Override
     public void completeSelfInformation(SelfInformation selfInformation) {
-
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setId(selfInformation.getSimpleInfo().getId());
+        employeeDTO.setRealName(selfInformation.getSimpleInfo().getRealName());
+        employeeDTO.setSex(selfInformation.getSimpleInfo().getSex());
+        employeeDTO.setWorkYear(selfInformation.getSimpleInfo().getWorkYear());
+        employeeDTO.setExpectedLocation(selfInformation.getSimpleInfo().getExpectedLocation());
+        employeeDTO.setIndustry(selfInformation.getSimpleInfo().getIndustry());
+        employeeDTO.setJobType(String.valueOf(selfInformation.getSimpleInfo().getJobType()));
+        employeeDTO.setIsMarry(selfInformation.getIsMarry());
+        employeeDTO.setEducation(selfInformation.getEducation());
+        employeeDTO.setJobStatus(selfInformation.getJobStatus());
     }
 
     private List<Integer> getBrowseRecords(String userId) {

@@ -15,7 +15,7 @@ public interface EmployeeDeliverMapper {
 
     List<EmployeeDTO> findEmployeeSimpleInformation(@Param("index") Integer index, @Param("size") Integer size);
 
-    EmployeeDTO findEmployeeSimpleInformation(@Param("id") Integer id);
+    EmployeeDTO findEmployeeInformation(@Param("id") Integer id);
 
     void completeSelfInformation(@Param("employee") EmployeeDTO employeeDTO);
 }
