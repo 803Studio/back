@@ -2,6 +2,7 @@ package com.kptl.job.api;
 
 import com.kptl.job.service.JobService;
 import com.kptl.proto.job.*;
+import global.Headers;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class JobImpl extends JobGrpc.JobImplBase {
      */
     @Override
     public void findJobs(FindJobRequest request, StreamObserver<FindJobResponse> responseObserver) {
-        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        Headers.ResponseHeader.Builder header = Headers.ResponseHeader.newBuilder();
         FindJobResponse.Builder builder = FindJobResponse.newBuilder();
         List<JobMessage> jobs = new ArrayList<>();
         try {
@@ -62,7 +63,7 @@ public class JobImpl extends JobGrpc.JobImplBase {
     @Override
     public void findJobsByType(FindJobsByTypeReq request, StreamObserver<FindSimplifyJobResponse> responseObserver) {
         List<JobSimplifyMessage> jobs = new ArrayList<>();
-        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        Headers.ResponseHeader.Builder header = Headers.ResponseHeader.newBuilder();
         FindSimplifyJobResponse.Builder builder = FindSimplifyJobResponse.newBuilder();
         try {
             jobs = jobService.findJobsByType(request);

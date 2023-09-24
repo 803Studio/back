@@ -51,28 +51,18 @@ message SplitPage {
 }
 
 message FindEmployeeSimpleResponse {
-  ResponseHeader header = 1;
+  global.ResponseHeader header = 1;
   repeated SimpleInformation employees = 2;
 }
 
 message FindEmployeeResponse {
-  ResponseHeader header = 1;
+  global.ResponseHeader header = 1;
   SelfInformation selfInfo = 2;
 }
 
 message OperateResponse {
-  ResponseHeader header = 1;
+  global.ResponseHeader header = 1;
   repeated int32 jobIds = 2;
-}
-
-message ResponseHeader {
-  ResponseStatus status = 1;
-  string message = 2;
-}
-//错误码
-enum ResponseStatus {
-  OK = 0;
-  InternalErr = 1;
 }
 
 //定义员工服务
@@ -80,7 +70,7 @@ service Employee {
   rpc deliver (OperateRequest) returns (OperateResponse) {};                                  //投递简历
   rpc browses (OperateRequest) returns (OperateResponse) {};                                  //浏览记录
   rpc deliverRecords (FindRecordsReq) returns (OperateResponse) {};                           //投递记录
-  rpc completeSelfInformation (SelfInformation) returns (ResponseHeader) {};                  //完整个人信息
+  rpc completeSelfInformation (SelfInformation) returns (global.ResponseHeader) {};                  //完整个人信息
   rpc findEmployeeInformation (FindEmployeeInfoReq) returns (FindEmployeeResponse) {};        //查看详细个人信息
   rpc findEmployeeSimpleInformation (SplitPage) returns (FindEmployeeSimpleResponse) {};      //查看简历列表
 }
