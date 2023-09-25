@@ -1,6 +1,5 @@
 package com.kptl.job.service;
 
-import com.kptl.job.dto.EmployeeDTO;
 import com.kptl.proto.employee.*;
 import org.springframework.stereotype.Service;
 

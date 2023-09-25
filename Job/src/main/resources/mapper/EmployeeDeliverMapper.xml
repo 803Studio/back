@@ -37,5 +37,11 @@
         value (#{employee.id}, #{employee.realName}, #{employee.sex}, #{employee.workYear}, #{employee.expectedLocation}, #{employee.industry}, #{employee.isMarry},
             #{employee.education}, #{employee.jobStatus}, #{employee.jobType}, now(), now())
     </insert>
+
+    <update id="updateSelfInformation" parameterType="com.kptl.job.dto.EmployeeDTO">
+        update employee set real_name = #{employee.realName}, sex = #{employee.sex}, work_year = #{employee.workYear}, expected_location = #{employee.expectedLocation},
+                            industry = #{employee.industry}, is_marry = #{employee.isMarry}, education = #{employee.education}, job_status = #{employee.jobStatus}, job_type = #{employee.jobType}, update_time = now()
+        where id = #{employee.id}
+    </update>
     
 </mapper>

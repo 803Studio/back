@@ -108,6 +108,12 @@ public class EmployeeDeliverServiceImpl implements EmployeeDeliverService {
         employeeDTO.setIsMarry(selfInformation.getIsMarry());
         employeeDTO.setEducation(selfInformation.getEducation());
         employeeDTO.setJobStatus(selfInformation.getJobStatus());
+        EmployeeDTO employeeInformation = employeeDeliverMapper.findEmployeeInformation(employeeDTO.getId());
+        if (employeeInformation == null) {
+            employeeDeliverMapper.completeSelfInformation(employeeDTO);
+        } else {
+            employeeDeliverMapper.updateSelfInformation(employeeDTO);
+        }
     }
 
     private List<Integer> getBrowseRecords(String userId) {

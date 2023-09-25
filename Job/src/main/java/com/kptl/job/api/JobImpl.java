@@ -25,9 +25,9 @@ public class JobImpl extends JobGrpc.JobImplBase {
         List<JobMessage> jobs = new ArrayList<>();
         try {
             jobs = jobService.findJobs(request);
-            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+            header.setStatus(Headers.ResponseStatus.OK).setMessage("查询成功!");
         } catch (Exception e) {
-            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+            header.setStatus(Headers.ResponseStatus.InternalErr).setMessage("查询失败!");
         }
         builder.setHeader(header);
         if (jobs != null) {
@@ -42,7 +42,7 @@ public class JobImpl extends JobGrpc.JobImplBase {
     @Override
     public void findJobsSimplify(FindAllJobRequest request, StreamObserver<FindSimplifyJobResponse> responseObserver) {
         List<JobSimplifyMessage> jobs = new ArrayList<>();
-        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        Headers.ResponseHeader.Builder header = Headers.ResponseHeader.newBuilder();
         FindSimplifyJobResponse.Builder builder = FindSimplifyJobResponse.newBuilder();
         try {
             jobs = jobService.findJobsSimplify(request);
@@ -51,9 +51,9 @@ public class JobImpl extends JobGrpc.JobImplBase {
                     builder.addJobMsg(jobMessage);
                 }
             }
-            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+            header.setStatus(Headers.ResponseStatus.OK).setMessage("查询成功!");
         } catch (Exception e) {
-            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+            header.setStatus(Headers.ResponseStatus.InternalErr).setMessage("查询失败!");
         }
         builder.setHeader(header);
         responseObserver.onNext(builder.build());
@@ -72,9 +72,9 @@ public class JobImpl extends JobGrpc.JobImplBase {
                     builder.addJobMsg(jobMessage);
                 }
             }
-            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+            header.setStatus(Headers.ResponseStatus.OK).setMessage("查询成功!");
         } catch (Exception e) {
-            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+            header.setStatus(Headers.ResponseStatus.InternalErr).setMessage("查询失败!");
         }
         builder.setHeader(header);
         responseObserver.onNext(builder.build());
@@ -87,7 +87,7 @@ public class JobImpl extends JobGrpc.JobImplBase {
     @Override
     public void findAllJobs(FindAllJobRequest request, StreamObserver<FindJobResponse> responseObserver) {
         List<JobMessage> jobs = new ArrayList<>();
-        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        Headers.ResponseHeader.Builder header = Headers.ResponseHeader.newBuilder();
         FindJobResponse.Builder builder = FindJobResponse.newBuilder();
         try {
             jobs = jobService.findAllJobs(request);
@@ -96,9 +96,9 @@ public class JobImpl extends JobGrpc.JobImplBase {
                     builder.addJobMsg(jobMessage);
                 }
             }
-            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+            header.setStatus(Headers.ResponseStatus.OK).setMessage("查询成功!");
         } catch (Exception e) {
-            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+            header.setStatus(Headers.ResponseStatus.InternalErr).setMessage("查询失败!");
         }
         builder.setHeader(header);
         responseObserver.onNext(builder.build());
@@ -111,7 +111,7 @@ public class JobImpl extends JobGrpc.JobImplBase {
     @Override
     public void findJobByName(FindJobByNameRequest request, StreamObserver<FindJobResponse> responseObserver) {
         List<JobMessage> jobs = new ArrayList<>();
-        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        Headers.ResponseHeader.Builder header = Headers.ResponseHeader.newBuilder();
         FindJobResponse.Builder builder = FindJobResponse.newBuilder();
         try {
             jobs = jobService.findJobByName(request);
@@ -120,9 +120,9 @@ public class JobImpl extends JobGrpc.JobImplBase {
                     builder.addJobMsg(job);
                 });
             }
-            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+            header.setStatus(Headers.ResponseStatus.OK).setMessage("查询成功!");
         } catch (Exception e) {
-            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+            header.setStatus(Headers.ResponseStatus.InternalErr).setMessage("查询失败!");
         }
         builder.setHeader(header);
         responseObserver.onNext(builder.build());
@@ -135,14 +135,14 @@ public class JobImpl extends JobGrpc.JobImplBase {
     @Override
     public void findJobsByIndustry(FindJobsByIndustryReq request, StreamObserver<FindJobResponse> responseObserver) {
         List<JobMessage> jobs = new ArrayList<>();
-        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        Headers.ResponseHeader.Builder header = Headers.ResponseHeader.newBuilder();
         FindJobResponse.Builder builder = FindJobResponse.newBuilder();
         try {
             jobs = jobService.findJobsByIndustry(request);
             jobs.forEach(builder::addJobMsg);
-            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+            header.setStatus(Headers.ResponseStatus.OK).setMessage("查询成功!");
         } catch (Exception e) {
-            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+            header.setStatus(Headers.ResponseStatus.InternalErr).setMessage("查询失败!");
         }
         builder.setHeader(header);
         responseObserver.onNext(builder.build());
@@ -155,7 +155,7 @@ public class JobImpl extends JobGrpc.JobImplBase {
     @Override
     public void findJobById(FindJobByIdRequest request, StreamObserver<FindJobResponse> responseObserver) {
         List<JobMessage> jobs = new ArrayList<>();
-        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        Headers.ResponseHeader.Builder header = Headers.ResponseHeader.newBuilder();
         FindJobResponse.Builder builder = FindJobResponse.newBuilder();
         try {
             if (jobService.findJobById(request) != null) {
@@ -164,9 +164,9 @@ public class JobImpl extends JobGrpc.JobImplBase {
                     builder.addJobMsg(jobMessage);
                 }
             }
-            header.setStatus(ResponseStatus.OK).setMessage("查询成功!");
+            header.setStatus(Headers.ResponseStatus.OK).setMessage("查询成功!");
         } catch (Exception e) {
-            header.setStatus(ResponseStatus.InternalErr).setMessage("查询失败!");
+            header.setStatus(Headers.ResponseStatus.InternalErr).setMessage("查询失败!");
         }
         builder.setHeader(header);
         responseObserver.onNext(builder.build());
@@ -179,12 +179,12 @@ public class JobImpl extends JobGrpc.JobImplBase {
     @Override
     public void saveJobs(JobMessage request, StreamObserver<SaveJobResponse> responseObserver) {
         Boolean result = jobService.saveJob(request);
-        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        Headers.ResponseHeader.Builder header = Headers.ResponseHeader.newBuilder();
 
         if (result) {
-           header.setStatus(ResponseStatus.OK).setMessage("保存成功!");
+           header.setStatus(Headers.ResponseStatus.OK).setMessage("保存成功!");
         } else {
-            header.setStatus(ResponseStatus.OK).setMessage("保存失败!");
+            header.setStatus(Headers.ResponseStatus.OK).setMessage("保存失败!");
         }
 
         SaveJobResponse response = SaveJobResponse.newBuilder().setHeader(header.build()).build();
@@ -198,12 +198,12 @@ public class JobImpl extends JobGrpc.JobImplBase {
     @Override
     public void updateJobs(JobMessage request, StreamObserver<SaveJobResponse> responseObserver) {
         Boolean result = jobService.updateJob(request);
-        ResponseHeader.Builder header = ResponseHeader.newBuilder();
+        Headers.ResponseHeader.Builder header = Headers.ResponseHeader.newBuilder();
 
         if (result) {
-            header.setStatus(ResponseStatus.OK).setMessage("更新成功!");
+            header.setStatus(Headers.ResponseStatus.OK).setMessage("更新成功!");
         } else {
-            header.setStatus(ResponseStatus.OK).setMessage("更新失败!");
+            header.setStatus(Headers.ResponseStatus.OK).setMessage("更新失败!");
         }
 
         SaveJobResponse response = SaveJobResponse.newBuilder().setHeader(header.build()).build();

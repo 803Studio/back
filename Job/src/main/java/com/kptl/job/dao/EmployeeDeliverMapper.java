@@ -18,4 +18,6 @@ public interface EmployeeDeliverMapper {
     EmployeeDTO findEmployeeInformation(@Param("id") Integer id);
 
     void completeSelfInformation(@Param("employee") EmployeeDTO employeeDTO);
+
+    void updateSelfInformation(@Param("employee") EmployeeDTO employeeDTO);
 }

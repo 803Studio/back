@@ -73,5 +73,6 @@ service Employee {
   rpc completeSelfInformation (SelfInformation) returns (global.ResponseHeader) {};                  //完整个人信息
   rpc findEmployeeInformation (FindEmployeeInfoReq) returns (FindEmployeeResponse) {};        //查看详细个人信息
   rpc findEmployeeSimpleInformation (SplitPage) returns (FindEmployeeSimpleResponse) {};      //查看简历列表
+  rpc updateSelfInformation(SelfInformation) returns (global.ResponseHeader) {};              //修改个人信息
 }
 
