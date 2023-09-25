@@ -21,7 +21,7 @@ public class DataSourceConfig {
     @Bean
     public DataSource dataSource() {
         try {
-            File file = new File(MYSQL_PATH_WZ);
+            File file = new File(MYSQL_PATH);
             InputStream inputStream = new FileInputStream(file);
             keyDTO = JSON.parseObject(inputStream, KeyDTO.class);
             System.out.println(keyDTO.toString());

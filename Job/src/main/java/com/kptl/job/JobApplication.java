@@ -16,7 +16,7 @@ public class JobApplication {
     public static void main(String[] args) {
         Map<String, Object> redisConfig;
         try {
-            String jsonContent = new String(Files.readAllBytes(Paths.get(REDIS_PATH_LOCAL)));
+            String jsonContent = new String(Files.readAllBytes(Paths.get(REDIS_PATH)));
             redisConfig = JSON.parseObject(jsonContent, Map.class);
         } catch (IOException e) {
             e.printStackTrace();
